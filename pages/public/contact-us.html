@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<!-- =============================================================================
+      PURE FIELDS - CONTACT PAGE
+      =============================================================================
+
+      Project: Local Farm & Community Supported Agriculture (CSA) Website
+      Version: 1.0.0
+      Description: Contact page for CSA members, delivery support, pickup help,
+                  dashboard assistance, and general farm inquiries
+
+      Table of Contents:
+      ------------------
+      1. Head Section - Meta tags, SEO, fonts, styles
+      2. Skip Link - Accessibility skip navigation
+      3. Navigation - Main site navigation with mobile menu
+      4. Main Content Area - Contact and support page wrapper
+      5. Contact Hero - Intro copy and quick support overview
+      6. Contact Form and Direct Contact - Form, support details, and response times
+      7. Farm Location and Pickup Points - Map, address, and pickup information
+      8. Delivery and Dashboard Support - Delivery help and member self-service links
+      9. FAQ Preview and Community Links - Common questions and social channels
+      10. Footer - Site footer with links and newsletter form
+
+      Responsive Breakpoints:
+      -----------------------
+      - Desktop Large: 1200px+
+      - Desktop: 992px - 1199px
+      - Tablet: 768px - 991px
+      - Mobile: 480px - 767px
+      - Mobile Small: < 480px
+
+      Dependencies:
+      - Google Fonts: Poppins, Lora
+      - Material Icons (Google)
+      - Font Awesome 6.5.1
+
+================================================================================ -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ========================================
+          1. SEO META TAGS
+          ========================================
+          Description: Search engine optimization meta tags
+          Update: Replace https://purefields.com with your actual domain
+    ======================================== -->
+    <meta name="description" content="Contact Pure Fields for subscription help, delivery issues, pickup questions, billing support, and farm partnership inquiries.">
+    <meta name="keywords" content="contact farm, CSA support, delivery help, pickup support, billing support, farm contact">
+    <meta name="author" content="Pure Fields">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://purefields.com/contact-us.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://purefields.com/contact-us.html">
+    <meta property="og:title" content="Contact Us | Pure Fields">
+    <meta property="og:description" content="Get in touch with the Pure Fields farm team for delivery help, subscription support, pickup questions, and farm inquiries.">
+    <meta property="og:image" content="../../assets/images/About us imgs/pexels-rdne-8540256.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://purefields.com/contact-us.html">
+    <meta property="twitter:title" content="Contact Us | Pure Fields">
+    <meta property="twitter:description" content="Reach the Pure Fields farm team for delivery, pickup, billing, and subscription support.">
+    <meta property="twitter:image" content="../../assets/images/About us imgs/pexels-rdne-8540256.jpg">
+
+    <title>Contact Us | Pure Fields</title>
+    <link rel="icon" type="image/jpeg" href="../../assets/images/growwpark_logo.jpg">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+    <!-- Icon Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <!-- Dark Mode Stylesheet -->
+    <link rel="stylesheet" href="../../assets/css/dark-mode.css">
+
+    <!-- RTL Stylesheet -->
+    <link rel="stylesheet" href="../../assets/css/rtl.css">
+</head>
+<body class="contact-page">
+
+    <!-- ========================================
+          2. SKIP LINK (Accessibility)
+          ========================================
+          Purpose: Allows keyboard users to skip navigation and go directly to main content
+          Related CSS: .skip-link styles in style.css
+    ======================================== -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ========================================
+          3. NAVIGATION SECTION
+          ========================================
+          Features: Fixed header, dropdown menus, mobile hamburger menu, theme toggle
+          Related JS: mobile-menu-toggle, theme-toggle, rtl-toggle handlers
+          Related CSS: .site-nav, .desktop-menu, .mobile-menu styles
+    ======================================== -->
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-row">
+                <a href="index.html" class="nav-logo" aria-label="Pure Fields - Home">
+                    <i class="material-icons" aria-hidden="true">eco</i>
+                    <div class="logo-text">
+                        <span class="logo-bottom">Pure Fields</span>
+                    </div>
+                </a>
+
+                <ul class="desktop-menu" role="menubar">
+                    <li class="dropdown" role="none">
+                        <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">Home <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="index.html" role="menuitem">Home Page 1</a>
+                            <a href="home-page-2.html" role="menuitem">Home Page 2</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html" role="menuitem">About Us</a></li>
+                    <li><a href="products.html" role="menuitem">Products</a></li>
+                    <li><a href="blog.html" role="menuitem">Blog</a></li>
+                    <li><a href="contact-us.html" class="active" aria-current="page" role="menuitem">Contact Us</a></li>
+                    <li class="dropdown" role="none">
+                        <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">Dashboard <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="../dashboards/admin-dashboard.html" role="menuitem">Admin Dashboard</a>
+                            <a href="../dashboards/user-dashboard.html" role="menuitem">User Dashboard</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button id="theme-toggle" class="nav-btn" aria-label="Toggle dark/light theme" aria-pressed="false">
+                        <i class="material-icons" aria-hidden="true">light_mode</i>
+                    </button>
+                    <button id="rtl-toggle" class="nav-btn" aria-label="Toggle right-to-left layout" aria-pressed="false">
+                        <i class="material-icons" aria-hidden="true">translate</i>
+                    </button>
+                    <a href="cart.html" class="nav-cart" aria-label="Shopping cart">
+                        <i class="material-icons" aria-hidden="true">shopping_cart</i>
+                        <div class="logo-text">
+                            <span class="logo-bottom">Cart</span>
+                        </div>
+                    </a>
+                    <a href="../auth/login.html" class="login-btn">Login</a>
+                    <button id="mobile-menu-toggle" class="nav-btn mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <i class="material-icons" aria-hidden="true">menu</i>
+                    </button>
+                </div>
+            </div>
+
+            <ul id="mobile-menu" class="mobile-menu hidden" role="menu" aria-label="Mobile navigation">
+                <li class="dropdown" role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true">Home <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="index.html" role="menuitem">Home Page 1</a>
+                        <a href="home-page-2.html" role="menuitem">Home Page 2</a>
+                    </div>
+                </li>
+                <li><a href="about.html" role="menuitem">About Us</a></li>
+                <li><a href="products.html" role="menuitem">Products</a></li>
+                <li><a href="blog.html" role="menuitem">Blog</a></li>
+                <li><a href="contact-us.html" class="active" aria-current="page" role="menuitem">Contact Us</a></li>
+                <li class="dropdown" role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true">Dashboard <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="../dashboards/admin-dashboard.html" role="menuitem">Admin Dashboard</a>
+                        <a href="../dashboards/user-dashboard.html" role="menuitem">User Dashboard</a>
+                    </div>
+                </li>
+                <li><a href="../auth/login.html" role="menuitem">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================================
+          4. MAIN CONTENT AREA
+          ========================================
+          Purpose: Contact and support content for members, prospects, and partners
+          Accessibility: Skip link target for keyboard and screen-reader users
+    ======================================== -->
+    <main id="main-content" class="contact-main" tabindex="-1">
+
+        <!-- ========================================
+              5. CONTACT HERO SECTION
+              ========================================
+              Purpose: Introduces the support page and highlights the main support paths
+              Accessibility: Uses one H1 and short supporting summaries
+        ======================================== -->
+        <section class="contact-hero" aria-labelledby="contact-hero-title">
+            <div class="contact-shell">
+                <div class="contact-hero__grid">
+                    <div class="contact-hero__content">
+                        <p class="contact-eyebrow">Contact The Farm Team</p>
+                        <h1 id="contact-hero-title">Get in touch with our farm team.</h1>
+                        <p class="contact-lead">Reach us for subscription help, delivery issues, pickup questions, billing support, or general farm inquiries. We keep the process simple and point you to the fastest route for help.</p>
+                    </div>
+
+                    <div class="contact-hero__summary">
+                        <article class="contact-note-card">
+                            <span class="contact-note-card__label">Quick support</span>
+                            <h2>Most member requests are handled within 24 to 48 hours.</h2>
+                            <p>For routine account changes, the dashboard is usually the fastest option. For delivery issues or missed boxes, use the contact form or call during support hours.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+              6. CONTACT FORM AND DIRECT CONTACT SECTION
+              ========================================
+              Purpose: Gives visitors a clear form plus direct support channels
+              Accessibility: Uses labels, grouped fields, and clear support summaries
+        ======================================== -->
+        <section class="contact-support" aria-labelledby="contact-support-title">
+            <div class="contact-shell contact-support__grid">
+                <article class="contact-form-card">
+                    <p class="contact-eyebrow">Contact Form</p>
+                    <h2 id="contact-support-title">Send the team a message.</h2>
+                    <form class="contact-form" aria-label="Contact form">
+                        <div class="contact-form__grid">
+                            <div class="contact-form__field">
+                                <label for="contact-name">Name</label>
+                                <input type="text" id="contact-name" name="name" placeholder="Your name" required>
+                            </div>
+                            <div class="contact-form__field">
+                                <label for="contact-email">Email</label>
+                                <input type="email" id="contact-email" name="email" placeholder="you@example.com" required>
+                            </div>
+                            <div class="contact-form__field">
+                                <label for="contact-phone">Phone</label>
+                                <input type="tel" id="contact-phone" name="phone" placeholder="(555) 123-4567">
+                            </div>
+                            <div class="contact-form__field">
+                                <label for="contact-subject">Subject</label>
+                                <input type="text" id="contact-subject" name="subject" placeholder="How can we help?">
+                            </div>
+                            <div class="contact-form__field contact-form__field--full">
+                                <label for="contact-reason">Reason for contact</label>
+                                <select id="contact-reason" name="reason">
+                                    <option>Subscription Help</option>
+                                    <option>Delivery Issue</option>
+                                    <option>Pickup Question</option>
+                                    <option>Billing Support</option>
+                                    <option>Partnership Inquiry</option>
+                                    <option>General Question</option>
+                                </select>
+                            </div>
+                            <div class="contact-form__field contact-form__field--full">
+                                <label for="contact-message">Message</label>
+                                <textarea id="contact-message" name="message" rows="6" placeholder="Tell us what you need help with."></textarea>
+                            </div>
+                        </div>
+                        <p class="form-error form-error-global" aria-live="polite"></p>
+                        <button type="submit" class="contact-button">Send Message</button>
+                    </form>
+                </article>
+
+                <article class="contact-info-card">
+                    <p class="contact-eyebrow">Direct Contact Information</p>
+                    <h2>Use the fastest support channel for your issue.</h2>
+                    <div class="contact-info-list">
+                        <div class="contact-info-item">
+                            <span class="material-icons" aria-hidden="true">mail</span>
+                            <div>
+                                <h3>Email</h3>
+                                <p><a href="mailto:support@purefields.com">support@purefields.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <span class="material-icons" aria-hidden="true">call</span>
+                            <div>
+                                <h3>Phone</h3>
+                                <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <span class="material-icons" aria-hidden="true">schedule</span>
+                            <div>
+                                <h3>Support Hours</h3>
+                                <p>Monday to Friday, 8:00 AM to 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-response-card">
+                        <p class="contact-eyebrow">Response Time</p>
+                        <h3>Expect a reply within 24 to 48 hours.</h3>
+                        <p>Delivery or pickup issues reported before route close are handled first. Partnership and event requests may take slightly longer.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ========================================
+              7. FARM LOCATION AND PICKUP LOCATIONS SECTION
+              ========================================
+              Purpose: Shares the main farm address, map, and pickup points
+              Accessibility: Keeps location details readable outside the map embed
+        ======================================== -->
+        <section class="contact-location" aria-labelledby="contact-location-title">
+            <div class="contact-shell contact-location__grid">
+                <article class="contact-map-card">
+                    <p class="contact-eyebrow">Farm Location / Pickup Locations</p>
+                    <h2 id="contact-location-title">Visit the farm or find your pickup point.</h2>
+                    <div class="contact-map-frame">
+                        <iframe
+                            title="Pure Fields farm map"
+                            src="https://www.google.com/maps?q=123%20Farm%20Road%2C%20Farmville%2C%20CA&amp;output=embed"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </article>
+
+                <article class="contact-pickup-card">
+                    <div class="contact-address-block">
+                        <h3>Main Farm Address</h3>
+                        <p>123 Farm Road</p>
+                        <p>Farmville, CA 12345</p>
+                    </div>
+
+                    <div class="contact-pickup-points">
+                        <h3>Main Pickup Points</h3>
+                        <ul role="list">
+                            <li>Downtown Market Hall, Wednesdays, 4:00 PM to 6:00 PM</li>
+                            <li>Northside Community Center, Thursdays, 5:00 PM to 7:00 PM</li>
+                            <li>Pure Fields Farm Stand, Saturdays, 9:00 AM to 1:00 PM</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ========================================
+              8. DELIVERY AND DASHBOARD SUPPORT SECTION
+              ========================================
+              Purpose: Explains delivery help and highlights dashboard self-service actions
+              Accessibility: Uses short action cards for easy scanning
+        ======================================== -->
+        <section class="contact-operations" aria-labelledby="contact-operations-title">
+            <div class="contact-shell">
+                <div class="contact-section-heading">
+                    <div>
+                        <p class="contact-eyebrow">Delivery And Member Support</p>
+                        <h2 id="contact-operations-title">Solve the common support issues quickly.</h2>
+                    </div>
+                </div>
+
+                <div class="contact-operations__grid">
+                    <article class="contact-panel-card">
+                        <p class="contact-eyebrow">Delivery Support Info</p>
+                        <h3>For missed or delayed deliveries, contact the route team early.</h3>
+                        <ul class="contact-list" role="list">
+                            <li>Delivery zones currently cover the central city and nearby neighborhoods.</li>
+                            <li>Main delivery days are Wednesday and Thursday, depending on the route.</li>
+                            <li>Report missed deliveries or delays through the form or by phone during support hours.</li>
+                        </ul>
+                    </article>
+
+                    <article class="contact-panel-card">
+                        <p class="contact-eyebrow">Dashboard Support</p>
+                        <h3>Handle routine account changes without waiting on support.</h3>
+                        <div class="contact-action-stack">
+                            <a href="../dashboards/user-dashboard.html" class="contact-action-link">Update Address</a>
+                            <a href="../dashboards/user-dashboard.html" class="contact-action-link">Pause Membership</a>
+                            <a href="../dashboards/user-dashboard.html" class="contact-action-link">Manage Weekly Subscription</a>
+                            <a href="../dashboards/user-dashboard.html" class="contact-action-link">Check Billing</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+              9. FAQ PREVIEW AND COMMUNITY LINKS SECTION
+              ========================================
+              Purpose: Covers common support questions and gives community contact channels
+              Accessibility: Uses native details/summary for FAQ interaction
+        ======================================== -->
+        <section class="contact-community" aria-labelledby="contact-community-title">
+            <div class="contact-shell contact-community__grid">
+                <article class="contact-faq-card">
+                    <p class="contact-eyebrow">FAQ Preview</p>
+                    <h2 id="contact-community-title">Common support questions.</h2>
+
+                    <details>
+                        <summary>How do I pause or skip a week?</summary>
+                        <p>Use the dashboard before your billing cutoff, or contact support if you need help updating the schedule.</p>
+                    </details>
+
+                    <details>
+                        <summary>Who should I contact about billing issues?</summary>
+                        <p>Choose `Billing Support` in the form, or email the support team directly for invoice or renewal questions.</p>
+                    </details>
+
+                    <details>
+                        <summary>Can I change my pickup point?</summary>
+                        <p>Yes. Update it from the dashboard or contact the team before the weekly route closes.</p>
+                    </details>
+
+                    <details>
+                        <summary>What happens if my delivery is delayed?</summary>
+                        <p>The route team sends updates as quickly as possible. If your box does not arrive, contact support the same day.</p>
+                    </details>
+                </article>
+
+                <article class="contact-social-card">
+                    <p class="contact-eyebrow">Community / Social Links</p>
+                    <h2>Stay close to farm updates and local events.</h2>
+                    <p>Use social channels for farm stories, pickup-day reminders, and event notices. For account support, use the form or email so requests do not get lost.</p>
+
+                    <div class="contact-social-links">
+                        <a href="#" aria-label="Follow Pure Fields on Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="#" aria-label="Follow Pure Fields on Facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="#" aria-label="Follow Pure Fields on X">
+                            <i class="fab fa-x-twitter" aria-hidden="true"></i>
+                            <span>X / Twitter</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================
+          10. FOOTER SECTION
+          ========================================
+          Features: Brand info, quick links, support links, newsletter form
+          Related JS: Newsletter form validation in main.js
+          Related CSS: .farm-footer styles in style.css
+    ======================================== -->
+    <footer class="farm-footer" role="contentinfo">
+        <div class="farm-footer-inner">
+            <div class="farm-col brand-col">
+                <a href="index.html" class="farm-logo-link" aria-label="Pure Fields Home">
+                    <i class="material-icons" aria-hidden="true">eco</i>
+                    <span>Pure Fields</span>
+                </a>
+                <p class="small-print">
+                    Fresh produce from local farms directly to your table. Quality organic vegetables and fruits.
+                </p>
+                <div class="social-row" aria-label="Social media links">
+                    <a href="#" aria-label="Follow us on Facebook">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" aria-label="Follow us on Twitter">
+                        <i class="fab fa-x-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" aria-label="Follow us on Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="farm-col links-col">
+                <h3>Quick Links</h3>
+                <div class="line" aria-hidden="true"></div>
+                <div class="two-col-links">
+                    <ul role="list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                    </ul>
+                    <ul role="list">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="farm-col links-col">
+                <h3>Support</h3>
+                <div class="line" aria-hidden="true"></div>
+                <ul role="list">
+                    <li><a href="../dashboards/admin-dashboard.html">Admin Dashboard</a></li>
+                    <li><a href="../dashboards/user-dashboard.html">User Dashboard</a></li>
+                    <li><a href="../auth/login.html">Login</a></li>
+                </ul>
+            </div>
+
+            <div class="farm-col newsletter-col">
+                <h3>Join our Mailing List</h3>
+                <div class="line" aria-hidden="true"></div>
+                <p>Subscribe to get the latest updates on fresh produce and special offers.</p>
+                <form class="newsletter-form" id="newsletter-form" aria-label="Subscribe to newsletter">
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            id="newsletter-email"
+                            placeholder="Enter your email"
+                            required
+                            aria-required="true"
+                            aria-describedby="email-error"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        >
+                        <button type="submit">Subscribe</button>
+                    </div>
+                    <span id="email-error" class="error-message" role="alert" aria-live="polite"></span>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>

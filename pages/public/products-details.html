@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<!-- =============================================================================
+      PURE FIELDS - PRODUCT DETAILS PAGE
+      =============================================================================
+
+      Project: Local Farm & Community Supported Agriculture (CSA) Website
+      Version: 1.0.0
+      Description: Reusable product details page for CSA box plans with product hero,
+                  seasonal variation, subscription details, delivery notes,
+                  add-ons, sourcing information, and FAQ
+
+      Table of Contents:
+      ------------------
+      1. Head Section - Meta tags, SEO, fonts, styles
+      2. Skip Link - Accessibility skip navigation
+      3. Navigation - Main site navigation with mobile menu
+      4. Product Hero - Product summary and subscription card
+      5. Plan Overview and Box Contents
+      6. Seasonal Variation - Tabbed harvest examples
+      7. Subscription and Delivery Information
+      8. Add-ons and Farm Source
+      9. FAQ - Common plan and delivery questions
+      10. Footer - Site footer with links and newsletter form
+
+      Responsive Breakpoints:
+      -----------------------
+      - Desktop Large: 1200px+
+      - Desktop: 992px - 1199px
+      - Tablet: 768px - 991px
+      - Mobile: 480px - 767px
+      - Mobile Small: < 480px
+
+      Dependencies:
+      - Google Fonts: Poppins, Lora
+      - Material Icons (Google)
+      - Font Awesome 6.5.1
+
+================================================================================ -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <!-- Viewport meta tag is essential for responsive design - do not remove -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ========================================
+          1. SEO META TAGS
+          ========================================
+          Description: Search engine optimization meta tags
+          Update: Replace https://purefields.com with your actual domain
+    ======================================== -->
+    <meta name="description" content="View the Pure Fields Family Box details, including price, box contents, seasonal variation, subscription terms, delivery options, add-ons, and FAQ.">
+    <meta name="keywords" content="organic farm, CSA, community supported agriculture, local produce, organic vegetables, sustainable farming">
+    <meta name="author" content="Pure Fields">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://purefields.com/products-details.html?plan=family">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://purefields.com/products-details.html?plan=family">
+    <meta property="og:title" content="Pure Fields Family Box - Product Details">
+    <meta property="og:description" content="See what is included in the Family Box, how seasonal variation works, and how the subscription is managed.">
+    <meta property="og:image" content="../../assets/images/Products details imgs/pexels-kayla-perry-122441854-29851450.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://purefields.com/products-details.html?plan=family">
+    <meta property="twitter:title" content="Pure Fields Family Box - Product Details">
+    <meta property="twitter:description" content="See what is included in the Family Box, how seasonal variation works, and how the subscription is managed.">
+    <meta property="twitter:image" content="../../assets/images/Products details imgs/pexels-kayla-perry-122441854-29851450.jpg">
+
+    <title>Family Box | Pure Fields Product Details</title>
+    <link rel="icon" type="image/jpeg" href="../../assets/images/growwpark_logo.jpg">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+    <!-- Icon Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <!-- Dark Mode Stylesheet -->
+    <link rel="stylesheet" href="../../assets/css/dark-mode.css">
+
+    <!-- RTL Stylesheet (Right-to-Left languages) -->
+    <link rel="stylesheet" href="../../assets/css/rtl.css">
+
+    <!-- ========================================
+          JSON-LD STRUCTURED DATA (SEO)
+    ======================================== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Pure Fields",
+        "description": "Organic farm and Community Supported Agriculture (CSA) providing fresh produce to local communities",
+        "url": "https://purefields.com",
+        "telephone": "+1-555-123-4567",
+        "email": "hello@purefields.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Farm Road",
+            "addressLocality": "Farmville",
+            "addressRegion": "CA",
+            "postalCode": "12345",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "37.7749",
+            "longitude": "-122.4194"
+        },
+        "openingHours": "Mo-Fr 08:00-18:00",
+        "priceRange": "$$",
+        "image": "https://purefields.com/assets/images/Products%20details%20imgs/pexels-kayla-perry-122441854-29851450.jpg",
+        "sameAs": [
+            "https://facebook.com/purefields",
+            "https://instagram.com/purefields",
+            "https://twitter.com/purefields"
+        ]
+    }
+    </script>
+</head>
+<body class="product-details-page">
+
+    <!-- ========================================
+          2. SKIP LINK (Accessibility)
+          ========================================
+          Purpose: Allows keyboard users to skip navigation and go directly to main content
+          Related CSS: .skip-link styles in style.css
+    ======================================== -->
+    <!-- Skip to main content for screen readers -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ========================================
+          3. NAVIGATION SECTION
+          ========================================
+          Features: Fixed header, dropdown menus, mobile hamburger menu, theme toggle
+          Related JS: mobile-menu-toggle, theme-toggle, rtl-toggle handlers
+          Related CSS: .site-nav, .desktop-menu, .mobile-menu styles
+    ======================================== -->
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-row">
+                <!-- Logo -->
+                <a href="index.html" class="nav-logo" aria-label="Pure Fields - Home">
+                    <i class="material-icons" aria-hidden="true">eco</i>
+                    <div class="logo-text">
+                        <span class="logo-bottom">Pure Fields</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <ul class="desktop-menu" role="menubar">
+                    <li class="dropdown" role="none">
+                        <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">Home <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="index.html" role="menuitem">Home Page 1</a>
+                            <a href="home-page-2.html" role="menuitem">Home Page 2</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html" role="menuitem">About Us</a></li>
+                    <li><a href="products.html" class="active" aria-current="page" role="menuitem">Products</a></li>
+                    <li><a href="blog.html" role="menuitem">Blog</a></li>
+                    <li><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+                    <li class="dropdown" role="none">
+                        <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">Dashboard <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="../dashboards/admin-dashboard.html" role="menuitem">Admin Dashboard</a>
+                            <a href="../dashboards/user-dashboard.html" role="menuitem">User Dashboard</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Nav Actions -->
+                <div class="nav-actions">
+                    <button id="theme-toggle" class="nav-btn" aria-label="Toggle dark/light theme" aria-pressed="false">
+                        <i class="material-icons" aria-hidden="true">light_mode</i>
+                    </button>
+                    <button id="rtl-toggle" class="nav-btn" aria-label="Toggle right-to-left layout" aria-pressed="false">
+                        <i class="material-icons" aria-hidden="true">translate</i>
+                    </button>
+                    <a href="cart.html" class="nav-cart" aria-label="Shopping cart">
+                        <i class="material-icons" aria-hidden="true">shopping_cart</i>
+                        <div class="logo-text">
+                            <span class="logo-bottom">Cart</span>
+                        </div>
+                    </a>
+                    <a href="../auth/login.html" class="login-btn">Login</a>
+                    <button id="mobile-menu-toggle" class="nav-btn mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <i class="material-icons" aria-hidden="true">menu</i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <ul id="mobile-menu" class="mobile-menu hidden" role="menu" aria-label="Mobile navigation">
+                <li class="dropdown" role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true">Home <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="index.html" role="menuitem">Home Page 1</a>
+                        <a href="home-page-2.html" role="menuitem">Home Page 2</a>
+                    </div>
+                </li>
+                <li><a href="about.html" role="menuitem">About Us</a></li>
+                <li><a href="products.html" class="active" aria-current="page" role="menuitem">Products</a></li>
+                <li><a href="blog.html" role="menuitem">Blog</a></li>
+                <li><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+                <li class="dropdown" role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true">Dashboard <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="../dashboards/admin-dashboard.html" role="menuitem">Admin Dashboard</a>
+                        <a href="../dashboards/user-dashboard.html" role="menuitem">User Dashboard</a>
+                    </div>
+                </li>
+                <li><a href="../auth/login.html" role="menuitem">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================================
+          4. MAIN CONTENT AREA
+          ========================================
+          Purpose: Reusable product detail view for all CSA plans
+          Accessibility: Skip link target and page-specific reading order
+          Dynamic Behavior: Content is hydrated from main.js using ?plan=small|family|fruit|vegetable
+    ======================================== -->
+    <main id="main-content" class="product-detail-main" tabindex="-1">
+        <!-- ========================================
+              5. PRODUCT HERO SECTION
+              ========================================
+              Purpose: Presents the product, price, size, cadence, and primary subscribe action
+              Accessibility: Hero content is grouped with a single page H1 and semantic summary data
+        ======================================== -->
+        <section class="product-detail-hero" aria-labelledby="product-detail-title">
+            <div class="product-detail-shell product-detail-hero__grid">
+                <div class="product-detail-hero__media">
+                    <nav class="product-detail-breadcrumbs" aria-label="Breadcrumb">
+                        <a href="products.html">Products</a>
+                        <span aria-hidden="true">/</span>
+                        <span id="product-breadcrumb-name">Family Box</span>
+                    </nav>
+
+                    <figure class="product-detail-hero__primary-media">
+                        <img
+                            id="product-hero-image"
+                            src="../../assets/images/Products details imgs/pexels-kayla-perry-122441854-29851450.jpg"
+                            alt="Family box basket filled with tomatoes and peppers"
+                            loading="eager"
+                        >
+                    </figure>
+
+                    <div class="product-detail-hero__media-row">
+                        <article class="product-detail-highlight-card">
+                            <span id="product-highlight-label">Picked and packed</span>
+                            <strong id="product-highlight-value">within 24 hours</strong>
+                            <p id="product-highlight-copy">Boxes are built to route so freshness stays high and waste stays low.</p>
+                        </article>
+
+                        <figure class="product-detail-hero__secondary-media">
+                            <img
+                                id="product-secondary-image"
+                                src="../../assets/images/Products details imgs/pexels-nc-farm-bureau-mark-2255920.jpg"
+                                alt="Bushel basket packed with family box staples"
+                                loading="lazy"
+                            >
+                        </figure>
+                    </div>
+                </div>
+
+                <aside class="product-detail-purchase-card" aria-labelledby="product-detail-title">
+                    <p class="product-detail-eyebrow">CSA box details</p>
+                    <h1 id="product-detail-title">Family Box</h1>
+                    <p class="product-detail-price">
+                        <span id="product-price-value">$34</span>
+                        <span id="product-price-suffix">per weekly box</span>
+                    </p>
+                    <p id="product-summary" class="product-detail-summary">
+                        A balanced CSA plan for households that cook most nights and want enough variety for dinners, lunch prep, and a few pantry staples.
+                    </p>
+
+                    <div class="product-detail-spec-grid" aria-label="Product summary">
+                        <div>
+                            <span>Box size</span>
+                            <strong id="product-box-size">10-12 seasonal items</strong>
+                        </div>
+                        <div>
+                            <span>Delivery frequency</span>
+                            <strong id="product-frequency">Weekly</strong>
+                        </div>
+                        <div>
+                            <span>Best for</span>
+                            <strong id="product-best-for">Families of 3-5</strong>
+                        </div>
+                        <div>
+                            <span>Start window</span>
+                            <strong id="product-start-window">Next Tuesday or Thursday</strong>
+                        </div>
+                    </div>
+
+                    <div class="product-detail-hero__actions">
+                        <a id="product-subscribe-link" href="../auth/register.html" class="product-detail-btn product-detail-btn--primary">Subscribe Now</a>
+                        <a href="products.html#plans" class="product-detail-btn product-detail-btn--secondary">Back to Plans</a>
+                    </div>
+
+                    <ul id="product-note-list" class="product-detail-note-list" role="list">
+                        <li>Flexible skips and pauses from your dashboard</li>
+                        <li>Delivery and pickup routes available</li>
+                        <li>Add-ons can be attached at checkout or later</li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <!-- ========================================
+              6. PLAN OVERVIEW SECTION
+              ========================================
+              Purpose: Explains who this plan fits and how members usually use it
+              Accessibility: Overview cards keep supporting information in a simple reading order
+        ======================================== -->
+        <section class="product-detail-section product-detail-overview" aria-labelledby="overview-title">
+            <div class="product-detail-shell product-detail-overview__grid">
+                <div class="product-detail-section__header product-detail-section__header--compact">
+                    <p class="product-detail-eyebrow">Plan overview</p>
+                    <h2 id="overview-title">Built for families who want a dependable weekly mix.</h2>
+                    <p id="overview-copy">
+                        The Family Box is the most balanced plan in the lineup. It works well for shared dinners, mixed eaters, and members who want a solid produce baseline before adding eggs, bread, or pantry extras.
+                    </p>
+                </div>
+
+                <div id="overview-cards" class="product-detail-overview__cards">
+                    <article class="product-detail-overview-card">
+                        <span>Who it is for</span>
+                        <h3>Best for 3-5 people</h3>
+                        <p>Enough volume for households that cook most evenings and want leftovers for lunch or snacks.</p>
+                    </article>
+                    <article class="product-detail-overview-card">
+                        <span>Household fit</span>
+                        <h3>Works for mixed diets</h3>
+                        <p>A balanced mix of staple vegetables, seasonal fruit, and recipe-friendly herbs.</p>
+                    </article>
+                    <article class="product-detail-overview-card">
+                        <span>Buying pattern</span>
+                        <h3>Pairs well with add-ons</h3>
+                        <p>Members often attach eggs, milk, or bread to turn the box into a fuller weekly grocery base.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+              7. WHAT'S INCLUDED SECTION
+              ========================================
+              Purpose: Shows sample box contents and approximate quantity
+              Accessibility: Quantity information is presented in semantic list form
+        ======================================== -->
+        <section class="product-detail-section product-detail-included" aria-labelledby="included-title">
+            <div class="product-detail-shell product-detail-included__grid">
+                <article class="product-detail-content-card">
+                    <p class="product-detail-eyebrow">What's included</p>
+                    <h2 id="included-title">A typical Family Box arrives with enough range for several meals.</h2>
+                    <ul id="quantity-list" class="product-detail-quantity-list" role="list">
+                        <li><span>2 bunches</span><strong>leafy greens</strong></li>
+                        <li><span>2-3 lbs</span><strong>staple vegetables</strong></li>
+                        <li><span>1-2 lbs</span><strong>seasonal fruit</strong></li>
+                        <li><span>1 bunch</span><strong>herbs or aromatics</strong></li>
+                        <li><span>1-2 items</span><strong>specialty produce</strong></li>
+                        <li><span>1 recipe note</span><strong>storage and prep guidance</strong></li>
+                    </ul>
+                </article>
+
+                <article class="product-detail-content-card product-detail-content-card--soft">
+                    <div class="product-detail-card-heading">
+                        <h3 id="sample-heading">Sample weekly contents</h3>
+                        <span id="sample-heading-badge">Approximate mix</span>
+                    </div>
+                    <div id="sample-chip-list" class="product-detail-chip-list" aria-label="Sample Family Box contents">
+                        <span>Butter lettuce</span>
+                        <span>Spinach</span>
+                        <span>Rainbow carrots</span>
+                        <span>Spring onions</span>
+                        <span>Red potatoes</span>
+                        <span>Snap peas</span>
+                        <span>Strawberries</span>
+                        <span>Valencia oranges</span>
+                        <span>Parsley</span>
+                        <span>Asparagus</span>
+                    </div>
+                    <p id="sample-copy" class="product-detail-card-copy">
+                        Quantities are approximate because field conditions, weather, and harvest timing shift week to week.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ========================================
+              8. SEASONAL VARIATION SECTION
+              ========================================
+              Purpose: Shows how the product changes across spring, summer, fall, and winter
+              Accessibility: Uses a keyboard-friendly tab pattern with labeled panels
+        ======================================== -->
+        <section class="product-detail-section product-detail-seasonal" aria-labelledby="seasonal-title">
+            <div class="product-detail-shell">
+                <div class="product-detail-section__header product-detail-section__header--split">
+                    <div>
+                        <p class="product-detail-eyebrow">Seasonal variation</p>
+                        <h2 id="seasonal-title">The Family Box changes with the harvest, not a fixed SKU list.</h2>
+                    </div>
+                    <p id="seasonal-aside" class="product-detail-section__aside">
+                        Seasonal rotation keeps the box fresh and gives growers room to pack what is strongest in the field that week.
+                    </p>
+                </div>
+
+                <div class="product-detail-season-tabs" data-season-tabs>
+                    <div class="product-detail-season-tabs__nav" role="tablist" aria-label="Seasonal Family Box examples">
+                        <button id="season-tab-spring" class="product-detail-season-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="season-panel-spring" data-season-tab="spring">Spring</button>
+                        <button id="season-tab-summer" class="product-detail-season-tab" type="button" role="tab" aria-selected="false" aria-controls="season-panel-summer" data-season-tab="summer" tabindex="-1">Summer</button>
+                        <button id="season-tab-fall" class="product-detail-season-tab" type="button" role="tab" aria-selected="false" aria-controls="season-panel-fall" data-season-tab="fall" tabindex="-1">Fall</button>
+                        <button id="season-tab-winter" class="product-detail-season-tab" type="button" role="tab" aria-selected="false" aria-controls="season-panel-winter" data-season-tab="winter" tabindex="-1">Winter</button>
+                    </div>
+
+                    <div class="product-detail-season-panels">
+                        <section id="season-panel-spring" class="product-detail-season-panel is-active" role="tabpanel" aria-labelledby="season-tab-spring" data-season-panel="spring">
+                            <div>
+                                <h3>Spring mix</h3>
+                                <p>Tender greens, herbs, peas, strawberries, and early roots dominate the box in late spring.</p>
+                            </div>
+                            <div class="product-detail-chip-list">
+                                <span>Spinach</span>
+                                <span>Butter lettuce</span>
+                                <span>Radishes</span>
+                                <span>Snap peas</span>
+                                <span>Strawberries</span>
+                                <span>Asparagus</span>
+                            </div>
+                        </section>
+
+                        <section id="season-panel-summer" class="product-detail-season-panel" role="tabpanel" aria-labelledby="season-tab-summer" data-season-panel="summer" hidden>
+                            <div>
+                                <h3>Summer mix</h3>
+                                <p>Peak season shifts the box toward tomatoes, cucumbers, stone fruit, sweet corn, and high-volume cooking staples.</p>
+                            </div>
+                            <div class="product-detail-chip-list">
+                                <span>Tomatoes</span>
+                                <span>Cucumbers</span>
+                                <span>Sweet corn</span>
+                                <span>Peaches</span>
+                                <span>Basil</span>
+                                <span>Zucchini</span>
+                            </div>
+                        </section>
+
+                        <section id="season-panel-fall" class="product-detail-season-panel" role="tabpanel" aria-labelledby="season-tab-fall" data-season-panel="fall" hidden>
+                            <div>
+                                <h3>Fall mix</h3>
+                                <p>Autumn boxes lean into apples, squash, brassicas, and cooler-weather greens for slower cooking and roasting.</p>
+                            </div>
+                            <div class="product-detail-chip-list">
+                                <span>Apples</span>
+                                <span>Delicata squash</span>
+                                <span>Kale</span>
+                                <span>Broccoli</span>
+                                <span>Beets</span>
+                                <span>Pears</span>
+                            </div>
+                        </section>
+
+                        <section id="season-panel-winter" class="product-detail-season-panel" role="tabpanel" aria-labelledby="season-tab-winter" data-season-panel="winter" hidden>
+                            <div>
+                                <h3>Winter mix</h3>
+                                <p>Winter holds steady with citrus, hardy greens, roots, cabbage, and long-storing staples that travel well.</p>
+                            </div>
+                            <div class="product-detail-chip-list">
+                                <span>Oranges</span>
+                                <span>Carrots</span>
+                                <span>Cabbage</span>
+                                <span>Potatoes</span>
+                                <span>Swiss chard</span>
+                                <span>Onions</span>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+              9. SUBSCRIPTION AND DELIVERY SECTION
+              ========================================
+              Purpose: Covers billing structure, start timing, renewal, and route logistics
+              Accessibility: Uses definition-style data rows for easier scanning and narration
+        ======================================== -->
+        <section class="product-detail-section product-detail-logistics" aria-labelledby="subscription-title">
+            <div class="product-detail-shell product-detail-logistics__grid">
+                <article class="product-detail-data-card">
+                    <p class="product-detail-eyebrow">Subscription details</p>
+                    <h2 id="subscription-title">Straightforward recurring membership.</h2>
+                    <ul id="subscription-data-list" class="product-detail-data-list" role="list">
+                        <li>
+                            <span>Billing cycle</span>
+                            <strong>Weekly by default, or monthly on request</strong>
+                        </li>
+                        <li>
+                            <span>Recurring payment</span>
+                            <strong>Automatic renewal until paused or canceled</strong>
+                        </li>
+                        <li>
+                            <span>Start date</span>
+                            <strong>Start with the next available Tuesday or Thursday route</strong>
+                        </li>
+                        <li>
+                            <span>Renewal</span>
+                            <strong>Renews at the close of each billing cycle</strong>
+                        </li>
+                        <li>
+                            <span>Minimum commitment</span>
+                            <strong>Initial 4-week starter cycle</strong>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="product-detail-data-card">
+                    <p class="product-detail-eyebrow">Delivery or pickup</p>
+                    <h2 id="delivery-title">Local routes with dashboard-managed changes.</h2>
+                    <ul id="delivery-data-list" class="product-detail-data-list" role="list">
+                        <li>
+                            <span>Delivery days</span>
+                            <strong>Tuesday and Thursday afternoons</strong>
+                        </li>
+                        <li>
+                            <span>Service area</span>
+                            <strong>Within 20 miles of the central packing hub</strong>
+                        </li>
+                        <li>
+                            <span>Pickup locations</span>
+                            <strong>Farm stand, downtown market, westside co-op, and neighborhood hosts</strong>
+                        </li>
+                        <li>
+                            <span>Address changes</span>
+                            <strong>Update the route address from your dashboard before Friday at 5:00 PM</strong>
+                        </li>
+                    </ul>
+                    <div class="product-detail-logistics__policy">
+                        <strong>Dashboard controls stay simple</strong>
+                        <p>Pause, skip, or cancel before the cutoff without restarting your plan later.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ========================================
+              10. ADD-ONS SECTION
+              ========================================
+              Purpose: Surfaces related extras that pair naturally with the Family Box
+              Accessibility: Add-on cards expose label, description, and price in a consistent pattern
+        ======================================== -->
+        <section class="product-detail-section product-detail-addons" aria-labelledby="addons-title">
+            <div class="product-detail-shell">
+                <div class="product-detail-section__header product-detail-section__header--split">
+                    <div>
+                        <p class="product-detail-eyebrow">Add-ons</p>
+                        <h2 id="addons-title">Useful extras members often attach to this box.</h2>
+                    </div>
+                    <p id="addons-aside" class="product-detail-section__aside">Keep extras light. Most members attach one pantry or breakfast staple.</p>
+                </div>
+
+                <div id="addon-grid" class="product-detail-addon-grid">
+                    <article class="product-detail-addon-card">
+                        <span class="product-detail-addon-card__badge">EG</span>
+                        <div>
+                            <h3>Pasture Eggs</h3>
+                            <p>One dozen from nearby free-range flocks.</p>
+                        </div>
+                        <strong>+$6</strong>
+                    </article>
+                    <article class="product-detail-addon-card">
+                        <span class="product-detail-addon-card__badge">BR</span>
+                        <div>
+                            <h3>Sourdough Bread</h3>
+                            <p>Fresh weekly loaves baked for route morning.</p>
+                        </div>
+                        <strong>+$7</strong>
+                    </article>
+                    <article class="product-detail-addon-card">
+                        <span class="product-detail-addon-card__badge">HY</span>
+                        <div>
+                            <h3>Wildflower Honey</h3>
+                            <p>Raw small-batch jars from regional hives.</p>
+                        </div>
+                        <strong>+$9</strong>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+              11. FARM SOURCE AND FRESHNESS SECTION
+              ========================================
+              Purpose: Builds trust with local sourcing, harvest timing, and freshness notes
+              Accessibility: Text information remains readable without relying on the images
+        ======================================== -->
+        <section class="product-detail-section product-detail-source" aria-labelledby="source-title">
+            <div class="product-detail-shell product-detail-source__grid">
+                <div class="product-detail-source__media">
+                    <img
+                        id="source-image-large"
+                        class="product-detail-source__image product-detail-source__image--large"
+                        src="../../assets/images/Products details imgs/pexels-nc-farm-bureau-mark-2255924.jpg"
+                        alt="Seasonal basket filled for a full family route"
+                        loading="lazy"
+                    >
+                    <img
+                        id="source-image-small"
+                        class="product-detail-source__image product-detail-source__image--small"
+                        src="../../assets/images/Products details imgs/pexels-helenalopes-27177504.jpg"
+                        alt="Harvest basket filled with fresh greens"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="product-detail-source__content">
+                    <p class="product-detail-eyebrow">Farm source / freshness info</p>
+                    <h2 id="source-title">Packed from a rotating network of nearby growers.</h2>
+                    <p id="source-copy-1">
+                        The Family Box is sourced from partner farms that use low-spray, regenerative, and soil-first growing practices. The pack mix shifts by field strength, route timing, and what is at peak quality that week.
+                    </p>
+                    <p id="source-copy-2">
+                        Most produce is harvested within a day of packing, cooled quickly, and staged in reusable boxes so members receive better texture and shelf life than typical retail handling.
+                    </p>
+
+                    <div id="source-stats" class="product-detail-source__stats">
+                        <article>
+                            <strong>30+</strong>
+                            <span>farm partners contributing across the season</span>
+                        </article>
+                        <article>
+                            <strong>24 hrs</strong>
+                            <span>target window from harvest to packing</span>
+                        </article>
+                        <article>
+                            <strong>6</strong>
+                            <span>pickup hubs tied to the current route map</span>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+              12. FAQ SECTION
+              ========================================
+              Purpose: Answers the most common questions about substitutions, delivery, billing, allergies, and plan changes
+              Accessibility: Native details/summary keeps the accordion keyboard accessible without extra JS
+        ======================================== -->
+        <section class="product-detail-section product-detail-faq" aria-labelledby="faq-title">
+            <div class="product-detail-shell">
+                <div class="product-detail-section__header product-detail-section__header--split">
+                    <div>
+                        <p class="product-detail-eyebrow">FAQ</p>
+                        <h2 id="faq-title">Questions members usually ask before they start this plan.</h2>
+                    </div>
+                    <p id="faq-aside" class="product-detail-section__aside">Answers cover substitutions, missed deliveries, billing, allergies, and plan changes.</p>
+                </div>
+
+                <div id="faq-list" class="product-detail-faq-list">
+                    <details class="product-detail-faq-item" open>
+                        <summary>Can I request substitutions in the Family Box?</summary>
+                        <p>Yes. Members can flag dislikes and request eligible swaps before the weekly cutoff if alternate inventory is available.</p>
+                    </details>
+                    <details class="product-detail-faq-item">
+                        <summary>What happens if I miss a delivery?</summary>
+                        <p>Delivery notes, pickup switches, and address changes can be managed in the dashboard ahead of route day. If a route is missed, support can review the order history and route notes.</p>
+                    </details>
+                    <details class="product-detail-faq-item">
+                        <summary>How does billing work after the first order?</summary>
+                        <p>Your card is billed automatically on the schedule attached to your membership, and renewals continue until you pause or cancel.</p>
+                    </details>
+                    <details class="product-detail-faq-item">
+                        <summary>Can you accommodate allergies?</summary>
+                        <p>You can note common produce dislikes and certain sensitivities, but because packing happens in a farm-box system, ingredient-specific guarantees should be confirmed with support before subscribing.</p>
+                    </details>
+                    <details class="product-detail-faq-item">
+                        <summary>Can I change from Family Box to another plan later?</summary>
+                        <p>Yes. Plan changes can be made from the dashboard before the next billing cutoff, subject to inventory and route availability.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================================================================
+          10. FOOTER SECTION
+          ========================================
+          Features: Brand info, quick links, support links, newsletter form
+          Related JS: Newsletter form validation in main.js
+          Related CSS: .farm-footer styles in style.css
+    ========================================================================= -->
+    <footer class="farm-footer" role="contentinfo">
+        <div class="farm-footer-inner">
+            <div class="farm-col brand-col">
+                <a href="index.html" class="farm-logo-link" aria-label="Pure Fields Home">
+                    <i class="material-icons" aria-hidden="true">eco</i>
+                    <span>Pure Fields</span>
+                </a>
+                <p class="small-print">
+                    Fresh produce from local farms directly to your table. Quality organic vegetables and fruits.
+                </p>
+                <div class="social-row" aria-label="Social media links">
+                    <a href="#" aria-label="Follow us on Facebook">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" aria-label="Follow us on Twitter">
+                        <i class="fab fa-x-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" aria-label="Follow us on Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="farm-col links-col">
+                <h3>Quick Links</h3>
+                <div class="line" aria-hidden="true"></div>
+                <div class="two-col-links">
+                    <ul role="list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                    </ul>
+                    <ul role="list">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="farm-col links-col">
+                <h3>Support</h3>
+                <div class="line" aria-hidden="true"></div>
+                <ul role="list">
+                    <li><a href="../dashboards/admin-dashboard.html">Admin Dashboard</a></li>
+                    <li><a href="../dashboards/user-dashboard.html">User Dashboard</a></li>
+                    <li><a href="../auth/login.html">Login</a></li>
+                </ul>
+            </div>
+
+            <div class="farm-col newsletter-col">
+                <h3>Join our Mailing List</h3>
+                <div class="line" aria-hidden="true"></div>
+                <p>Subscribe to get the latest updates on fresh produce and special offers.</p>
+
+                <!-- ========================================
+                      NEWSLETTER FORM WITH VALIDATION
+                      ========================================
+                      Features: Email validation, error/success states
+                      Related JS: Form validation in main.js Section 8
+                      Related CSS: .newsletter-form styles in style.css
+                ======================================== -->
+                <form class="newsletter-form" id="newsletter-form" aria-label="Subscribe to newsletter">
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            id="newsletter-email"
+                            placeholder="Enter your email"
+                            required
+                            aria-required="true"
+                            aria-describedby="email-error"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        >
+                        <button type="submit">Subscribe</button>
+                    </div>
+                    <span id="email-error" class="error-message" role="alert" aria-live="polite"></span>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>

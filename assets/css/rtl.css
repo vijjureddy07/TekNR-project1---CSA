@@ -1,0 +1,29 @@
+/* =============================================================================
+   RTL (Right-to-Left) STYLESHEET
+   =============================================================================
+   
+   Project: Local Farm & Community Supported Agriculture (CSA) Website
+   Description: RTL-specific styles for Arabic, Hebrew, Persian languages
+   Version: 1.0.0
+   
+   This file contains all RTL-specific overrides that are applied when
+   the HTML dir attribute is set to "rtl" (triggered by the RTL toggle button)
+   
+================================================================================ */
+
+
+/* =============================================================================
+   PRODUCTS SECTION RTL STYLES
+================================================================================ */
+
+/* Products showcase image positioning for RTL */
+html[dir="rtl"] .products-showcase__image--primary {
+  margin-left: auto;
+}
+
+html[dir="rtl"] .products-showcase__image--secondary {
+  left: 0;
+  right: auto;
+  box-shadow: -3px 3px 45px rgba(0, 0, 0, 0.36);
+}
+

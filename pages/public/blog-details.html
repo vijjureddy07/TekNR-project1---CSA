@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!-- =============================================================================
+      PURE FIELDS - BLOG DETAILS PAGE
+      =============================================================================
+
+      Project: Local Farm & Community Supported Agriculture (CSA) Website
+      Version: 1.0.0
+      Description: Article detail shell hydrated by shared JavaScript for the
+                  Pure Fields journal
+================================================================================ -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Read the full Pure Fields article about this week’s CSA box, storage notes, meal ideas, and seasonal farm updates.">
+    <meta name="keywords" content="CSA article, farm blog, seasonal produce, weekly box, harvest notes, local farm journal">
+    <meta name="author" content="Pure Fields">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://purefields.com/blog-details.html?article=weekly-box">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://purefields.com/blog-details.html?article=weekly-box">
+    <meta property="og:title" content="What’s In This Week’s CSA Box? | Pure Fields Journal">
+    <meta property="og:description" content="A full breakdown of this week’s harvest, how to store it well, and the easiest ways to cook through the box.">
+    <meta property="og:image" content="../../assets/images/blog details imgs/pexels-n-voitkevich-5425794.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://purefields.com/blog-details.html?article=weekly-box">
+    <meta property="twitter:title" content="What’s In This Week’s CSA Box? | Pure Fields Journal">
+    <meta property="twitter:description" content="A full breakdown of this week’s harvest, how to store it well, and the easiest ways to cook through the box.">
+    <meta property="twitter:image" content="../../assets/images/blog details imgs/pexels-n-voitkevich-5425794.jpg">
+
+    <title>What’s In This Week’s CSA Box? | Pure Fields Journal</title>
+    <link rel="icon" type="image/jpeg" href="../../assets/images/growwpark_logo.jpg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../../assets/css/rtl.css">
+
+    <script id="blog-article-schema" type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "What’s in this week’s CSA box?",
+        "description": "See what is landing in this week’s CSA box, how to store it, and the easiest ways to cook through it.",
+        "author": {
+            "@type": "Organization",
+            "name": "Pure Fields Packing Team"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Pure Fields",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://purefields.com/assets/images/growwpark_logo.jpg"
+            }
+        },
+        "image": "https://purefields.com/assets/images/blog details imgs/pexels-n-voitkevich-5425794.jpg",
+        "mainEntityOfPage": "https://purefields.com/blog-details.html?article=weekly-box"
+    }
+    </script>
+</head>
+<body class="blog-detail-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-row">
+                <a href="index.html" class="nav-logo" aria-label="Pure Fields - Home">
+                    <i class="material-icons" aria-hidden="true">eco</i>
+                    <div class="logo-text">
+                        <span class="logo-bottom">Pure Fields</span>
+                    </div>
+                </a>
+
+                <ul class="desktop-menu" role="menubar">
+                    <li class="dropdown" role="none">
+                        <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">Home <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="index.html" role="menuitem">Home Page 1</a>
+                            <a href="home-page-2.html" role="menuitem">Home Page 2</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html" role="menuitem">About Us</a></li>
+                    <li><a href="products.html" role="menuitem">Products</a></li>
+                    <li><a href="blog.html" class="active" aria-current="page" role="menuitem">Blog</a></li>
+                    <li><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+                    <li class="dropdown" role="none">
+                        <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">Dashboard <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="../dashboards/admin-dashboard.html" role="menuitem">Admin Dashboard</a>
+                            <a href="../dashboards/user-dashboard.html" role="menuitem">User Dashboard</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button id="theme-toggle" class="nav-btn" aria-label="Toggle dark/light theme" aria-pressed="false">
+                        <i class="material-icons" aria-hidden="true">light_mode</i>
+                    </button>
+                    <button id="rtl-toggle" class="nav-btn" aria-label="Toggle right-to-left layout" aria-pressed="false">
+                        <i class="material-icons" aria-hidden="true">translate</i>
+                    </button>
+                    <a href="cart.html" class="nav-cart" aria-label="Shopping cart">
+                        <i class="material-icons" aria-hidden="true">shopping_cart</i>
+                        <div class="logo-text">
+                            <span class="logo-bottom">Cart</span>
+                        </div>
+                    </a>
+                    <a href="../auth/login.html" class="login-btn">Login</a>
+                    <button id="mobile-menu-toggle" class="nav-btn mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <i class="material-icons" aria-hidden="true">menu</i>
+                    </button>
+                </div>
+            </div>
+
+            <ul id="mobile-menu" class="mobile-menu hidden" role="menu" aria-label="Mobile navigation">
+                <li class="dropdown" role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true">Home <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="index.html" role="menuitem">Home Page 1</a>
+                        <a href="home-page-2.html" role="menuitem">Home Page 2</a>
+                    </div>
+                </li>
+                <li><a href="about.html" role="menuitem">About Us</a></li>
+                <li><a href="products.html" role="menuitem">Products</a></li>
+                <li><a href="blog.html" class="active" aria-current="page" role="menuitem">Blog</a></li>
+                <li><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+                <li class="dropdown" role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true">Dashboard <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="../dashboards/admin-dashboard.html" role="menuitem">Admin Dashboard</a>
+                        <a href="../dashboards/user-dashboard.html" role="menuitem">User Dashboard</a>
+                    </div>
+                </li>
+                <li><a href="../auth/login.html" role="menuitem">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content" class="blog-detail" tabindex="-1">
+        <!-- ========================================
+              5. ARTICLE HERO SECTION
+              ========================================
+              Purpose: Presents the article category, metadata, headline, and hero image
+              Accessibility: Breadcrumbs and article metadata are grouped ahead of the main title
+        ======================================== -->
+        <section class="blog-detail-hero" aria-labelledby="article-title">
+            <div class="blog-detail-shell">
+                <div class="blog-detail-breadcrumbs" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span aria-hidden="true">/</span>
+                    <a href="blog.html">Journal</a>
+                    <span aria-hidden="true">/</span>
+                    <span id="article-breadcrumb-category">Farm News</span>
+                </div>
+
+                <div class="blog-detail-hero__grid">
+                    <article class="blog-detail-hero__content">
+                        <p class="blog-detail-eyebrow">Pure Fields Journal</p>
+                        <div class="blog-detail-meta">
+                            <span id="article-meta-category">Farm News</span>
+                            <span id="article-meta-date">March 9, 2026</span>
+                            <span id="article-meta-author">Pure Fields Packing Team</span>
+                        </div>
+                        <h1 id="article-title">What’s in this week’s CSA box?</h1>
+                        <p id="article-intro" class="blog-detail-intro">This week leans fresh and flexible: greens, spring roots, citrus, and herbs that can move across lunches, quick dinners, and one steady weekend cook-up.</p>
+                    </article>
+
+                    <figure class="blog-detail-hero__media">
+                        <img id="article-hero-image" src="../../assets/images/blog details imgs/pexels-n-voitkevich-5425794.jpg" alt="Seasonal produce laid out for the weekly CSA box" loading="eager">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+              6. ARTICLE BODY SECTION
+              ========================================
+              Purpose: Holds the article content and the supporting side panels
+              Accessibility: Main article content and sidebar insights remain in distinct landmarks
+        ======================================== -->
+        <section class="blog-detail-story" aria-labelledby="article-story-title">
+            <div class="blog-detail-shell blog-detail-layout">
+                <article class="blog-detail-article">
+                    <header class="blog-detail-article__header">
+                        <p class="blog-detail-eyebrow">Article</p>
+                        <h2 id="article-story-title">Seasonal notes from the current route.</h2>
+                    </header>
+                    <div id="article-content-body" class="blog-detail-richtext"></div>
+                </article>
+
+                <aside class="blog-detail-sidebar" aria-label="Article side panels">
+                    <article class="blog-detail-panel blog-detail-panel--highlight">
+                        <p class="blog-detail-eyebrow">Key Takeaway</p>
+                        <p id="article-takeaway-copy">Use the greens and herbs first, let the roots carry the middle of the week, and build two anchor meals before you start improvising.</p>
+                        <div class="blog-detail-action-stack">
+                            <a href="products.html#plans" class="blog-detail-action">Compare CSA plans</a>
+                            <a href="cart.html?plan=family" class="blog-detail-text-link">Open a sample cart</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-detail-panel">
+                        <h2 id="article-seasonal-title">This article matches the current early-spring box pattern.</h2>
+                        <p id="article-seasonal-copy">Members on active routes are likely to keep seeing a similar run of leafy greens, herbs, radishes, and citrus over the next few pickups.</p>
+                        <ul id="article-seasonal-list" class="blog-detail-list"></ul>
+                    </article>
+
+                    <article class="blog-detail-panel">
+                        <h2 id="article-usage-title">Use it well this week.</h2>
+                        <ul id="article-usage-list" class="blog-detail-list"></ul>
+                    </article>
+
+                    <article class="blog-detail-panel">
+                        <h2 id="article-source-title">Packed from nearby growers on short field-to-pack timelines.</h2>
+                        <p id="article-source-copy">This mix is assembled from the same regional partner farms that cover greens, herbs, roots, and orchard fruit for the CSA routes.</p>
+                        <div id="article-source-stats" class="blog-detail-source-stats"></div>
+                        <div id="article-tags" class="blog-detail-tags"></div>
+                    </article>
+                </aside>
+            </div>
+        </section>
+
+        <!-- ========================================
+              7. RELATED ARTICLES SECTION
+              ========================================
+              Purpose: Surfaces additional journal entries connected to the current topic
+              Accessibility: Related cards are grouped under a dedicated heading for easier scanning
+        ======================================== -->
+        <section class="blog-detail-related" aria-labelledby="article-related-title">
+            <div class="blog-detail-shell">
+                <div class="blog-detail-section-heading">
+                    <div>
+                        <p class="blog-detail-eyebrow">Related Reads</p>
+                        <h2 id="article-related-title">Keep reading through the season.</h2>
+                    </div>
+                    <a href="blog.html#latest-posts" class="blog-detail-text-link">Back to the journal</a>
+                </div>
+                <div id="article-related-grid" class="blog-detail-related-grid"></div>
+            </div>
+        </section>
+
+        <!-- ========================================
+              8. ARTICLE CTA SECTION
+              ========================================
+              Purpose: Directs readers toward the product catalog or account signup after reading
+              Accessibility: CTA copy and actions stay grouped within a clear closing section
+        ======================================== -->
+        <section class="blog-detail-cta" aria-labelledby="article-cta-title">
+            <div class="blog-detail-shell">
+                <div class="blog-detail-cta__inner">
+                    <div>
+                        <p class="blog-detail-eyebrow">Next Step</p>
+                        <h2 id="article-cta-title">Move from the journal into the box.</h2>
+                        <p id="article-cta-copy">Compare this week’s produce plans, join the route, or go back to the journal for more seasonal guidance.</p>
+                    </div>
+                    <div class="blog-detail-cta__actions">
+                        <a href="products.html#plans" class="blog-detail-cta__button">Explore CSA Plans</a>
+                        <a href="../auth/register.html" class="blog-detail-cta__button blog-detail-cta__button--secondary">Create Account</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="farm-footer" role="contentinfo">
+        <div class="farm-footer-inner">
+            <div class="farm-col brand-col">
+                <a href="index.html" class="farm-logo-link" aria-label="Pure Fields Home">
+                    <i class="material-icons" aria-hidden="true">eco</i>
+                    <span>Pure Fields</span>
+                </a>
+                <p class="small-print">
+                    Fresh produce from local farms directly to your table. Quality organic vegetables and fruits.
+                </p>
+                <div class="social-row" aria-label="Social media links">
+                    <a href="#" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Follow us on Twitter"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <div class="farm-col links-col">
+                <h3>Quick Links</h3>
+                <div class="line" aria-hidden="true"></div>
+                <div class="two-col-links">
+                    <ul role="list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                    </ul>
+                    <ul role="list">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="farm-col links-col">
+                <h3>Support</h3>
+                <div class="line" aria-hidden="true"></div>
+                <ul role="list">
+                    <li><a href="../dashboards/admin-dashboard.html">Admin Dashboard</a></li>
+                    <li><a href="../dashboards/user-dashboard.html">User Dashboard</a></li>
+                    <li><a href="../auth/login.html">Login</a></li>
+                </ul>
+            </div>
+
+            <div class="farm-col newsletter-col">
+                <h3>Join our Mailing List</h3>
+                <div class="line" aria-hidden="true"></div>
+                <p>Subscribe to get the latest updates on fresh produce and special offers.</p>
+                <form class="newsletter-form" id="newsletter-form" aria-label="Subscribe to newsletter">
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            id="newsletter-email"
+                            placeholder="Enter your email"
+                            required
+                            aria-required="true"
+                            aria-describedby="email-error"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        >
+                        <button type="submit">Subscribe</button>
+                    </div>
+                    <span id="email-error" class="error-message" role="alert" aria-live="polite"></span>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>

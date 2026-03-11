@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<!-- =============================================================================
+     PURE FIELDS - COMING SOON
+     =============================================================================
+     Sections:
+     1. Head (meta, styles, fonts)
+     2. Skip link + Navigation
+     3. Coming soon hero
+     4. Footer
+     5. Scripts
+============================================================================= -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pure Fields is planting something new. Fresh features roll out soon.">
+    <title>Coming Soon | Pure Fields</title>
+    <link rel="icon" type="image/jpeg" href="../../assets/images/growwpark_logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../../assets/css/rtl.css">
+    <style>
+        body.coming-soon-page {
+            background: radial-gradient(circle at 12% 20%, rgba(122, 191, 156, 0.22), rgba(122, 191, 156, 0)) ,
+                        radial-gradient(circle at 78% 14%, rgba(49, 105, 90, 0.22), rgba(49, 105, 90, 0)) ,
+                        linear-gradient(180deg, #f8fbf9 0%, #ffffff 60%, #f5f1eb 100%);
+            color: var(--text-primary);
+            padding-top: 96px;
+        }
+
+        .coming-hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            align-items: center;
+        }
+
+        .coming-card {
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 24px 48px rgba(24, 50, 40, 0.12);
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .coming-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.85rem;
+            border-radius: var(--radius-full);
+            background: rgba(49, 105, 90, 0.12);
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.75rem;
+        }
+
+        .coming-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.4rem, 4vw, 3.2rem);
+            line-height: 1.1;
+            color: var(--heading);
+            margin-bottom: 1rem;
+        }
+
+        .coming-lede {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .count-box {
+            text-align: center;
+            padding: 1rem;
+            border-radius: var(--radius-lg);
+            background: #f7f9f6;
+            border: 1px solid var(--border-light);
+        }
+
+        .count-box strong {
+            display: block;
+            font-size: 2rem;
+            color: var(--heading);
+            letter-spacing: -0.03em;
+        }
+
+        .count-box span {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .notify-form {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 0.75rem;
+        }
+
+        .notify-form input {
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-full);
+            padding: 0.85rem 1rem;
+            font-size: var(--font-size-base);
+        }
+
+        .notify-form button {
+            border-radius: var(--radius-full);
+            background: linear-gradient(120deg, var(--primary), #4a8b78);
+            color: var(--white);
+            font-weight: 700;
+            padding: 0.9rem 1.4rem;
+            box-shadow: 0 14px 32px rgba(49, 105, 90, 0.18);
+        }
+
+        .coming-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .coming-badge {
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--radius-full);
+            background: #eef3ef;
+            color: var(--heading);
+            font-weight: 600;
+            font-size: var(--font-size-sm);
+        }
+
+        .coming-visual {
+            position: relative;
+            min-height: 320px;
+        }
+
+        .glow {
+            position: absolute;
+            inset: 8%;
+            background: radial-gradient(circle at 40% 40%, rgba(122, 191, 156, 0.38), rgba(122, 191, 156, 0));
+            filter: blur(40px);
+            z-index: 0;
+        }
+
+        .orbit {
+            position: absolute;
+            inset: 0;
+            border: 1px dashed rgba(49, 105, 90, 0.25);
+            border-radius: 24px;
+            transform: rotate(-3deg);
+        }
+
+        .seed-card {
+            position: absolute;
+            inset: 12%;
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            padding: 1.5rem;
+            box-shadow: 0 24px 36px rgba(24, 50, 40, 0.14);
+            display: grid;
+            gap: 0.75rem;
+            z-index: 1;
+        }
+
+        .seed-card h3 {
+            font-family: var(--font-heading);
+            color: var(--heading);
+        }
+
+        .seed-card ul {
+            list-style: none;
+            display: grid;
+            gap: 0.45rem;
+        }
+
+        .seed-card li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .seed-card i {
+            color: var(--primary);
+        }
+
+        @media (max-width: 720px) {
+            .notify-form {
+                grid-template-columns: 1fr;
+            }
+            body.coming-soon-page {
+                padding-top: 84px;
+            }
+        }
+    </style>
+</head>
+<body class="coming-soon-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-row">
+                <a href="index.html" class="nav-logo" aria-label="Pure Fields - Home">
+                    <i class="material-icons" aria-hidden="true">eco</i>
+                    <div class="logo-text">
+                        <span class="logo-bottom">Pure Fields</span>
+                    </div>
+                </a>
+                <ul class="desktop-menu" role="menubar">
+                    <li class="dropdown" role="none">
+                        <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">Home <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="index.html" role="menuitem">Home Page 1</a>
+                            <a href="home-page-2.html" role="menuitem">Home Page 2</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html" role="menuitem">About Us</a></li>
+                    <li><a href="products.html" role="menuitem">Products</a></li>
+                    <li><a href="blog.html" role="menuitem">Blog</a></li>
+                    <li><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button id="theme-toggle" class="nav-btn" aria-label="Toggle dark/light theme" aria-pressed="false">
+                        <i class="material-icons" aria-hidden="true">light_mode</i>
+                    </button>
+                    <button id="rtl-toggle" class="nav-btn" aria-label="Toggle right-to-left layout" aria-pressed="false">
+                        <i class="material-icons" aria-hidden="true">translate</i>
+                    </button>
+                    <a href="cart.html" class="nav-cart" aria-label="Shopping cart">
+                        <i class="material-icons" aria-hidden="true">shopping_cart</i>
+                        <div class="logo-text">
+                            <span class="logo-bottom">Cart</span>
+                        </div>
+                    </a>
+                    <a href="../auth/login.html" class="login-btn">Login</a>
+                    <button id="mobile-menu-toggle" class="nav-btn mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <i class="material-icons" aria-hidden="true">menu</i>
+                    </button>
+                </div>
+            </div>
+            <ul id="mobile-menu" class="mobile-menu hidden" role="menu" aria-label="Mobile navigation">
+                <li class="dropdown" role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true">Home <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="index.html" role="menuitem">Home Page 1</a>
+                        <a href="home-page-2.html" role="menuitem">Home Page 2</a>
+                    </div>
+                </li>
+                <li><a href="about.html" role="menuitem">About Us</a></li>
+                <li><a href="products.html" role="menuitem">Products</a></li>
+                <li><a href="blog.html" role="menuitem">Blog</a></li>
+                <li><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+                <li><a href="../auth/login.html" role="menuitem">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content" class="coming-hero">
+        <!-- ========================================
+              5. COMING SOON MESSAGE SECTION
+              ========================================
+              Purpose: Explains what is launching soon and captures notification interest
+              Accessibility: Keeps the countdown and notify form tied to the main heading
+        ======================================== -->
+        <section class="coming-card" aria-labelledby="coming-title">
+            <span class="coming-eyebrow"><span class="material-icons" aria-hidden="true">bolt</span>New drop brewing</span>
+            <h1 id="coming-title" class="coming-title">We’re planting a fresh experience.</h1>
+            <p class="coming-lede">A streamlined member flow, richer farm stories, and smarter box controls are almost ready. Stick around—we’ll ping you the moment it sprouts.</p>
+            <div class="countdown" aria-live="polite">
+                <div class="count-box"><strong id="cd-days">14</strong><span>Days</span></div>
+                <div class="count-box"><strong id="cd-hours">06</strong><span>Hours</span></div>
+                <div class="count-box"><strong id="cd-mins">42</strong><span>Minutes</span></div>
+                <div class="count-box"><strong id="cd-secs">18</strong><span>Seconds</span></div>
+            </div>
+            <form class="notify-form" aria-label="Get notified form">
+                <input type="email" placeholder="your@email.com" aria-label="Email for updates" required>
+                <button type="submit">Notify me</button>
+            </form>
+            <div class="coming-badges">
+                <span class="coming-badge">Improved dashboards</span>
+                <span class="coming-badge">Route insights</span>
+                <span class="coming-badge">Faster swaps</span>
+            </div>
+        </section>
+
+        <!-- ========================================
+              6. PREVIEW VISUAL SECTION
+              ========================================
+              Purpose: Supports the launch message with decorative preview cues
+              Accessibility: Marked aria-hidden because the content is decorative only
+        ======================================== -->
+        <section class="coming-visual" aria-hidden="true">
+            <div class="glow"></div>
+            <div class="orbit"></div>
+            <div class="seed-card">
+                <h3><span class="material-icons" aria-hidden="true">eco</span> Sneak peek</h3>
+                <ul>
+                    <li><i class="fa fa-leaf"></i>Live harvest meter</li>
+                    <li><i class="fa fa-route"></i>Smart pickup routing</li>
+                    <li><i class="fa fa-credit-card"></i>One-tap payment refresh</li>
+                    <li><i class="fa fa-bell"></i>Member nudges</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="farm-footer" role="contentinfo">
+        <div class="farm-footer-inner">
+            <div class="farm-col brand-col">
+                <a href="index.html" class="farm-logo-link" aria-label="Pure Fields Home">
+                    <i class="material-icons" aria-hidden="true">eco</i>
+                    <span>Pure Fields</span>
+                </a>
+                <p class="small-print">
+                    Fresh produce from local farms directly to your table. Quality organic vegetables and fruits.
+                </p>
+                <div class="social-row" aria-label="Social media links">
+                    <a href="#" aria-label="Follow us on Facebook">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" aria-label="Follow us on Twitter">
+                        <i class="fab fa-x-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" aria-label="Follow us on Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="farm-col links-col">
+                <h3>Quick Links</h3>
+                <div class="line" aria-hidden="true"></div>
+                <div class="two-col-links">
+                    <ul role="list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                    </ul>
+                    <ul role="list">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="farm-col links-col">
+                <h3>Support</h3>
+                <div class="line" aria-hidden="true"></div>
+                <ul role="list">
+                    <li><a href="../dashboards/admin-dashboard.html">Admin Dashboard</a></li>
+                    <li><a href="../dashboards/user-dashboard.html">User Dashboard</a></li>
+                    <li><a href="../auth/login.html">Login</a></li>
+                </ul>
+            </div>
+
+            <div class="farm-col newsletter-col">
+                <h3>Join our Mailing List</h3>
+                <div class="line" aria-hidden="true"></div>
+                <p>Subscribe to get the latest updates on fresh produce and special offers.</p>
+                <form class="newsletter-form" aria-label="Subscribe to newsletter">
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            placeholder="Enter your email"
+                            required
+                            aria-required="true"
+                            aria-describedby="email-error"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"
+                        >
+                        <button type="submit">Subscribe</button>
+                    </div>
+                    <span id="email-error" class="error-message" role="alert" aria-live="polite"></span>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/main.js"></script>
+    <script>
+        (function () {
+            const target = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000);
+            const daysEl = document.getElementById('cd-days');
+            const hoursEl = document.getElementById('cd-hours');
+            const minsEl = document.getElementById('cd-mins');
+            const secsEl = document.getElementById('cd-secs');
+
+            const tick = () => {
+                const now = new Date();
+                let diff = Math.max(0, target - now);
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                diff -= days * 1000 * 60 * 60 * 24;
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                diff -= hours * 1000 * 60 * 60;
+                const mins = Math.floor(diff / (1000 * 60));
+                diff -= mins * 1000 * 60;
+                const secs = Math.floor(diff / 1000);
+
+                daysEl.textContent = String(days).padStart(2, '0');
+                hoursEl.textContent = String(hours).padStart(2, '0');
+                minsEl.textContent = String(mins).padStart(2, '0');
+                secsEl.textContent = String(secs).padStart(2, '0');
+            };
+
+            tick();
+            setInterval(tick, 1000);
+        })();
+    </script>
+</body>
+</html>

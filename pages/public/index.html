@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<!-- =============================================================================
+     PURE FIELDS - MAIN HOMEPAGE
+     =============================================================================
+
+     Project: Local Farm & Community Supported Agriculture (CSA) Website
+     Version: 1.0.0
+     Description: Homepage for organic farm website with hero, about, membership,
+                  products, testimonials, and newsletter sections
+
+     Table of Contents:
+     ------------------
+     1. Head Section - Meta tags, SEO, fonts, styles
+     2. Skip Link - Accessibility skip navigation
+     3. Navigation - Main site navigation with mobile menu
+     4. Hero Section - Full-screen hero with background image
+     5. About Section - Company information with images
+     6. Transparency Section - Tabbed content showing farm practices
+     7. Products Section - Product showcase cards
+     8. Membership Section - Simple CSA subscription flow
+     9. Blog Preview - Editorial links into the journal
+     10. Testimonials - Customer testimonials slider
+     11. Footer - Site footer with links and newsletter form
+
+     Responsive Breakpoints:
+     -----------------------
+     - Desktop Large: 1200px+
+     - Desktop: 992px - 1199px
+     - Tablet: 768px - 991px
+     - Mobile: 480px - 767px
+     - Mobile Small: < 480px
+
+     Dependencies:
+     - Google Fonts: Poppins, Lora
+     - Material Icons (Google)
+     - Font Awesome 6.5.1
+
+================================================================================ -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <!-- Viewport meta tag is essential for responsive design - do not remove -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ========================================
+         1. SEO META TAGS
+         ========================================
+         Description: Search engine optimization meta tags
+         Update: Replace https://purefields.com with your actual domain
+    ======================================== -->
+    <meta name="description" content="Pure Fields - Fresh organic produce from local farms. Join our Community Supported Agriculture (CSA) program for weekly deliveries of farm-fresh vegetables and fruits.">
+    <meta name="keywords" content="organic farm, CSA, community supported agriculture, local produce, organic vegetables, sustainable farming">
+    <meta name="author" content="Pure Fields">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://purefields.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://purefields.com/">
+    <meta property="og:title" content="Pure Fields - Organic Farm &amp; Community Supported Agriculture">
+    <meta property="og:description" content="Fresh organic produce from local farms delivered to your table. Join our CSA program today!">
+    <meta property="og:image" content="../../assets/images/Index page imgs/pexels-chi-n-ba-3626645-33933801.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://purefields.com/">
+    <meta property="twitter:title" content="Pure Fields - Organic Farm &amp; Community Supported Agriculture">
+    <meta property="twitter:description" content="Fresh organic produce from local farms delivered to your table. Join our CSA program today!">
+    <meta property="twitter:image" content="../../assets/images/Index page imgs/pexels-chi-n-ba-3626645-33933801.jpg">
+
+    <title>Local Farm and CSA | Pure Fields - Organic Produce</title>
+    <link rel="icon" type="image/jpeg" href="../../assets/images/growwpark_logo.jpg">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+    <!-- Icon Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <!-- Dark Mode Stylesheet -->
+    <link rel="stylesheet" href="../../assets/css/dark-mode.css">
+
+    <!-- RTL Stylesheet (Right-to-Left languages) -->
+    <link rel="stylesheet" href="../../assets/css/rtl.css">
+
+    <!-- ========================================
+         JSON-LD STRUCTURED DATA (SEO)
+    ======================================== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Pure Fields",
+        "description": "Organic farm and Community Supported Agriculture (CSA) providing fresh produce to local communities",
+        "url": "https://purefields.com",
+        "telephone": "+1-555-123-4567",
+        "email": "hello@purefields.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Farm Road",
+            "addressLocality": "Farmville",
+            "addressRegion": "CA",
+            "postalCode": "12345",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "37.7749",
+            "longitude": "-122.4194"
+        },
+        "openingHours": "Mo-Fr 08:00-18:00",
+        "priceRange": "$$",
+        "image": "https://purefields.com/assets/images/pexels-chi-n-ba-3626645-33933801.jpg",
+        "sameAs": [
+            "https://facebook.com/purefields",
+            "https://instagram.com/purefields",
+            "https://twitter.com/purefields"
+        ]
+    }
+    </script>
+</head>
+<body class="index-page">
+
+    <!-- ========================================
+         2. SKIP LINK (Accessibility)
+         ========================================
+         Purpose: Allows keyboard users to skip navigation and go directly to main content
+         Related CSS: .skip-link styles in style.css
+    ======================================== -->
+    <!-- Skip to main content for screen readers -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ========================================
+         3. NAVIGATION SECTION
+         ========================================
+         Features: Fixed header, dropdown menus, mobile hamburger menu, theme toggle
+         Related JS: mobile-menu-toggle, theme-toggle, rtl-toggle handlers
+         Related CSS: .site-nav, .desktop-menu, .mobile-menu styles
+    ======================================== -->
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-row">
+                <!-- Logo -->
+                <a href="index.html" class="nav-logo" aria-label="Pure Fields - Home">
+                    <i class="material-icons" aria-hidden="true">eco</i>
+                    <div class="logo-text">
+                        <span class="logo-bottom">Pure Fields</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <ul class="desktop-menu" role="menubar">
+                    <li class="dropdown" role="none">
+                        <a href="#" class="active" role="menuitem" aria-haspopup="true" aria-expanded="false">Home <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="index.html" class="active" role="menuitem">Home Page 1</a>
+                            <a href="home-page-2.html" role="menuitem">Home Page 2</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html" role="menuitem">About Us</a></li>
+                    <li><a href="products.html" role="menuitem">Products</a></li>
+                    <li><a href="blog.html" role="menuitem">Blog</a></li>
+                    <li><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+                    <li class="dropdown" role="none">
+                        <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">Dashboard <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="../dashboards/admin-dashboard.html" role="menuitem">Admin Dashboard</a>
+                            <a href="../dashboards/user-dashboard.html" role="menuitem">User Dashboard</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Nav Actions -->
+                <div class="nav-actions">
+                    <button id="theme-toggle" class="nav-btn" aria-label="Toggle dark/light theme" aria-pressed="false">
+                        <i class="material-icons" aria-hidden="true">light_mode</i>
+                    </button>
+                    <button id="rtl-toggle" class="nav-btn" aria-label="Toggle right-to-left layout" aria-pressed="false">
+                        <i class="material-icons" aria-hidden="true">translate</i>
+                    </button>
+                    <a href="cart.html" class="nav-cart" aria-label="Shopping cart">
+                        <i class="material-icons" aria-hidden="true">shopping_cart</i>
+                        <div class="logo-text">
+                            <span class="logo-bottom">Cart</span>
+                        </div>
+                    </a>
+                    <a href="../auth/login.html" class="login-btn">Login</a>
+                    <button id="mobile-menu-toggle" class="nav-btn mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <i class="material-icons" aria-hidden="true">menu</i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <ul id="mobile-menu" class="mobile-menu hidden" role="menu" aria-label="Mobile navigation">
+                <li class="dropdown" role="none">
+                    <a href="#" class="active" role="menuitem" aria-haspopup="true">Home <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="index.html" class="active" role="menuitem">Home Page 1</a>
+                        <a href="home-page-2.html" role="menuitem">Home Page 2</a>
+                    </div>
+                </li>
+                <li><a href="about.html" role="menuitem">About Us</a></li>
+                <li><a href="products.html" role="menuitem">Products</a></li>
+                <li><a href="blog.html" role="menuitem">Blog</a></li>
+                <li><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+                <li class="dropdown" role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true">Dashboard <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="../dashboards/admin-dashboard.html" role="menuitem">Admin Dashboard</a>
+                        <a href="../dashboards/user-dashboard.html" role="menuitem">User Dashboard</a>
+                    </div>
+                </li>
+                <li><a href="../auth/login.html" role="menuitem">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         4. MAIN CONTENT AREA
+         ========================================
+         Purpose: Contains all main page sections
+         ID: main-content is used for skip link navigation
+    ======================================== -->
+    <main id="main-content" tabindex="-1" role="main">
+
+    <!-- ========================================
+         5. HERO SECTION
+         ========================================
+         Features: Full-screen background image, overlay, CTA buttons
+         Performance: Uses loading="eager" for LCP optimization
+         Related CSS: .hero-section-new styles in style.css
+    ======================================== -->
+    <section class="hero-section-new" aria-labelledby="hero-title">
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-container">
+            <div class="hero-content-new">
+                <h1 id="hero-title" class="hero-title-new">
+                    Weekly fresh produce from
+                    <br>
+                    local farms to your table
+                </h1>
+                <p class="hero-text">
+                    Subscribe to seasonal CSA boxes, flexible add-ons, and local pickup or delivery routes that fit real weekly routines.
+                </p>
+                <div class="hero-buttons">
+                    <a href="products.html#plans" class="btn-hero-primary">View Plans</a>
+                    <a href="about.html" class="btn-hero-secondary">Our Story</a>
+                </div>
+            </div>
+        </div>
+        <!-- Added loading="eager" for LCP optimization -->
+        <img src="../../assets/images/Index page imgs/pexels-chi-n-ba-3626645-33933801.jpg" alt="Fresh organic vegetables on a farm table" class="hero-bg-image" loading="eager">
+    </section>
+
+    <!-- ========================================
+         6. ABOUT US SECTION
+         ========================================
+         Features: Grid layout with overlapping images, badge, list
+         Performance: Uses loading="lazy" for below-fold images
+         Related CSS: .about-section styles in style.css
+    ======================================== -->
+    <section class="about-section" id="about" aria-labelledby="about-title">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-images">
+                    <!-- Added loading="lazy" for performance -->
+                    <img src="../../assets/images/Index page imgs/pexels-alex-grandidier-2159174194-36108055.jpg" alt="Our organic farm fields" class="about-img-1" loading="lazy">
+                    <img src="../../assets/images/Index page imgs/pexels-ahmad-alfian-2984342-9132373.jpg" alt="Farmer collecting fresh produce" class="about-img-2" loading="lazy">
+                    <img src="../../assets/images/Index page imgs/pexels-samsilitongajr-789555.jpg" alt="Fresh organic vegetables" class="about-img-3" loading="lazy">
+                </div>
+                <div class="about-content">
+                    <div class="about-badge">
+                        <i class="material-icons" aria-hidden="true">eco</i>
+                        <span>About Us</span>
+                    </div>
+
+                    <h2 id="about-title" class="about-title">A local CSA built for real weekly routines.</h2>
+                    <p class="about-text">
+                        Pure Fields partners with nearby growers to bring dependable seasonal produce to households that want freshness without the guesswork. Every box is packed close to route day, with skips, pauses, and plan changes managed from one member dashboard.
+                    </p>
+                    <ul class="about-list" role="list">
+                        <li><i class="material-icons" aria-hidden="true">check</i> <span>Seasonal CSA plans for different household sizes</span></li>
+                        <li><i class="material-icons" aria-hidden="true">check</i> <span>Local delivery routes and neighborhood pickup points</span></li>
+                        <li><i class="material-icons" aria-hidden="true">check</i> <span>Simple dashboard controls for skips, pauses, and renewals</span></li>
+                    </ul>
+                    <a href="about.html" class="btn-hero-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         7. TRANSPARENCY SECTION
+         ========================================
+         Features: Tabbed interface with images, background image
+         Accessibility: Uses role="tablist", role="tab", role="tabpanel"
+         Related JS: Tab switching functionality in main.js
+         Related CSS: .transparency-section styles in style.css
+    ======================================== -->
+    <section class="transparency-section" id="transparency" aria-labelledby="transparency-title">
+        <div class="container">
+            <div class="transparency-header">
+                <h2 id="transparency-title" class="transparency-title">How the Pure Fields membership works each week.</h2>
+                <p class="transparency-text">
+                    We keep the flow simple so members know exactly what happens after they subscribe: choose the right plan, set the cadence, and receive produce that is packed to the strongest seasonal harvest.
+                </p>
+            </div>
+            <div class="transparency-tabs" role="tablist" aria-label="Our process">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tabpanel-1" id="tab-1" data-tab="1">
+                        <span class="tab-number" aria-hidden="true">01</span>
+                        <span class="tab-label">Choose Your Box</span>
+                    </button>
+                    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tabpanel-2" id="tab-2" data-tab="2">
+                        <span class="tab-number" aria-hidden="true">02</span>
+                        <span class="tab-label">Set Your Schedule</span>
+                    </button>
+                    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tabpanel-3" id="tab-3" data-tab="3">
+                        <span class="tab-number" aria-hidden="true">03</span>
+                        <span class="tab-label">We Harvest and Pack</span>
+                    </button>
+                </div>
+                <div class="tab-content" role="tabpanel" id="tabpanel-1" aria-labelledby="tab-1">
+                    <div class="tab-pane active" data-content="1">
+                        <img src="../../assets/images/Index page imgs/pexels-iriser-1379640.jpg" alt="Seasonal produce selection for choosing a CSA plan" loading="lazy">
+                    </div>
+                    <div class="tab-pane" data-content="2">
+                        <img src="../../assets/images/Index page imgs/pexels-kpaukshtite-890686.jpg" alt="Fresh produce ready for recurring weekly subscriptions" loading="lazy">
+                    </div>
+                    <div class="tab-pane" data-content="3">
+                        <img src="../../assets/images/Index page imgs/pexels-michael-burrows-7125680.jpg" alt="Harvest team preparing produce for member boxes" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         8. PRODUCTS SECTION
+         ========================================
+         Features: Product cards with hover effects, gallery images
+         Performance: Uses loading="lazy" for images
+         Related CSS: .products-showcase, .product-card styles in style.css
+    ======================================== -->
+    <section class="products-showcase" id="products" aria-labelledby="products-title">
+        <div class="products-showcase__container">
+            <div class="products-showcase__header">
+                <div class="products-showcase__intro">
+                    <div class="products-showcase__eyebrow">
+                        <i class="material-icons products-showcase__badge" aria-hidden="true">eco</i>
+                        <span>Our Products</span>
+                    </div>
+
+                    <h2 id="products-title" class="products-showcase__title">
+                        Flexible CSA plans and seasonal add-ons.
+                    </h2>
+
+                    <p class="products-showcase__description">
+                        Start with a produce box that matches your household, then layer in fruit, pantry extras, and flexible delivery preferences as the season changes.
+                    </p>
+                </div>
+
+                <a href="products.html" class="products-showcase__button">
+                    <span>View Products</span>
+                </a>
+            </div>
+
+            <div class="products-showcase__layout">
+                <div class="products-showcase__cards">
+                    <a href="products.html" class="product-card">
+                        <div class="product-card__content">
+                            <div class="product-card__top">
+                                <div class="product-card__icon-wrap">
+                                    <i class="product-card__icon material-icons" aria-hidden="true">inventory_2</i>
+                                </div>
+
+                                <h3 class="product-card__title">Family Box</h3>
+                            </div>
+
+                            <p class="product-card__text">
+                                Our most popular weekly plan balances fruit, vegetables, and recipe-friendly staples for households cooking for three to five people.
+                            </p>
+
+                            <div class="product-card__link">
+                                <span>View Details</span>
+                                <i class="product-card__arrow material-icons" aria-hidden="true">arrow_forward</i>
+                            </div>
+                        </div>
+                        <div class="product-card__accent"></div>
+                    </a>
+
+                    <a href="products.html#addons" class="product-card">
+                        <div class="product-card__content">
+                            <div class="product-card__top">
+                                <div class="product-card__icon-wrap">
+                                    <i class="product-card__icon material-icons" aria-hidden="true">local_florist</i>
+                                </div>
+
+                                <h3 class="product-card__title">Seasonal Add-Ons</h3>
+                            </div>
+
+                            <p class="product-card__text">
+                                Attach eggs, milk, bread, honey, flowers, or jam to your weekly produce plan without changing the core membership.
+                            </p>
+
+                            <div class="product-card__link">
+                                <span>Explore Extras</span>
+                                <i class="product-card__arrow material-icons" aria-hidden="true">arrow_forward</i>
+                            </div>
+                        </div>
+                        <div class="product-card__accent"></div>
+                    </a>
+                </div>
+
+                <div class="products-showcase__gallery">
+                    <img
+                        src="../../assets/images/Index page imgs/pexels-nancy-folgmann-61762-220911.jpg"
+                        alt="Fresh seasonal vegetables arranged for a CSA box"
+                        class="products-showcase__image products-showcase__image--primary"
+                        loading="lazy"
+                    />
+
+                    <img
+                        src="../../assets/images/Index page imgs/pexels-nikolaeva-nastia-3312562-9540183.jpg"
+                        alt="Local produce display with seasonal variety"
+                        class="products-showcase__image products-showcase__image--secondary"
+                        loading="lazy"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         9. MEMBERSHIP SECTION
+         ========================================
+         Features: Four-step CSA subscription overview, supporting note, CTA button
+         Accessibility: Steps are grouped in semantic article cards for easy scanning
+         Related CSS: .membership-section styles in style.css
+    ======================================== -->
+    <section class="membership-section" aria-labelledby="membership-title">
+        <div class="container membership-section__container">
+            <div class="membership-section__header">
+                <div>
+                    <p class="membership-section__eyebrow">How It Works</p>
+                    <h2 id="membership-title" class="membership-section__title">A simple subscription flow from plan selection to weekly pickup.</h2>
+                </div>
+                <p class="membership-section__text">
+                    The main experience is built around the same system shown on the products page: choose a plan, manage the schedule, receive your harvest, and update everything from the dashboard when needed.
+                </p>
+            </div>
+
+            <div class="membership-section__grid">
+                <article class="membership-card">
+                    <span class="membership-card__step">01</span>
+                    <h3 class="membership-card__title">Choose the right box</h3>
+                    <p class="membership-card__text">Start with a Small, Family, Fruit, or Vegetable Box based on how your household actually cooks.</p>
+                </article>
+                <article class="membership-card">
+                    <span class="membership-card__step">02</span>
+                    <h3 class="membership-card__title">Set billing and delivery</h3>
+                    <p class="membership-card__text">Pick a weekly or biweekly cadence where available and choose delivery or a nearby pickup point.</p>
+                </article>
+                <article class="membership-card">
+                    <span class="membership-card__step">03</span>
+                    <h3 class="membership-card__title">Receive the harvest</h3>
+                    <p class="membership-card__text">We pack to seasonal strength so the box reflects what is freshest and strongest in the field that week.</p>
+                </article>
+                <article class="membership-card">
+                    <span class="membership-card__step">04</span>
+                    <h3 class="membership-card__title">Manage it in your dashboard</h3>
+                    <p class="membership-card__text">Skip a week, pause a membership, change your address, or renew without manual back-and-forth.</p>
+                </article>
+            </div>
+
+            <div class="membership-section__footer">
+                <p class="membership-section__note">Recurring plans stay flexible, and add-ons can be attached later as your routine changes through the season.</p>
+                <a href="products.html#plans" class="btn-hero-primary">Explore CSA Plans</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         10. BLOG PREVIEW SECTION
+         ========================================
+         Features: Editorial preview cards, category labels, CTA to full blog page
+         Accessibility: Uses article cards with clear linked headings
+         Related CSS: .home-blog-section styles in style.css
+    ======================================== -->
+    <section class="home-blog-section" aria-labelledby="home-blog-title">
+        <div class="container home-blog-section__container">
+            <div class="home-blog-section__header">
+                <div>
+                    <p class="home-blog-section__eyebrow">From The Journal</p>
+                    <h2 id="home-blog-title" class="home-blog-section__title">Short reads for members who want better meals and better timing.</h2>
+                </div>
+                <a href="blog.html" class="home-blog-section__link">Read The Blog</a>
+            </div>
+
+            <div class="home-blog-grid">
+                <article class="home-blog-card">
+                    <span class="home-blog-card__tag">Seasonal Produce Guides</span>
+                    <h3><a href="blog-details.html?article=weekly-box">What’s in this week’s box and how to use it</a></h3>
+                    <p>A quick member read covering current harvest highlights, storage notes, and simple cooking ideas.</p>
+                </article>
+
+                <article class="home-blog-card">
+                    <span class="home-blog-card__tag">Recipes</span>
+                    <h3><a href="blog-details.html?article=family-box-dinners">Three dinners from one family box</a></h3>
+                    <p>Use one weekly delivery for a tray bake, a grain bowl, and a no-fuss greens pasta.</p>
+                </article>
+
+                <article class="home-blog-card">
+                    <span class="home-blog-card__tag">CSA Tips</span>
+                    <h3><a href="blog-details.html?article=pause-skip-week">When to pause, skip, or switch your plan</a></h3>
+                    <p>A short guide for handling travel, busy weeks, or changing household routines.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         11. TESTIMONIAL SECTION
+         ========================================
+         Features: Customer testimonials slider carousel
+         Accessibility: Uses aria-live="polite" for screen readers
+         Related JS: Testimonial slider functionality in main.js
+         Related CSS: .testimonial-section styles in style.css
+    ======================================== -->
+    <section class="testimonial-section" id="testimonials" aria-labelledby="testimonials-heading">
+        <div class="container">
+            <h2 id="testimonials-heading" class="testimonial-heading">What members say after the first few deliveries.</h2>
+            <div class="testimonial-slider" role="region" aria-label="Customer testimonials" aria-live="polite">
+                <div class="testimonial-slides-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="testimonial-slide active" data-slide="1" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3">
+                        <div class="testimonial-slide-inner">
+                            <div class="testimonial-avatar-wrapper">
+                                <div class="testimonial-quote-circle" aria-hidden="true">
+                                    <span>&ldquo;</span>
+                                </div>
+                                <img src="../../assets/images/Index page imgs/pexels-apunto-group-agencia-de-publicidad-53086916-7752791.jpg" alt="Rebecca Miller" class="testimonial-avatar">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="testimonial-top-row">
+                                    <div class="testimonial-info">
+                                        <h3 class="testimonial-name">Rebecca Miller</h3>
+                                        <p class="testimonial-role">Member since 2023</p>
+                                    </div>
+                                    <div class="testimonial-arrows">
+                                        <button class="testimonial-arrow testimonial-prev" aria-label="Previous testimonial">
+                                            <span class="material-icons" aria-hidden="true">chevron_left</span>
+                                        </button>
+                                        <button class="testimonial-arrow testimonial-next" aria-label="Next testimonial">
+                                            <span class="material-icons" aria-hidden="true">chevron_right</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="testimonial-divider" aria-hidden="true"></div>
+                                <blockquote class="testimonial-quote">
+                                    &ldquo;The biggest difference is consistency. The box feels planned around real cooking, and the dashboard makes it easy to skip a week without losing the routine.&rdquo;
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="testimonial-slide" data-slide="2" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3">
+                        <div class="testimonial-slide-inner">
+                            <div class="testimonial-avatar-wrapper">
+                                <div class="testimonial-quote-circle" aria-hidden="true">
+                                    <span>&ldquo;</span>
+                                </div>
+                                <img src="../../assets/images/Index page imgs/pexels-zaid-mohammed-86842527-10078860.jpg" alt="James Thompson" class="testimonial-avatar">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="testimonial-top-row">
+                                    <div class="testimonial-info">
+                                        <h3 class="testimonial-name">James Thompson</h3>
+                                        <p class="testimonial-role">Owner of Green Basket Co.</p>
+                                    </div>
+                                    <div class="testimonial-arrows">
+                                        <button class="testimonial-arrow testimonial-prev" aria-label="Previous testimonial">
+                                            <span class="material-icons" aria-hidden="true">chevron_left</span>
+                                        </button>
+                                        <button class="testimonial-arrow testimonial-next" aria-label="Next testimonial">
+                                            <span class="material-icons" aria-hidden="true">chevron_right</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="testimonial-divider" aria-hidden="true"></div>
+                                <blockquote class="testimonial-quote">
+                                    &ldquo;Joining the Pure Fields CSA program has been a game-changer for our family. The freshness and quality of every box we receive is unmatched. It feels wonderful to support local farmers while enjoying produce that tastes like it was just picked.&rdquo;
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="testimonial-slide" data-slide="3" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3">
+                        <div class="testimonial-slide-inner">
+                            <div class="testimonial-avatar-wrapper">
+                                <div class="testimonial-quote-circle" aria-hidden="true">
+                                    <span>&ldquo;</span>
+                                </div>
+                                <img src="../../assets/images/Index page imgs/pexels-reneterp-14208763.jpg" alt="Sarah Chen" class="testimonial-avatar">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="testimonial-top-row">
+                                    <div class="testimonial-info">
+                                        <h3 class="testimonial-name">Sarah Chen</h3>
+                                        <p class="testimonial-role">Chef at Farm Table Restaurant</p>
+                                    </div>
+                                    <div class="testimonial-arrows">
+                                        <button class="testimonial-arrow testimonial-prev" aria-label="Previous testimonial">
+                                            <span class="material-icons" aria-hidden="true">chevron_left</span>
+                                        </button>
+                                        <button class="testimonial-arrow testimonial-next" aria-label="Next testimonial">
+                                            <span class="material-icons" aria-hidden="true">chevron_right</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="testimonial-divider" aria-hidden="true"></div>
+                                <blockquote class="testimonial-quote">
+                                    &ldquo;As a chef, I demand the highest quality ingredients. Pure Fields delivers exactly that — vibrant, flavorful produce that elevates every dish I create. Their commitment to organic and sustainable farming truly shines through in the taste.&rdquo;
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main><!-- End Main Content -->
+
+
+    <!-- ========================================
+          12. FOOTER SECTION
+          ========================================
+          Features: Brand info, quick links, support links, newsletter form
+          Related JS: Newsletter form validation in main.js
+          Related CSS: .farm-footer styles in style.css
+    ======================================== -->
+    <footer class="farm-footer" role="contentinfo">
+        <div class="farm-footer-inner">
+            <div class="farm-col brand-col">
+                <a href="index.html" class="farm-logo-link" aria-label="Pure Fields Home">
+                    <i class="material-icons" aria-hidden="true">eco</i>
+                    <span>Pure Fields</span>
+                </a>
+                <p class="small-print">
+                    Fresh produce from local farms directly to your table. Quality organic vegetables and fruits.
+                </p>
+                <div class="social-row" aria-label="Social media links">
+                    <a href="#" aria-label="Follow us on Facebook">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" aria-label="Follow us on Twitter">
+                        <i class="fab fa-x-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" aria-label="Follow us on Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="farm-col links-col">
+                <h3>Quick Links</h3>
+                <div class="line" aria-hidden="true"></div>
+                <div class="two-col-links">
+                    <ul role="list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                    </ul>
+                    <ul role="list">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="farm-col links-col">
+                <h3>Support</h3>
+                <div class="line" aria-hidden="true"></div>
+                <ul role="list">
+                    <li><a href="../dashboards/admin-dashboard.html">Admin Dashboard</a></li>
+                    <li><a href="../dashboards/user-dashboard.html">User Dashboard</a></li>
+                    <li><a href="../auth/login.html">Login</a></li>
+                </ul>
+            </div>
+
+            <div class="farm-col newsletter-col">
+                <h3>Join our Mailing List</h3>
+                <div class="line" aria-hidden="true"></div>
+                <p>Subscribe to get the latest updates on fresh produce and special offers.</p>
+                <form class="newsletter-form" id="newsletter-form" aria-label="Subscribe to newsletter">
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            id="newsletter-email"
+                            placeholder="Enter your email"
+                            required
+                            aria-required="true"
+                            aria-describedby="email-error"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        >
+                        <button type="submit">Subscribe</button>
+                    </div>
+                    <span id="email-error" class="error-message" role="alert" aria-live="polite"></span>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>

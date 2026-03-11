@@ -1,0 +1,462 @@
+/* =============================================================================
+   PURE FIELDS - DARK MODE STYLESHEET
+   =============================================================================
+
+   Project: Local Farm & Community Supported Agriculture (CSA) Website
+   Description: Dark mode overrides extracted from the main stylesheet
+   Version: 1.0.0
+================================================================================ */
+
+/* -----------------------------------------------------------------------------
+   Dark Mode Skeleton Styles
+   -----------------------------------------------------------------------------
+   Adjust skeleton colors for dark mode.
+------------------------------------------------------------------------------ */
+
+html.dark .skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--bg-gray-dark) 25%,
+        var(--border-dark) 50%,
+        var(--bg-gray-dark) 75%
+    );
+    background-size: 200% 100%;
+}
+
+html.dark .skeleton-card {
+    background-color: var(--card-dark);
+    border-color: var(--border-dark);
+}
+
+html.dark .loading-spinner {
+    border-color: var(--border-dark);
+    border-top-color: var(--secondary);
+}
+
+
+/* =============================================================================
+   DARK MODE STYLES
+================================================================================ */
+
+html.dark {
+    --bg-light: #0b0f14;
+    --bg-gray-light: #1a1a1a;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+    --border-light: #374151;
+    --card-light: #1f2937;
+}
+
+html.dark body {
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+}
+
+html.dark :is(h1, h2, h3, h4) {
+    color: var(--heading-dark);
+}
+
+html.dark p {
+    color: var(--text-secondary);
+}
+
+html.dark .site-nav {
+    background-color: var(--bg-light);
+    border-color: var(--border-light);
+}
+
+html.dark .mobile-menu {
+    background-color: var(--bg-light);
+    border-color: var(--border-light);
+}
+
+html.dark .mobile-menu a {
+    color: var(--text-primary);
+    border-color: var(--border-light);
+}
+
+html.dark .nav-btn {
+    border-color: var(--border-light);
+    color: var(--text-primary);
+}
+
+html.dark .nav-btn:hover {
+    background-color: var(--bg-gray-light);
+    color: var(--primary);
+}
+
+html.dark .nav-cart i,
+html.dark .nav-cart .logo-bottom {
+    color: var(--text-primary);
+}
+
+html.dark .dropdown-menu {
+    background-color: var(--card-light);
+    border-color: var(--border-light);
+}
+
+html.dark .dropdown-menu a {
+    color: var(--text-secondary);
+}
+
+html.dark .dropdown-menu a:hover {
+    background-color: var(--bg-gray-light);
+    color: var(--primary);
+}
+
+html.dark :is(.card, .home-blog-card, .membership-card, .product-card, .testimonial-slide-inner) {
+    background-color: var(--card-light);
+    color: var(--text-secondary);
+    border-color: var(--border-light);
+}
+
+html.dark .index-page main {
+    background-color: var(--bg-light);
+}
+
+html.dark .about-section,
+html.dark .products-section {
+    background-color: var(--bg-light);
+}
+
+html.dark .transparency-section {
+    background-color: var(--bg-dark);
+    background-image: var(--transparency-bg-image);
+}
+
+html.dark .transparency-section .tab-btn {
+    background-color: var(--card-dark);
+}
+
+html.dark .transparency-section .tab-number {
+    color: var(--secondary);
+}
+
+html.dark .transparency-section .tab-label {
+    color: var(--text-primary);
+}
+
+html.dark .transparency-section .transparency-title {
+    color: var(--heading-dark);
+}
+
+html.dark .transparency-section .transparency-text {
+    color: var(--text-secondary-dark);
+}
+
+html.dark .products-showcase {
+    --products-bg: var(--bg-dark);
+    --products-text: var(--text-muted-dark);
+    --products-title: var(--heading-dark);
+    --products-border: var(--border-dark);
+    --products-accent: var(--secondary);
+    --products-accent-soft: rgba(74, 139, 120, 0.18);
+    --products-highlight: #d1fae5;
+    --products-white: var(--card-dark);
+}
+
+html.dark .products-showcase__description {
+    color: var(--text-secondary-dark);
+}
+
+html.dark .products-showcase__eyebrow,
+html.dark .products-showcase__badge,
+html.dark .products-showcase__button {
+    color: var(--heading-dark);
+}
+
+html.dark .index-page .products-showcase__button {
+    background-color: var(--white);
+    color: #111111;
+}
+
+html.dark .index-page .products-showcase__button:hover {
+    background-color: #f3f3f3;
+    color: #111111;
+}
+
+html.dark .product-card {
+    color: var(--text-secondary-dark);
+}
+
+html.dark .index-page .product-card {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+html.dark .product-card__content {
+    background-color: var(--card-dark);
+}
+
+html.dark .product-card__link,
+html.dark .product-card__title {
+    color: var(--heading-dark);
+}
+
+
+html.dark .about-section .about-title,
+html.dark .products-section .products-header h2,
+html.dark .products-section .product-name {
+    color: var(--heading-dark);
+}
+
+html.dark .about-section .about-text,
+html.dark .products-section .products-subtitle,
+html.dark .products-section .product-desc {
+    color: var(--text-secondary-dark);
+}
+
+html.dark .index-page .testimonial-section {
+    background-color: #0f1714;
+}
+
+html.dark .index-page .testimonial-slide-inner {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 1.75rem;
+}
+
+html.dark .index-page .testimonial-divider {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+html.dark .index-page .membership-section {
+    background:
+        radial-gradient(circle at top right, rgba(35, 54, 46, 0.72), transparent 28%),
+        linear-gradient(180deg, #101816 0%, #121c19 100%);
+}
+
+html.dark .index-page .membership-card {
+    background: rgba(20, 28, 25, 0.88);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 22px 44px rgba(0, 0, 0, 0.24);
+}
+
+html.dark .index-page .membership-card__step {
+    background: rgba(221, 183, 111, 0.14);
+    color: #e4c989;
+}
+
+html.dark .index-page .membership-section__title,
+html.dark .index-page .membership-card__title {
+    color: var(--heading-dark);
+}
+
+html.dark .index-page .membership-section__text,
+html.dark .index-page .membership-section__note,
+html.dark .index-page .membership-card__text {
+    color: var(--text-secondary-dark);
+}
+
+html.dark .testimonial-heading {
+    color: var(--heading-dark);
+}
+
+html.dark .testimonial-role,
+html.dark .testimonial-quote {
+    color: var(--text-secondary-dark);
+}
+
+html.dark .farm-footer::before {
+    background: rgba(0, 0, 0, 0.65);
+}
+
+html.dark .links-col a:hover,
+html.dark .social-row a:hover,
+html.dark .newsletter-form button:hover {
+    color: var(--white);
+}
+
+html.dark .newsletter-form .form-group {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark .farm-footer .newsletter-form input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    opacity: 1;
+}
+
+html.dark input,
+html.dark textarea,
+html.dark select {
+    background-color: var(--card-light);
+    color: var(--text-primary);
+    border-color: var(--border-light);
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+    color: var(--text-muted);
+}
+
+html.dark .contact-form-container,
+html.dark .auth-card,
+html.dark .dashboard-card,
+html.dark .stat-card {
+    /* background-color removed for better dark mode appearance */
+    color: var(--text-primary);
+    border-color: var(--border-light);
+}
+
+html.dark .table-container,
+html.dark .modal-content {
+    background-color: var(--card-light);
+    color: var(--text-primary);
+    border-color: var(--border-light);
+}
+
+html.dark .dashboard-sidebar {
+    background-color: var(--bg-gray-dark);
+    border-color: var(--border-light);
+}
+
+html.dark .dashboard-sidebar a:hover,
+html.dark .dashboard-sidebar a.active {
+    background-color: var(--card-light);
+}
+
+html.dark .table th,
+html.dark .table td {
+    border-color: var(--border-light);
+}
+
+html.dark .index-page .about-section .about-content {
+    background:
+        linear-gradient(145deg, rgba(49, 105, 90, 0.96) 0%, rgba(74, 139, 120, 0.9) 100%);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.24);
+}
+
+html.dark .index-page .about-section :is(.about-title, .about-text, .about-list li, .about-badge) {
+    color: var(--white);
+}
+
+html.dark .index-page .about-section .about-badge {
+    opacity: 0.96;
+}
+
+html.dark .index-page .about-section .about-list li i {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+html.dark .index-page .about-section .about-content .btn-hero-primary {
+    background: var(--white);
+    color: var(--primary);
+}
+
+html.dark .index-page .about-section .about-content .btn-hero-primary:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+html.dark .index-page .membership-card__step {
+    background: rgba(74, 139, 120, 0.18);
+    color: var(--secondary);
+}
+
+html.dark .index-page .home-blog-card {
+    background:
+        linear-gradient(180deg, rgba(18, 27, 24, 0.96) 0%, rgba(22, 34, 29, 0.94) 100%);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark .index-page .home-blog-card__tag {
+    color: var(--secondary);
+}
+
+html.dark .index-page .home-blog-card :is(h3, h3 a) {
+    color: var(--heading-dark);
+}
+
+html.dark .index-page .home-blog-card p {
+    color: var(--text-secondary-dark);
+}
+
+html.dark .home-page-2 .feature-card {
+    background:
+        linear-gradient(160deg, rgba(49, 105, 90, 0.96) 0%, rgba(23, 49, 38, 0.94) 100%);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.26);
+}
+
+html.dark .home-page-2 .feature-card__icon {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--secondary);
+}
+
+html.dark .home-page-2 :is(.feature-card__title, .testimonial-card__name) {
+    color: var(--heading-dark);
+}
+
+html.dark .home-page-2 .feature-card__text {
+    color: var(--text-secondary-dark);
+}
+
+html.dark .home-page-2 .products-section .catalog-card-label {
+    background: rgba(74, 139, 120, 0.18);
+    color: var(--secondary);
+}
+
+html.dark .home-page-2 .testimonial-card__content {
+    background:
+        linear-gradient(180deg, rgba(19, 27, 24, 0.96) 0%, rgba(24, 37, 31, 0.94) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-primary-dark);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.24);
+}
+
+html.dark .home-page-2 .testimonial-card__brand {
+    color: var(--secondary);
+}
+
+html.dark .home-page-2 .testimonial-card__quote {
+    color: var(--text-secondary-dark);
+}
+
+html.dark .home-page-2 .testimonial-card__meta {
+    color: var(--text-muted-dark);
+}
+
+html.dark .products-page .catalog-card-label {
+    background: rgba(74, 139, 120, 0.18);
+    color: var(--secondary);
+}
+
+html.dark .products-page .catalog-plan-card--featured .catalog-card-label {
+    background: rgba(255, 255, 255, 0.14);
+    color: var(--white);
+}
+
+html.dark .products-page .catalog-season-card {
+    background: rgba(20, 28, 25, 0.88);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark .products-page .catalog-season-card--active {
+    background:
+        linear-gradient(160deg, rgba(49, 105, 90, 0.96) 0%, rgba(23, 49, 38, 0.92) 100%);
+    border-color: rgba(74, 139, 120, 0.42);
+}
+
+html.dark .products-page .catalog-season-card--active :is(h3, p) {
+    color: var(--white);
+}
+
+html.dark .product-details-page .product-detail-season-panel,
+html.dark .product-details-page .product-detail-logistics__policy {
+    background:
+        linear-gradient(180deg, rgba(19, 27, 24, 0.96) 0%, rgba(24, 37, 31, 0.92) 100%);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 22px 44px rgba(0, 0, 0, 0.24);
+}
+
+html.dark .product-details-page .product-detail-season-panel :is(h3, p, li, strong),
+html.dark .product-details-page .product-detail-logistics__policy strong {
+    color: var(--heading-dark);
+}
+
+html.dark .product-details-page .product-detail-logistics__policy p,
+html.dark .product-details-page .product-detail-season-panel p {
+    color: var(--text-secondary-dark);
+}

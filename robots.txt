@@ -1,0 +1,48 @@
+# =============================================================================
+# Robots.txt for Pure Fields - Local Farm & CSA Website
+# =============================================================================
+# 
+# This file tells search engines which pages they can and cannot crawl on your website.
+# For more information about robots.txt, visit: https://www.robotstxt.org/
+#
+# =============================================================================
+
+# User-agent: Specifies which crawler the following rules apply to
+# * means all crawlers
+User-agent: *
+
+# Allow: Specifies which pages can be crawled
+# Allow crawling of all public pages
+Allow: /
+
+# Allow crawling of CSS and JavaScript files (required for proper indexing)
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+
+# Disallow: Specifies which pages should NOT be crawled
+# Disallow admin and dashboard areas (if they exist)
+Disallow: /admindashboard
+Disallow: /userdashboard
+Disallow: /login
+Disallow: /auth/
+
+# Sitemap: Location of your XML sitemap
+# Update this URL when your site is live
+Sitemap: https://purefields.com/sitemap.xml
+
+# Crawl-delay: Specifies how many seconds to wait between requests
+# Uncomment the following line if you want to add a delay (for smaller sites)
+# Crawl-delay: 1
+
+# =============================================================================
+# HOST DIRECTIVE
+# =============================================================================
+# Specifies the preferred domain for your site
+# Replace with your actual domain when deploying
+Host: https://purefields.com
+
+# =============================================================================
+# END OF ROBOTS.TXT
+# =============================================================================
+

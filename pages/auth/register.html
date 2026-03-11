@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- =============================================================================
+      PURE FIELDS - REGISTER PAGE
+      =============================================================================
+
+      Project: Local Farm & Community Supported Agriculture (CSA) Website
+      Version: 1.0.0
+      Description: Focused popup-style registration page for new CSA members
+
+      Table of Contents:
+      ------------------
+      1. Head Section - Meta tags, fonts, styles
+      2. Auth Shell - Standalone centered modal wrapper
+      3. Popup Header - Brand, title, and supporting line
+      4. Register Form - Account details and primary CTA
+      5. Footer Switch - Link back to login and terms note
+
+================================================================================ -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ========================================
+          1. HEAD SECTION
+          ========================================
+          Description: Metadata, fonts, and shared site styles
+    ======================================== -->
+    <meta name="description" content="Create a Pure Fields account to start managing your weekly farm box, CSA plan, and delivery preferences.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Register | Pure Fields</title>
+    <link rel="icon" type="image/jpeg" href="../../assets/images/growwpark_logo.jpg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../../assets/css/rtl.css">
+</head>
+<body class="auth-page register-page">
+
+    <!-- ========================================
+          2. AUTH SHELL SECTION
+          ========================================
+          Purpose: Creates a standalone popup-style auth layout
+          Accessibility: Main content is the only focus area on the page
+    ======================================== -->
+    <main id="main-content" class="auth-shell" tabindex="-1">
+        <section class="auth-card" aria-labelledby="auth-title">
+
+            <!-- ========================================
+                  3. POPUP HEADER SECTION
+                  ========================================
+                  Purpose: Shows brand identity and registration context
+                  Accessibility: Uses one clear page heading
+            ======================================== -->
+            <header class="auth-header">
+                <a href="../public/index.html" class="auth-logo" aria-label="Go to Pure Fields home page">
+                    <i class="material-icons" aria-hidden="true">eco</i>
+                    <span>Pure Fields</span>
+                </a>
+                <div class="auth-header__copy">
+                    <p class="auth-eyebrow">Register</p>
+                    <h1 id="auth-title">Create Account</h1>
+                    <p>Start managing your weekly farm box.</p>
+                </div>
+            </header>
+
+            <!-- ========================================
+                  4. REGISTER FORM SECTION
+                  ========================================
+                  Purpose: Collects essential account details for new members
+                  Accessibility: Uses labeled fields and a clear submit action
+            ======================================== -->
+            <form class="auth-form" action="../dashboards/user-dashboard.html" method="get" aria-label="Register form">
+                <div class="auth-form__field">
+                    <label for="register-name">Full Name</label>
+                    <input id="register-name" name="full_name" type="text" placeholder="Your full name" required>
+                </div>
+
+                <div class="auth-form__field">
+                    <label for="register-email">Email</label>
+                    <input id="register-email" name="email" type="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="auth-form__field">
+                    <label for="register-password">Password</label>
+                    <input id="register-password" name="password" type="password" placeholder="Create a password" required>
+                </div>
+
+                <div class="auth-form__field">
+                    <label for="register-confirm-password">Confirm Password</label>
+                    <input id="register-confirm-password" name="confirm_password" type="password" placeholder="Confirm your password" required>
+                </div>
+
+                <p class="form-error form-error-global" aria-live="polite"></p>
+                <button type="submit" class="auth-submit">Create Account</button>
+            </form>
+
+            <!-- ========================================
+                  5. FOOTER SWITCH SECTION
+                  ========================================
+                  Purpose: Moves returning users back into the login flow
+                  Accessibility: Keeps the alternate path and policy note visible
+            ======================================== -->
+            <footer class="auth-footer">
+                <p>Already have an account? <a href="login.html">Sign in</a></p>
+                <p class="auth-footer__note">By creating an account, you agree to our <a href="../public/about.html">Terms</a> and <a href="../public/contact-us.html">Privacy note</a>.</p>
+            </footer>
+        </section>
+    </main>
+
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>

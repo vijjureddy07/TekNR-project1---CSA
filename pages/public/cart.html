@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!-- =============================================================================
+      PURE FIELDS - CART PAGE
+      =============================================================================
+
+      Project: Local Farm & Community Supported Agriculture (CSA) Website
+      Version: 1.0.0
+      Description: Standalone cart and subscription review page for CSA plans,
+                  add-ons, delivery choices, and checkout totals
+
+      Table of Contents:
+      ------------------
+      1. Head Section - Meta tags, fonts, styles
+      2. Cart Modal Shell - Standalone cart wrapper without site nav/footer
+      3. Cart Header - Title, note, and close/back actions
+      4. Delivery and Address - Delivery or pickup selection and address review
+      5. Add-ons - Extra items for the route
+      6. Price Breakdown and Checkout - Totals and final CTA
+
+      Responsive Breakpoints:
+      -----------------------
+      - Desktop Large: 1200px+
+      - Desktop: 992px - 1199px
+      - Tablet: 768px - 991px
+      - Mobile: 480px - 767px
+      - Mobile Small: < 480px
+
+      Dependencies:
+      - Google Fonts: Poppins, Lora
+      - Material Icons (Google)
+      - Font Awesome 6.5.1
+
+================================================================================ -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ========================================
+          1. SEO META TAGS
+          ========================================
+          Description: Basic metadata for the standalone cart page
+    ======================================== -->
+    <meta name="description" content="Review your CSA cart, subscription details, add-ons, delivery selection, and checkout total.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Your CSA Cart | Pure Fields</title>
+    <link rel="icon" type="image/jpeg" href="../../assets/images/growwpark_logo.jpg">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+    <!-- Icon Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <!-- Dark Mode Stylesheet -->
+    <link rel="stylesheet" href="../../assets/css/dark-mode.css">
+
+    <!-- RTL Stylesheet -->
+    <link rel="stylesheet" href="../../assets/css/rtl.css">
+</head>
+<body class="cart-page">
+
+    <!-- ========================================
+          2. CART MODAL SHELL
+          ========================================
+          Purpose: Large popup-style cart layout without site navbar or footer
+          Accessibility: Main content starts immediately for focused checkout review
+    ======================================== -->
+    <main id="main-content" class="cart-modal" tabindex="-1">
+
+        <!-- ========================================
+              3. CART HEADER SECTION
+              ========================================
+              Purpose: Sets the cart context and provides lightweight exit actions
+              Accessibility: Uses a clear page H1 and simple back links
+        ======================================== -->
+        <header class="cart-header" aria-labelledby="cart-title">
+            <div class="cart-header__brand">
+                <a href="products.html" class="cart-header__logo" aria-label="Back to products">
+                    <i class="material-icons" aria-hidden="true">eco</i>
+                    <span>Pure Fields</span>
+                </a>
+                <div>
+                    <p id="cart-title" class="cart-header__title">Cart</p>
+                    <p class="cart-header__note">Review the cart after adding a plan from the subscription flow.</p>
+                </div>
+            </div>
+            <div class="cart-header__actions">
+                <a href="products.html" class="cart-header__link">Continue Browsing</a>
+                <a href="products-details.html?plan=family" id="cart-close-link" class="cart-header__close" aria-label="Close cart and return to product details">
+                    <span class="material-icons" aria-hidden="true">close</span>
+                </a>
+            </div>
+        </header>
+
+        <div class="cart-layout">
+            <section class="cart-content" aria-label="Cart details">
+
+                <!-- ========================================
+                      4. DELIVERY, PICKUP, AND ADDRESS SECTION
+                      ========================================
+                      Purpose: Lets members review delivery mode and confirm the address
+                      Accessibility: Uses grouped radio choices and clear address fields
+                ======================================== -->
+                <section class="cart-section cart-logistics" aria-labelledby="cart-logistics-title">
+                    <div class="cart-section__header">
+                        <div>
+                            <p class="cart-eyebrow">Delivery Or Pickup Selection</p>
+                            <h2 id="cart-logistics-title">Choose delivery or pickup.</h2>
+                        </div>
+                    </div>
+
+                    <div class="cart-logistics__grid">
+                        <article class="cart-data-card">
+                            <div class="cart-choice-group" role="radiogroup" aria-label="Delivery or pickup">
+                                <label class="cart-choice-card">
+                                    <input type="radio" name="fulfillment" value="delivery" checked>
+                                    <span>Home delivery</span>
+                                    <small>Flat route fee applied at checkout</small>
+                                </label>
+                                <label class="cart-choice-card">
+                                    <input type="radio" name="fulfillment" value="pickup">
+                                    <span>Pickup location</span>
+                                    <small>No delivery fee</small>
+                                </label>
+                            </div>
+
+                            <div class="cart-form-grid">
+                                <div class="cart-form-field">
+                                    <label for="cart-route">Route or pickup point</label>
+                                    <select id="cart-route">
+                                        <option>Wednesday delivery route</option>
+                                        <option>Thursday delivery route</option>
+                                        <option>Downtown Market Hall pickup</option>
+                                        <option>Northside Community Center pickup</option>
+                                    </select>
+                                </div>
+                                <div class="cart-form-field">
+                                    <label for="cart-window">Preferred window</label>
+                                    <select id="cart-window">
+                                        <option>8:00 AM to 12:00 PM</option>
+                                        <option>12:00 PM to 4:00 PM</option>
+                                        <option>4:00 PM to 7:00 PM</option>
+                                        <option>Saturday pickup window</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="cart-data-card">
+                            <p class="cart-eyebrow">Delivery Address Section</p>
+                            <h2>Confirm your address.</h2>
+                            <div class="cart-form-grid">
+                                <div class="cart-form-field cart-form-field--full">
+                                    <label for="cart-address-line-1">Street address</label>
+                                    <input id="cart-address-line-1" type="text" value="123 Farm Lane">
+                                </div>
+                                <div class="cart-form-field">
+                                    <label for="cart-city">City</label>
+                                    <input id="cart-city" type="text" value="Farmville">
+                                </div>
+                                <div class="cart-form-field">
+                                    <label for="cart-zip">ZIP code</label>
+                                    <input id="cart-zip" type="text" value="12345">
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- ========================================
+                      5. ADD-ONS SECTION
+                      ========================================
+                      Purpose: Lets members attach a few extra products to the route
+                      Accessibility: Add-ons use labeled checkboxes for clear selection
+                ======================================== -->
+                <section class="cart-section cart-extras" aria-labelledby="cart-extras-title">
+                    <div class="cart-extras__grid cart-extras__grid--single">
+                        <article class="cart-data-card">
+                            <p class="cart-eyebrow">Add-ons Section</p>
+                            <h2 id="cart-extras-title">Attach a few extras to the weekly route.</h2>
+                            <div class="cart-addon-list">
+                                <label class="cart-addon-card">
+                                    <input type="checkbox" data-addon-price="6" data-addon-name="Pasture Eggs">
+                                    <span class="cart-addon-card__title">Pasture Eggs</span>
+                                    <span class="cart-addon-card__price">+$6</span>
+                                </label>
+                                <label class="cart-addon-card">
+                                    <input type="checkbox" data-addon-price="5" data-addon-name="Whole Milk">
+                                    <span class="cart-addon-card__title">Whole Milk</span>
+                                    <span class="cart-addon-card__price">+$5</span>
+                                </label>
+                                <label class="cart-addon-card">
+                                    <input type="checkbox" data-addon-price="7" data-addon-name="Sourdough Bread">
+                                    <span class="cart-addon-card__title">Sourdough Bread</span>
+                                    <span class="cart-addon-card__price">+$7</span>
+                                </label>
+                                <label class="cart-addon-card">
+                                    <input type="checkbox" data-addon-price="9" data-addon-name="Wildflower Honey">
+                                    <span class="cart-addon-card__title">Wildflower Honey</span>
+                                    <span class="cart-addon-card__price">+$9</span>
+                                </label>
+                                <label class="cart-addon-card">
+                                    <input type="checkbox" data-addon-price="8" data-addon-name="Seasonal Jam">
+                                    <span class="cart-addon-card__title">Seasonal Jam</span>
+                                    <span class="cart-addon-card__price">+$8</span>
+                                </label>
+                                <label class="cart-addon-card">
+                                    <input type="checkbox" data-addon-price="12" data-addon-name="Flower Bundle">
+                                    <span class="cart-addon-card__title">Flower Bundle</span>
+                                    <span class="cart-addon-card__price">+$12</span>
+                                </label>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </section>
+
+            <!-- ========================================
+                  6. PRICE BREAKDOWN AND CHECKOUT SECTION
+                  ========================================
+                  Purpose: Gives a sticky review of totals and checkout actions
+                  Accessibility: Uses labeled values and a clear primary checkout button
+            ======================================== -->
+            <aside class="cart-sidebar" aria-labelledby="cart-summary-title">
+                <section class="cart-summary-card">
+                    <p class="cart-eyebrow">Selected Plan</p>
+                    <h2 id="cart-plan-name">No plan selected</h2>
+
+                    <div class="cart-summary-plan">
+                        <div class="cart-summary-plan__meta">
+                            <span id="cart-plan-badge" class="cart-plan-card__badge" hidden>Family Box</span>
+                            <span id="cart-plan-frequency" class="cart-summary-plan__frequency">Choose a CSA plan to begin checkout.</span>
+                        </div>
+                        <p id="cart-plan-summary">Your selected subscription will appear here once you add it from a plan detail page.</p>
+                        <div class="cart-summary-plan__details">
+                            <div><span>Size</span><strong id="cart-plan-size">Not added</strong></div>
+                            <div><span>Price</span><strong id="cart-plan-price">$0</strong></div>
+                            <div><span>Delivery frequency</span><strong id="cart-plan-frequency-detail">Not set</strong></div>
+                            <div class="cart-quantity-control">
+                                <span>Quantity</span>
+                                <div class="cart-quantity-control__row">
+                                    <button type="button" id="cart-qty-decrease" aria-label="Decrease quantity" disabled>-</button>
+                                    <input id="cart-qty-input" type="number" min="1" value="1" aria-label="Subscription quantity" disabled>
+                                    <button type="button" id="cart-qty-increase" aria-label="Increase quantity" disabled>+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="cart-eyebrow">Price Breakdown</p>
+                    <h2 id="cart-summary-title">Checkout summary</h2>
+
+                    <div class="cart-summary-list">
+                        <div><span>Plan price</span><strong id="cart-line-plan">$0.00</strong></div>
+                        <div><span>Add-ons</span><strong id="cart-line-addons">$0.00</strong></div>
+                        <div><span>Delivery fee</span><strong id="cart-line-delivery">$0.00</strong></div>
+                        <div><span>Tax</span><strong id="cart-line-tax">$0.00</strong></div>
+                    </div>
+
+                    <div class="cart-total-row">
+                        <span>Total</span>
+                        <strong id="cart-line-total">$0.00</strong>
+                    </div>
+
+                    <div class="cart-summary-note">
+                        <p id="cart-billing-note">Choose a plan from the products page before checkout becomes available.</p>
+                    </div>
+
+                    <div class="cart-summary-actions">
+                        <a href="products.html#plans" id="cart-checkout-link" class="cart-button cart-button--primary">Choose a Plan</a>
+                        <a href="products.html#plans" class="cart-button cart-button--secondary">Back to Plans</a>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Main JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>
