@@ -1,26 +1,11 @@
 <!DOCTYPE html>
-<!-- =============================================================================
-      PURE FIELDS - USER DASHBOARD
-      =============================================================================
-      Sections:
-      1. Head (meta, styles, fonts)
-      2. Skip link + Navigation
-      3. Topbar controls
-      4. Delivery + Subscription controls
-      5. Box contents & Add-ons
-      6. Delivery/Billing/Support
-      7. Recent history
-      8. Footer
-      9. Scripts
-============================================================================== -->
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Manage your Pure Fields CSA box, delivery preferences, and billing.">
     <title>User Dashboard | Pure Fields</title>
-    <link rel="icon" type="image/jpeg" href="../../assets/images/growwpark_logo.jpg">
-
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/pure-fields-favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -30,380 +15,285 @@
     <link rel="stylesheet" href="../../assets/css/rtl.css">
 </head>
 <body class="dashboard-page user-dashboard">
-
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <nav class="site-nav" role="navigation" aria-label="Main navigation">
-        <div class="nav-container">
-            <div class="nav-row">
-                <a href="../public/index.html" class="nav-logo" aria-label="Pure Fields - Home">
-                    <i class="material-icons" aria-hidden="true">eco</i>
-                    <div class="logo-text">
-                        <span class="logo-bottom">Pure Fields</span>
-                    </div>
-                </a>
-                <ul class="desktop-menu" role="menubar">
-                    <li class="dropdown" role="none">
-                        <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">Home <i class="material-icons" aria-hidden="true">expand_more</i></a>
-                        <div class="dropdown-menu" role="menu">
-                            <a href="../public/index.html" role="menuitem">Home Page 1</a>
-                            <a href="../public/home-page-2.html" role="menuitem">Home Page 2</a>
-                        </div>
-                    </li>
-                    <li><a href="../public/about.html" role="menuitem">About Us</a></li>
-                    <li><a href="../public/products.html" role="menuitem">Products</a></li>
-                    <li><a href="../public/blog.html" role="menuitem">Blog</a></li>
-                    <li><a href="../public/contact-us.html" role="menuitem">Contact Us</a></li>
-                    <li class="dropdown" role="none">
-                        <a href="#" class="active" aria-current="page" role="menuitem" aria-haspopup="true" aria-expanded="false">Dashboard <i class="material-icons" aria-hidden="true">expand_more</i></a>
-                        <div class="dropdown-menu" role="menu">
-                            <a href="admin-dashboard.html" role="menuitem">Admin Dashboard</a>
-                            <a href="user-dashboard.html" class="active" aria-current="page" role="menuitem">User Dashboard</a>
-                        </div>
-                    </li>
-                </ul>
-                <div class="nav-actions">
-                    <button id="theme-toggle" class="nav-btn" aria-label="Toggle dark/light theme" aria-pressed="false">
-                        <i class="material-icons" aria-hidden="true">light_mode</i>
-                    </button>
-                    <button id="rtl-toggle" class="nav-btn" aria-label="Toggle right-to-left layout" aria-pressed="false">
-                        <i class="material-icons" aria-hidden="true">translate</i>
-                    </button>
-                    <a href="../public/cart.html" class="nav-cart" aria-label="Shopping cart">
-                        <i class="material-icons" aria-hidden="true">shopping_cart</i>
-                        <div class="logo-text">
-                            <span class="logo-bottom">Cart</span>
-                        </div>
-                    </a>
-                    <a href="../auth/login.html" class="login-btn">Login</a>
-                    <button id="mobile-menu-toggle" class="nav-btn mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
-                        <i class="material-icons" aria-hidden="true">menu</i>
-                    </button>
-                </div>
-            </div>
-            <ul id="mobile-menu" class="mobile-menu hidden" role="menu" aria-label="Mobile navigation">
-                <li class="dropdown" role="none">
-                    <a href="#" role="menuitem" aria-haspopup="true">Home <i class="material-icons" aria-hidden="true">expand_more</i></a>
-                    <div class="dropdown-menu" role="menu">
-                        <a href="../public/index.html" role="menuitem">Home Page 1</a>
-                        <a href="../public/home-page-2.html" role="menuitem">Home Page 2</a>
-                    </div>
-                </li>
-                <li><a href="../public/about.html" role="menuitem">About Us</a></li>
-                <li><a href="../public/products.html" role="menuitem">Products</a></li>
-                <li><a href="../public/blog.html" role="menuitem">Blog</a></li>
-                <li><a href="../public/contact-us.html" role="menuitem">Contact Us</a></li>
-                <li class="dropdown" role="none">
-                    <a href="#" class="active" aria-current="page" role="menuitem" aria-haspopup="true">Dashboard <i class="material-icons" aria-hidden="true">expand_more</i></a>
-                    <div class="dropdown-menu" role="menu">
-                        <a href="admin-dashboard.html" role="menuitem">Admin Dashboard</a>
-                        <a href="user-dashboard.html" class="active" aria-current="page" role="menuitem">User Dashboard</a>
-                    </div>
-                </li>
-                <li><a href="../auth/login.html" role="menuitem">Login</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <header class="dashboard-topbar" aria-label="Member quick controls">
-        <div class="dashboard-topbar__inner">
-            <div class="dashboard-brand">
-                <div class="brand-mark">PF</div>
-                <div>
-                    <small>Member space</small>
-                    <strong>Your CSA Dashboard</strong>
-                </div>
-            </div>
-            <div class="topbar-actions">
-                <span class="chip chip-live"><span class="pulse-dot" aria-hidden="true"></span>Live status</span>
-                <button class="btn-ghost" type="button">Support</button>
-                <button class="btn-primary-solid" type="button">Shop add-ons</button>
-            </div>
-        </div>
-    </header>
-    <main class="dashboard-main dashboard-shell" id="main-content">
-        <!-- Next delivery + controls -->
-        <section class="dashboard-grid grid-2" aria-label="Delivery and controls">
-            <article class="card-block" aria-labelledby="next-delivery-heading">
-                <div class="section-header">
-                    <h2 id="next-delivery-heading">Next delivery</h2>
-                    <span class="pill pill-success" id="delivery-status">Confirmed</span>
-                </div>
-                <div class="stack">
-                    <div class="row">
-                        <div class="stack">
-                            <strong>Thursday, Mar 12 · 7:30–9:30a</strong>
-                            <p class="muted">Greens &amp; Roots Box · Drop at 214 Grove Ave, Apt 3B</p>
-                        </div>
-                        <div class="tag-row">
-                            <button class="btn-ghost" type="button" id="skip-btn">Skip week</button>
-                            <button class="btn-primary-solid" type="button" id="pause-btn">Pause</button>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="tag-row">
-                        <span class="tag">Add ice pack</span>
-                        <span class="tag">Gate code on file</span>
-                        <span class="tag">SMS on approach</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="card-block" aria-labelledby="controls-heading">
-                <div class="section-header">
-                    <h2 id="controls-heading">Subscription controls</h2>
-                    <span class="chip"><span class="pulse-dot" aria-hidden="true"></span>Autosave</span>
-                </div>
-                <div class="stack">
-                    <div class="row gridish">
-                        <div>
-                            <p class="micro">Plan</p>
-                            <strong>Greens &amp; Roots • Weekly</strong>
-                        </div>
-                        <button class="btn-ghost" type="button">Change plan</button>
-                        <span class="muted">Renews Apr 02</span>
-                    </div>
-                    <div class="row gridish">
-                        <div>
-                            <p class="micro">Status</p>
-                            <span id="subscription-status" class="pill pill-success">Active</span>
-                        </div>
-                        <button class="btn-ghost" type="button">Skip this week</button>
-                        <button class="btn-ghost" type="button" id="toggle-pause">Pause/resume</button>
-                    </div>
-                </div>
-            </article>
-        </section>
-
-        <!-- Box and add-ons -->
-        <section class="dashboard-grid grid-2" aria-label="Box contents and add-ons">
-            <article class="card-block" aria-labelledby="box-heading">
-                <div class="section-header">
-                    <h2 id="box-heading">Box contents</h2>
-                    <span class="pill pill-info">Swap open</span>
-                </div>
-                <div class="list-card">
-                    <div class="list-item">
-                        <div>
-                            <strong>Baby kale</strong>
-                            <p class="micro">Bunched · 1 lb</p>
-                        </div>
-                        <span class="pill pill-success">Locked</span>
-                        <a class="cta-inline" href="#">Notes</a>
-                    </div>
-                    <div class="list-item">
-                        <div>
-                            <strong>Chioggia beets</strong>
-                            <p class="micro">Swap window ends in 5h</p>
-                        </div>
-                        <span class="pill pill-info">Swappable</span>
-                        <a class="cta-inline" href="#">Swap</a>
-                    </div>
-                    <div class="list-item">
-                        <div>
-                            <strong>Heirloom tomatoes</strong>
-                            <p class="micro">Priority • ripe</p>
-                        </div>
-                        <span class="pill pill-warning">Watch temp</span>
-                        <a class="cta-inline" href="#">Notes</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="card-block" aria-labelledby="addons-heading">
-                <div class="section-header">
-                    <h2 id="addons-heading">Quick add-ons</h2>
-                    <span class="chip chip-live"><span class="pulse-dot" aria-hidden="true"></span>Live stock</span>
-                </div>
-                <div class="stack">
-                    <div class="add-on">
-                        <div>
-                            <strong>Pasture eggs · dozen</strong>
-                            <p class="micro">18 left</p>
-                        </div>
-                        <button type="button" data-add-toggle>+ Add</button>
-                    </div>
-                    <div class="add-on">
-                        <div>
-                            <strong>Country sourdough</strong>
-                            <p class="micro">Fresh at 6a</p>
-                        </div>
-                        <button type="button" data-add-toggle>+ Add</button>
-                    </div>
-                    <div class="add-on">
-                        <div>
-                            <strong>Cold brew growler</strong>
-                            <p class="micro">Chill pack auto-included</p>
-                        </div>
-                        <button type="button" data-add-toggle>+ Add</button>
-                    </div>
-                    <div class="add-on">
-                        <div>
-                            <strong>Flower share</strong>
-                            <p class="micro">Seasonal mix</p>
-                        </div>
-                        <button type="button" data-add-toggle>+ Add</button>
-                    </div>
-                </div>
-            </article>
-        </section>
-
-        <!-- Delivery, billing, support -->
-        <section class="dashboard-grid grid-3" aria-label="Delivery, billing, support">
-            <article class="card-block" aria-labelledby="delivery-details-heading">
-                <div class="section-header">
-                    <h2 id="delivery-details-heading">Delivery details</h2>
-                    <a class="cta-inline" href="#">Edit</a>
-                </div>
-                <div class="stack">
-                    <div>
-                        <p class="micro">Dropoff</p>
-                        <strong>214 Grove Ave, Apt 3B</strong>
-                    </div>
-                    <div class="meta-row">
-                        <span class="pill pill-success">Window 7:30–9:30a</span>
-                        <a class="map-link" href="#">Pickup map</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="card-block" aria-labelledby="billing-heading">
-                <div class="section-header">
-                    <h2 id="billing-heading">Billing</h2>
-                    <a class="cta-inline" href="#">Update card</a>
-                </div>
-                <div class="stack">
-                    <div class="row">
-                        <div>
-                            <p class="micro">Upcoming charge</p>
-                            <strong>$36.40 · Mar 11</strong>
-                        </div>
-                        <span class="pill pill-info">Visa • 2145</span>
-                    </div>
-                    <div class="row">
-                        <p class="muted">Delivery credits available: $12</p>
-                        <button class="btn-ghost" type="button">Apply credit</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="card-block" aria-labelledby="support-heading">
-                <div class="section-header">
-                    <h2 id="support-heading">Support</h2>
-                    <span class="pill pill-info">~6 min</span>
-                </div>
-                <div class="stack">
-                    <a class="cta-inline" href="#">FAQ</a>
-                    <a class="cta-inline" href="#">Chat with farm team</a>
-                    <p class="muted">We reply Mon–Sat, 7a–6p.</p>
-                </div>
-            </article>
-        </section>
-
-        
-
-        <!-- History -->
-        <section aria-label="Recent deliveries">
-            <div class="section-header">
-                <h2>Recent deliveries</h2>
-                <span class="chip">Last 3 weeks</span>
-            </div>
-            <div class="history-grid">
-                <div class="history-card">
-                    <div class="row">
-                        <strong>Mar 05 • Greens &amp; Roots</strong>
-                        <span class="pill pill-success">Delivered</span>
-                    </div>
-                    <p class="small-label">No issues reported</p>
-                </div>
-                <div class="history-card">
-                    <div class="row">
-                        <strong>Feb 27 • Chef’s Harvest</strong>
-                        <span class="pill pill-warning">Ice pack swap</span>
-                    </div>
-                    <p class="small-label">Driver added ice pack</p>
-                </div>
-                <div class="history-card">
-                    <div class="row">
-                        <strong>Feb 20 • Greens &amp; Roots</strong>
-                        <span class="pill pill-info">Left with neighbor</span>
-                    </div>
-                    <p class="small-label">Left at Apt 3A per note</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="farm-footer" role="contentinfo">
-        <div class="farm-footer-inner">
-            <div class="farm-col brand-col">
-                <a href="../public/index.html" class="farm-logo-link" aria-label="Pure Fields Home">
+    <div class="dashboard-layout">
+        <aside class="dashboard-sidebar" aria-label="User dashboard sidebar">
+            <div>
+                <a href="../public/index.html" class="dashboard-sidebar__logo" aria-label="Return to Pure Fields home page">
                     <i class="material-icons" aria-hidden="true">eco</i>
                     <span>Pure Fields</span>
                 </a>
-                <p class="small-print">
-                    Fresh produce from local farms directly to your table. Quality organic vegetables and fruits.
-                </p>
-                <div class="social-row" aria-label="Social media links">
-                    <a href="#" aria-label="Follow us on Facebook">
-                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" aria-label="Follow us on Twitter">
-                        <i class="fab fa-x-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" aria-label="Follow us on Instagram">
-                        <i class="fab fa-instagram" aria-hidden="true"></i>
-                    </a>
+                <p class="dashboard-sidebar__eyebrow">Member workspace for weekly boxes, delivery updates, add-ons, and billing.</p>
+            </div>
+
+            <div>
+                <p class="dashboard-sidebar__section-label">Workspace</p>
+                <nav class="dashboard-sidebar__nav" aria-label="User sections">
+                    <a href="#overview" class="dashboard-sidebar__link active"><i class="material-icons" aria-hidden="true">space_dashboard</i><span>Overview</span></a>
+                    <a href="#box" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">inventory</i><span>Box &amp; Add-ons</span></a>
+                    <a href="#delivery" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">local_shipping</i><span>Delivery &amp; Billing</span></a>
+                    <a href="#history" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">history</i><span>Recent History</span></a>
+                </nav>
+            </div>
+
+            <div>
+                <p class="dashboard-sidebar__section-label">Shortcuts</p>
+                <div class="dashboard-sidebar__meta">
+                    <a href="../public/products.html#addons" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">shopping_bag</i><span>Shop Add-ons</span></a>
+                    <a href="../public/contact-us.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">support_agent</i><span>Contact Support</span></a>
+                    <a href="admin-dashboard.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">admin_panel_settings</i><span>Admin Dashboard</span></a>
                 </div>
             </div>
 
-            <div class="farm-col links-col">
-                <h3>Quick Links</h3>
-                <div class="line" aria-hidden="true"></div>
-                <div class="two-col-links">
-                    <ul role="list">
-                        <li><a href="../public/index.html">Home</a></li>
-                        <li><a href="../public/about.html">About Us</a></li>
-                        <li><a href="../public/products.html">Products</a></li>
-                    </ul>
-                    <ul role="list">
-                        <li><a href="../public/blog.html">Blog</a></li>
-                        <li><a href="../public/contact-us.html">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="farm-col links-col">
-                <h3>Support</h3>
-                <div class="line" aria-hidden="true"></div>
-                <ul role="list">
-                    <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
-                    <li><a href="user-dashboard.html">User Dashboard</a></li>
-                    <li><a href="../auth/login.html">Login</a></li>
-                </ul>
-            </div>
-
-            <div class="farm-col newsletter-col">
-                <h3>Join our Mailing List</h3>
-                <div class="line" aria-hidden="true"></div>
-                <p>Subscribe to get the latest updates on fresh produce and special offers.</p>
-                <form class="newsletter-form" id="newsletter-form" aria-label="Subscribe to newsletter">
-                    <div class="form-group">
-                        <input 
-                            type="email" 
-                            id="newsletter-email" 
-                            placeholder="Enter your email" 
-                            required
-                            aria-required="true"
-                            aria-describedby="email-error"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"
-                        >
-                        <button type="submit">Subscribe</button>
+            <section class="dashboard-sidebar__profile" aria-label="Member profile">
+                <div class="dashboard-profile">
+                    <div class="dashboard-profile__avatar" aria-hidden="true">SJ</div>
+                    <div>
+                        <strong>Sarah Johnson</strong>
+                        <p>Family Box Member</p>
                     </div>
-                    <span id="email-error" class="error-message" role="alert" aria-live="polite"></span>
-                </form>
-            </div>
+                </div>
+
+                <div class="dashboard-sidebar__utility" aria-label="Display controls">
+                    <button id="theme-toggle" class="nav-btn" aria-label="Toggle dark/light theme" aria-pressed="false">
+                        <i class="material-icons" aria-hidden="true">light_mode</i>
+                    </button>
+                    <button id="rtl-toggle" class="nav-btn nav-btn--text" aria-label="Toggle right-to-left layout" aria-pressed="false">
+                        <span class="nav-btn__label">RTL</span>
+                    </button>
+                </div>
+
+                <a href="../auth/login.html" class="dashboard-logout">Logout</a>
+            </section>
+        </aside>
+
+        <div class="dashboard-workspace">
+            <header class="dashboard-topbar" aria-label="Member quick controls">
+                <div class="dashboard-topbar__inner">
+                    <div class="dashboard-brand">
+                        <div class="brand-mark">PF</div>
+                        <div>
+                            <small>Member space</small>
+                            <strong>Your CSA Dashboard</strong>
+                        </div>
+                    </div>
+                    <div class="topbar-actions">
+                        <span class="chip chip-live"><span class="pulse-dot" aria-hidden="true"></span>Live status</span>
+                        <button class="btn-ghost" type="button">Support</button>
+                        <button class="btn-primary-solid" type="button">Shop add-ons</button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="dashboard-main dashboard-shell" id="main-content">
+                <section id="overview" class="dashboard-grid grid-2" aria-label="Delivery and controls">
+                    <article class="card-block" aria-labelledby="next-delivery-heading">
+                        <div class="section-header">
+                            <h2 id="next-delivery-heading">Next delivery</h2>
+                            <span class="pill pill-success" id="delivery-status">Confirmed</span>
+                        </div>
+                        <div class="stack">
+                            <div class="row">
+                                <div class="stack">
+                                    <strong>Thursday, Mar 12 · 7:30–9:30a</strong>
+                                    <p class="muted">Greens &amp; Roots Box · Drop at 214 Grove Ave, Apt 3B</p>
+                                </div>
+                                <div class="tag-row">
+                                    <button class="btn-ghost" type="button" id="skip-btn">Skip week</button>
+                                    <button class="btn-primary-solid" type="button" id="pause-btn">Pause</button>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="tag-row">
+                                <span class="tag">Add ice pack</span>
+                                <span class="tag">Gate code on file</span>
+                                <span class="tag">SMS on approach</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card-block" aria-labelledby="controls-heading">
+                        <div class="section-header">
+                            <h2 id="controls-heading">Subscription controls</h2>
+                            <span class="chip"><span class="pulse-dot" aria-hidden="true"></span>Autosave</span>
+                        </div>
+                        <div class="stack">
+                            <div class="row gridish">
+                                <div>
+                                    <p class="micro">Plan</p>
+                                    <strong>Greens &amp; Roots • Weekly</strong>
+                                </div>
+                                <button class="btn-ghost" type="button">Change plan</button>
+                                <span class="muted">Renews Apr 02</span>
+                            </div>
+                            <div class="row gridish">
+                                <div>
+                                    <p class="micro">Status</p>
+                                    <span id="subscription-status" class="pill pill-success">Active</span>
+                                </div>
+                                <button class="btn-ghost" type="button">Skip this week</button>
+                                <button class="btn-ghost" type="button" id="toggle-pause">Pause/resume</button>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="box" class="dashboard-grid grid-2" aria-label="Box contents and add-ons">
+                    <article class="card-block" aria-labelledby="box-heading">
+                        <div class="section-header">
+                            <h2 id="box-heading">Box contents</h2>
+                            <span class="pill pill-info">Swap open</span>
+                        </div>
+                        <div class="list-card">
+                            <div class="list-item">
+                                <div>
+                                    <strong>Baby kale</strong>
+                                    <p class="micro">Bunched · 1 lb</p>
+                                </div>
+                                <span class="pill pill-success">Locked</span>
+                                <a class="cta-inline" href="#">Notes</a>
+                            </div>
+                            <div class="list-item">
+                                <div>
+                                    <strong>Chioggia beets</strong>
+                                    <p class="micro">Swap window ends in 5h</p>
+                                </div>
+                                <span class="pill pill-info">Swappable</span>
+                                <a class="cta-inline" href="#">Swap</a>
+                            </div>
+                            <div class="list-item">
+                                <div>
+                                    <strong>Heirloom tomatoes</strong>
+                                    <p class="micro">Priority • ripe</p>
+                                </div>
+                                <span class="pill pill-warning">Watch temp</span>
+                                <a class="cta-inline" href="#">Notes</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card-block" aria-labelledby="addons-heading">
+                        <div class="section-header">
+                            <h2 id="addons-heading">Quick add-ons</h2>
+                            <span class="chip chip-live"><span class="pulse-dot" aria-hidden="true"></span>Live stock</span>
+                        </div>
+                        <div class="stack">
+                            <div class="add-on">
+                                <div>
+                                    <strong>Pasture eggs · dozen</strong>
+                                    <p class="micro">18 left</p>
+                                </div>
+                                <button type="button" data-add-toggle>+ Add</button>
+                            </div>
+                            <div class="add-on">
+                                <div>
+                                    <strong>Country sourdough</strong>
+                                    <p class="micro">Fresh at 6a</p>
+                                </div>
+                                <button type="button" data-add-toggle>+ Add</button>
+                            </div>
+                            <div class="add-on">
+                                <div>
+                                    <strong>Cold brew growler</strong>
+                                    <p class="micro">Chill pack auto-included</p>
+                                </div>
+                                <button type="button" data-add-toggle>+ Add</button>
+                            </div>
+                            <div class="add-on">
+                                <div>
+                                    <strong>Flower share</strong>
+                                    <p class="micro">Seasonal mix</p>
+                                </div>
+                                <button type="button" data-add-toggle>+ Add</button>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="delivery" class="dashboard-grid grid-3" aria-label="Delivery, billing, support">
+                    <article class="card-block" aria-labelledby="delivery-details-heading">
+                        <div class="section-header">
+                            <h2 id="delivery-details-heading">Delivery details</h2>
+                            <a class="cta-inline" href="#">Edit</a>
+                        </div>
+                        <div class="stack">
+                            <div>
+                                <p class="micro">Dropoff</p>
+                                <strong>214 Grove Ave, Apt 3B</strong>
+                            </div>
+                            <div class="meta-row">
+                                <span class="pill pill-success">Window 7:30–9:30a</span>
+                                <a class="map-link" href="#">Pickup map</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card-block" aria-labelledby="billing-heading">
+                        <div class="section-header">
+                            <h2 id="billing-heading">Billing</h2>
+                            <a class="cta-inline" href="#">Update card</a>
+                        </div>
+                        <div class="stack">
+                            <div class="row">
+                                <div>
+                                    <p class="micro">Upcoming charge</p>
+                                    <strong>$36.40 · Mar 11</strong>
+                                </div>
+                                <span class="pill pill-info">Visa • 2145</span>
+                            </div>
+                            <div class="row">
+                                <p class="muted">Delivery credits available: $12</p>
+                                <button class="btn-ghost" type="button">Apply credit</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card-block" aria-labelledby="support-heading">
+                        <div class="section-header">
+                            <h2 id="support-heading">Support</h2>
+                            <span class="pill pill-info">~6 min</span>
+                        </div>
+                        <div class="stack">
+                            <a class="cta-inline" href="#">FAQ</a>
+                            <a class="cta-inline" href="#">Chat with farm team</a>
+                            <p class="muted">We reply Mon–Sat, 7a–6p.</p>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="history" aria-label="Recent deliveries">
+                    <div class="section-header">
+                        <h2>Recent deliveries</h2>
+                        <span class="chip">Last 3 weeks</span>
+                    </div>
+                    <div class="history-grid">
+                        <div class="history-card">
+                            <div class="row">
+                                <strong>Mar 05 • Greens &amp; Roots</strong>
+                                <span class="pill pill-success">Delivered</span>
+                            </div>
+                            <p class="small-label">No issues reported</p>
+                        </div>
+                        <div class="history-card">
+                            <div class="row">
+                                <strong>Feb 27 • Chef’s Harvest</strong>
+                                <span class="pill pill-warning">Ice pack swap</span>
+                            </div>
+                            <p class="small-label">Driver added ice pack</p>
+                        </div>
+                        <div class="history-card">
+                            <div class="row">
+                                <strong>Feb 20 • Greens &amp; Roots</strong>
+                                <span class="pill pill-info">Left with neighbor</span>
+                            </div>
+                            <p class="small-label">Left at Apt 3A per note</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
         </div>
-    </footer>
+    </div>
 
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/dashboard.js"></script>

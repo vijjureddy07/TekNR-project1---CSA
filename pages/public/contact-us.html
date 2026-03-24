@@ -67,7 +67,7 @@
     <meta property="twitter:image" content="../../assets/images/About us imgs/pexels-rdne-8540256.jpg">
 
     <title>Contact Us | Pure Fields</title>
-    <link rel="icon" type="image/jpeg" href="../../assets/images/growwpark_logo.jpg">
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/pure-fields-favicon.svg">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
@@ -137,8 +137,8 @@
                     <button id="theme-toggle" class="nav-btn" aria-label="Toggle dark/light theme" aria-pressed="false">
                         <i class="material-icons" aria-hidden="true">light_mode</i>
                     </button>
-                    <button id="rtl-toggle" class="nav-btn" aria-label="Toggle right-to-left layout" aria-pressed="false">
-                        <i class="material-icons" aria-hidden="true">translate</i>
+                    <button id="rtl-toggle" class="nav-btn nav-btn--text" aria-label="Toggle right-to-left layout" aria-pressed="false">
+                        <span class="nav-btn__label">RTL</span>
                     </button>
                     <a href="cart.html" class="nav-cart" aria-label="Shopping cart">
                         <i class="material-icons" aria-hidden="true">shopping_cart</i>
@@ -318,118 +318,49 @@
                     </div>
                 </article>
 
-                <article class="contact-pickup-card">
-                    <div class="contact-address-block">
-                        <h3>Main Farm Address</h3>
-                        <p>123 Farm Road</p>
-                        <p>Farmville, CA 12345</p>
-                    </div>
+                <div class="contact-location__stack">
+                    <article class="contact-pickup-card">
+                        <div class="contact-address-block">
+                            <h3>Main Farm Address</h3>
+                            <p>123 Farm Road</p>
+                            <p>Farmville, CA 12345</p>
+                        </div>
 
-                    <div class="contact-pickup-points">
-                        <h3>Main Pickup Points</h3>
-                        <ul role="list">
-                            <li>Downtown Market Hall, Wednesdays, 4:00 PM to 6:00 PM</li>
-                            <li>Northside Community Center, Thursdays, 5:00 PM to 7:00 PM</li>
-                            <li>Pure Fields Farm Stand, Saturdays, 9:00 AM to 1:00 PM</li>
-                        </ul>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- ========================================
-              8. DELIVERY AND DASHBOARD SUPPORT SECTION
-              ========================================
-              Purpose: Explains delivery help and highlights dashboard self-service actions
-              Accessibility: Uses short action cards for easy scanning
-        ======================================== -->
-        <section class="contact-operations" aria-labelledby="contact-operations-title">
-            <div class="contact-shell">
-                <div class="contact-section-heading">
-                    <div>
-                        <p class="contact-eyebrow">Delivery And Member Support</p>
-                        <h2 id="contact-operations-title">Solve the common support issues quickly.</h2>
-                    </div>
-                </div>
-
-                <div class="contact-operations__grid">
-                    <article class="contact-panel-card">
-                        <p class="contact-eyebrow">Delivery Support Info</p>
-                        <h3>For missed or delayed deliveries, contact the route team early.</h3>
-                        <ul class="contact-list" role="list">
-                            <li>Delivery zones currently cover the central city and nearby neighborhoods.</li>
-                            <li>Main delivery days are Wednesday and Thursday, depending on the route.</li>
-                            <li>Report missed deliveries or delays through the form or by phone during support hours.</li>
-                        </ul>
-                    </article>
-
-                    <article class="contact-panel-card">
-                        <p class="contact-eyebrow">Dashboard Support</p>
-                        <h3>Handle routine account changes without waiting on support.</h3>
-                        <div class="contact-action-stack">
-                            <a href="../dashboards/user-dashboard.html" class="contact-action-link">Update Address</a>
-                            <a href="../dashboards/user-dashboard.html" class="contact-action-link">Pause Membership</a>
-                            <a href="../dashboards/user-dashboard.html" class="contact-action-link">Manage Weekly Subscription</a>
-                            <a href="../dashboards/user-dashboard.html" class="contact-action-link">Check Billing</a>
+                        <div class="contact-pickup-points">
+                            <h3>Main Pickup Points</h3>
+                            <ul role="list">
+                                <li>Downtown Market Hall, Wednesdays, 4:00 PM to 6:00 PM</li>
+                                <li>Northside Community Center, Thursdays, 5:00 PM to 7:00 PM</li>
+                                <li>Pure Fields Farm Stand, Saturdays, 9:00 AM to 1:00 PM</li>
+                            </ul>
                         </div>
                     </article>
+
+                    <article class="contact-faq-card">
+                        <p class="contact-eyebrow">FAQ Preview</p>
+                        <h2 id="contact-community-title">Common support questions.</h2>
+
+                        <details>
+                            <summary>How do I pause or skip a week?</summary>
+                            <p>Use the dashboard before your billing cutoff, or contact support if you need help updating the schedule.</p>
+                        </details>
+
+                        <details>
+                            <summary>Who should I contact about billing issues?</summary>
+                            <p>Choose `Billing Support` in the form, or email the support team directly for invoice or renewal questions.</p>
+                        </details>
+
+                        <details>
+                            <summary>Can I change my pickup point?</summary>
+                            <p>Yes. Update it from the dashboard or contact the team before the weekly route closes.</p>
+                        </details>
+
+                        <details>
+                            <summary>What happens if my delivery is delayed?</summary>
+                            <p>The route team sends updates as quickly as possible. If your box does not arrive, contact support the same day.</p>
+                        </details>
+                    </article>
                 </div>
-            </div>
-        </section>
-
-        <!-- ========================================
-              9. FAQ PREVIEW AND COMMUNITY LINKS SECTION
-              ========================================
-              Purpose: Covers common support questions and gives community contact channels
-              Accessibility: Uses native details/summary for FAQ interaction
-        ======================================== -->
-        <section class="contact-community" aria-labelledby="contact-community-title">
-            <div class="contact-shell contact-community__grid">
-                <article class="contact-faq-card">
-                    <p class="contact-eyebrow">FAQ Preview</p>
-                    <h2 id="contact-community-title">Common support questions.</h2>
-
-                    <details>
-                        <summary>How do I pause or skip a week?</summary>
-                        <p>Use the dashboard before your billing cutoff, or contact support if you need help updating the schedule.</p>
-                    </details>
-
-                    <details>
-                        <summary>Who should I contact about billing issues?</summary>
-                        <p>Choose `Billing Support` in the form, or email the support team directly for invoice or renewal questions.</p>
-                    </details>
-
-                    <details>
-                        <summary>Can I change my pickup point?</summary>
-                        <p>Yes. Update it from the dashboard or contact the team before the weekly route closes.</p>
-                    </details>
-
-                    <details>
-                        <summary>What happens if my delivery is delayed?</summary>
-                        <p>The route team sends updates as quickly as possible. If your box does not arrive, contact support the same day.</p>
-                    </details>
-                </article>
-
-                <article class="contact-social-card">
-                    <p class="contact-eyebrow">Community / Social Links</p>
-                    <h2>Stay close to farm updates and local events.</h2>
-                    <p>Use social channels for farm stories, pickup-day reminders, and event notices. For account support, use the form or email so requests do not get lost.</p>
-
-                    <div class="contact-social-links">
-                        <a href="#" aria-label="Follow Pure Fields on Instagram">
-                            <i class="fab fa-instagram" aria-hidden="true"></i>
-                            <span>Instagram</span>
-                        </a>
-                        <a href="#" aria-label="Follow Pure Fields on Facebook">
-                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                            <span>Facebook</span>
-                        </a>
-                        <a href="#" aria-label="Follow Pure Fields on X">
-                            <i class="fab fa-x-twitter" aria-hidden="true"></i>
-                            <span>X / Twitter</span>
-                        </a>
-                    </div>
-                </article>
             </div>
         </section>
     </main>

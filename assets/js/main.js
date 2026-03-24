@@ -82,29 +82,36 @@ document.addEventListener('DOMContentLoaded', function() {
      * @function updateThemeIcon
      * @returns {void}
      */
-    function updateThemeIcon() {
-        if (themeToggle) {
-            const icon = themeToggle.querySelector('i');
-            themeToggle.setAttribute('aria-pressed', String(html.classList.contains('dark')));
-            if (icon) {
-                if (html.classList.contains('dark')) {
-                    icon.textContent = 'dark_mode';
-                } else {
-                    icon.textContent = 'light_mode';
-                }
-            }
+    function syncThemeControl(button, isDark) {
+        if (!button) return;
+
+        const icon = button.querySelector('i');
+        button.setAttribute('aria-pressed', String(isDark));
+
+        if (icon) {
+            icon.textContent = isDark ? 'dark_mode' : 'light_mode';
         }
     }
 
+    function updateThemeControls() {
+        const isDark = html.classList.contains('dark');
+
+        document.querySelectorAll('#theme-toggle, [data-theme-proxy]').forEach(function(button) {
+            syncThemeControl(button, isDark);
+        });
+
+        document.dispatchEvent(new CustomEvent('themecontrolchange', { detail: { isDark: isDark } }));
+    }
+
     // Initial icon update
-    updateThemeIcon();
+    updateThemeControls();
 
     // Theme toggle click handler
     if (themeToggle) {
         themeToggle.addEventListener('click', function() {
             const isDark = html.classList.toggle('dark');
             localStorage.theme = isDark ? 'dark' : 'light';
-            updateThemeIcon();
+            updateThemeControls();
         });
     }
 
@@ -112,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
     prefersDarkScheme.addEventListener('change', function(e) {
         if (!localStorage.theme) {
             html.classList.toggle('dark', e.matches);
-            updateThemeIcon();
+            updateThemeControls();
         }
     });
 });
@@ -128,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
    Usage:
    <button id="rtl-toggle" aria-label="Toggle right-to-left layout">
-     <i class="material-icons">translate</i>
+     <span class="nav-btn__label">RTL</span>
    </button>
 
    Note: Add rtl.css stylesheet for complete RTL support
@@ -138,15 +145,41 @@ document.addEventListener('DOMContentLoaded', function() {
     const rtlToggle = document.getElementById('rtl-toggle');
     const html = document.documentElement;
 
+    function ensureDirectionLabel(button) {
+        if (!button) return null;
+
+        button.classList.add('nav-btn--text');
+
+        let label = button.querySelector('.nav-btn__label');
+        if (!label) {
+            button.innerHTML = '<span class="nav-btn__label">RTL</span>';
+            label = button.querySelector('.nav-btn__label');
+        }
+
+        return label;
+    }
+
     /**
      * Syncs the RTL toggle state with the current document direction.
      * @function updateDirectionState
      * @returns {void}
      */
-    function updateDirectionState() {
-        if (rtlToggle) {
-            rtlToggle.setAttribute('aria-pressed', String(html.getAttribute('dir') === 'rtl'));
+    function syncDirectionControl(button, isRtl) {
+        if (!button) return;
+        const label = ensureDirectionLabel(button);
+        button.setAttribute('aria-pressed', String(isRtl));
+
+        if (label) {
+            label.textContent = isRtl ? 'LTR' : 'RTL';
         }
+    }
+
+    function updateDirectionState() {
+        const isRtl = html.getAttribute('dir') === 'rtl';
+
+        document.querySelectorAll('#rtl-toggle, [data-rtl-proxy]').forEach(function(button) {
+            syncDirectionControl(button, isRtl);
+        });
     }
 
     // Restore saved direction preference
@@ -190,6 +223,104 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('mobile-menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const dropdowns = document.querySelectorAll('.dropdown');
+    const nav = document.querySelector('.site-nav');
+    const themeToggle = document.getElementById('theme-toggle');
+    const rtlToggle = document.getElementById('rtl-toggle');
+    const navCart = nav ? nav.querySelector('.nav-cart') : null;
+    const loginLink = nav ? nav.querySelector('.login-btn') : null;
+    const html = document.documentElement;
+
+    function syncUtilityButtons() {
+        const isDark = html.classList.contains('dark');
+        const isRtl = html.getAttribute('dir') === 'rtl';
+
+        document.querySelectorAll('[data-theme-proxy]').forEach(function(button) {
+            button.setAttribute('aria-pressed', String(isDark));
+            const icon = button.querySelector('i');
+            if (icon) {
+                icon.textContent = isDark ? 'dark_mode' : 'light_mode';
+            }
+        });
+
+        document.querySelectorAll('[data-rtl-proxy]').forEach(function(button) {
+            button.classList.add('nav-btn--text');
+            button.setAttribute('aria-pressed', String(isRtl));
+            const label = button.querySelector('.nav-btn__label');
+            if (label) {
+                label.textContent = isRtl ? 'LTR' : 'RTL';
+            }
+        });
+    }
+
+    function buildMobileUtilityMenu() {
+        if (!mobileMenu) return;
+
+        mobileMenu.querySelectorAll('a[href*="login.html"]').forEach(function(anchor) {
+            const listItem = anchor.parentElement;
+            if (listItem && listItem.parentElement === mobileMenu) {
+                listItem.remove();
+            }
+        });
+
+        let utilityItem = mobileMenu.querySelector('.mobile-menu__utility-item');
+        if (!utilityItem) {
+            utilityItem = document.createElement('li');
+            utilityItem.className = 'mobile-menu__utility-item';
+            utilityItem.setAttribute('role', 'none');
+            utilityItem.innerHTML = [
+                '<div class="mobile-menu__utility">',
+                '  <div class="mobile-menu__utility-buttons">',
+                '    <button type="button" class="nav-btn mobile-menu__utility-btn" data-theme-proxy aria-label="Toggle dark/light theme" aria-pressed="false">',
+                '      <i class="material-icons" aria-hidden="true">light_mode</i>',
+                '    </button>',
+                '    <button type="button" class="nav-btn mobile-menu__utility-btn nav-btn--text" data-rtl-proxy aria-label="Toggle right-to-left layout" aria-pressed="false">',
+                '      <span class="nav-btn__label">RTL</span>',
+                '    </button>',
+                '  </div>',
+                '</div>'
+            ].join('');
+            mobileMenu.appendChild(utilityItem);
+        }
+
+        const utility = utilityItem.querySelector('.mobile-menu__utility');
+        if (!utility) return;
+
+        let cartItem = mobileMenu.querySelector('.mobile-menu__cart-item');
+        if (!cartItem && navCart) {
+            cartItem = document.createElement('li');
+            cartItem.className = 'mobile-menu__cart-item';
+            cartItem.setAttribute('role', 'none');
+            cartItem.innerHTML = '<a href="' + (navCart.getAttribute('href') || '#') + '" role="menuitem">Cart</a>';
+            mobileMenu.appendChild(cartItem);
+        }
+
+        let loginItem = mobileMenu.querySelector('.mobile-menu__login-item');
+        if (!loginItem && loginLink) {
+            loginItem = document.createElement('li');
+            loginItem.className = 'mobile-menu__login-item';
+            loginItem.setAttribute('role', 'none');
+            loginItem.innerHTML = '<a href="' + (loginLink.getAttribute('href') || '#') + '" role="menuitem">' + (loginLink.textContent.trim() || 'Login') + '</a>';
+            mobileMenu.appendChild(loginItem);
+        }
+
+        utility.querySelectorAll('[data-theme-proxy]').forEach(function(button) {
+            button.addEventListener('click', function() {
+                if (themeToggle) {
+                    themeToggle.click();
+                }
+            });
+        });
+
+        utility.querySelectorAll('[data-rtl-proxy]').forEach(function(button) {
+            button.addEventListener('click', function() {
+                if (rtlToggle) {
+                    rtlToggle.click();
+                }
+            });
+        });
+
+        syncUtilityButtons();
+    }
 
     function closeDropdowns() {
         dropdowns.forEach(function(dropdown) {
@@ -202,6 +333,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (menuToggle && mobileMenu) {
+        buildMobileUtilityMenu();
+
         menuToggle.addEventListener('click', function(e) {
             e.stopPropagation();
             mobileMenu.classList.toggle('hidden');
@@ -260,6 +393,51 @@ document.addEventListener('DOMContentLoaded', function() {
             closeDropdowns();
             dropdown.classList.toggle('is-open', !isOpen);
             trigger.setAttribute('aria-expanded', String(!isOpen));
+        });
+    });
+
+    document.addEventListener('themecontrolchange', syncUtilityButtons);
+    document.addEventListener('directionchange', syncUtilityButtons);
+});
+
+/* =============================================================================
+   3A. SHARED FOOTER LINK ENHANCEMENTS
+   =============================================================================
+   Purpose: Keep legal links consistent across repeated static footers.
+============================================================================= */
+
+document.addEventListener('DOMContentLoaded', function() {
+    const supportColumns = Array.from(document.querySelectorAll('.farm-footer .links-col')).filter(function(column) {
+        const heading = column.querySelector('h3');
+        return heading && heading.textContent.trim().toLowerCase() === 'support';
+    });
+
+    if (supportColumns.length === 0) return;
+
+    const isPublicPage = window.location.pathname.indexOf('/pages/public/') !== -1;
+    const publicPrefix = isPublicPage ? '' : '../public/';
+    const legalLinks = [
+        { href: publicPrefix + 'privacy-policy.html', label: 'Privacy Policy' },
+        { href: publicPrefix + 'terms-and-conditions.html', label: 'Terms & Conditions' }
+    ];
+
+    supportColumns.forEach(function(column) {
+        const list = column.querySelector('ul');
+        if (!list) return;
+
+        legalLinks.forEach(function(linkData) {
+            const existingLink = Array.from(list.querySelectorAll('a')).find(function(anchor) {
+                return anchor.textContent.trim() === linkData.label;
+            });
+
+            if (existingLink) return;
+
+            const item = document.createElement('li');
+            const anchor = document.createElement('a');
+            anchor.href = linkData.href;
+            anchor.textContent = linkData.label;
+            item.appendChild(anchor);
+            list.appendChild(item);
         });
     });
 });
@@ -2559,7 +2737,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 name: 'Pure Fields',
                 logo: {
                     '@type': 'ImageObject',
-                    url: 'https://purefields.com/assets/images/growwpark_logo.jpg'
+                    url: 'https://purefields.com/assets/images/pure-fields-favicon.svg'
                 }
             },
             image: activeArticle.heroImage.src,
@@ -2657,9 +2835,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const badge = document.getElementById('cart-plan-badge');
         const checkoutLink = document.getElementById('cart-checkout-link');
 
-        qtyInput.disabled = disabled;
-        decreaseButton.disabled = disabled;
-        increaseButton.disabled = disabled;
+        if (qtyInput) qtyInput.disabled = disabled;
+        if (decreaseButton) decreaseButton.disabled = disabled;
+        if (increaseButton) increaseButton.disabled = disabled;
         if (routeField) routeField.disabled = disabled;
         if (windowField) windowField.disabled = disabled;
 
@@ -2720,6 +2898,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const getQuantity = function() {
+        if (!qtyInput) return 1;
         const parsed = parseInt(qtyInput.value, 10);
         return Number.isNaN(parsed) || parsed < 1 ? 1 : parsed;
     };
@@ -2734,6 +2913,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const getDeliveryFee = function() {
+        if (fulfillmentInputs.length === 0) return 0;
         const selected = document.querySelector('input[name="fulfillment"]:checked');
         return selected && selected.value === 'pickup' ? 0 : 6;
     };
@@ -2750,7 +2930,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const quantity = getQuantity();
         const planSubtotal = activePlan.price * quantity;
-        const addons = getAddonTotal();
+        const addons = addonInputs.length > 0 ? getAddonTotal() : 0;
         const delivery = getDeliveryFee();
         const safeSubtotal = planSubtotal + addons + delivery;
         const tax = safeSubtotal * 0.065;
@@ -2766,20 +2946,26 @@ document.addEventListener('DOMContentLoaded', function() {
     updatePlanDetails();
     recalcTotals();
 
-    decreaseButton.addEventListener('click', function() {
-        qtyInput.value = Math.max(1, getQuantity() - 1);
-        recalcTotals();
-    });
+    if (decreaseButton && qtyInput) {
+        decreaseButton.addEventListener('click', function() {
+            qtyInput.value = Math.max(1, getQuantity() - 1);
+            recalcTotals();
+        });
+    }
 
-    increaseButton.addEventListener('click', function() {
-        qtyInput.value = getQuantity() + 1;
-        recalcTotals();
-    });
+    if (increaseButton && qtyInput) {
+        increaseButton.addEventListener('click', function() {
+            qtyInput.value = getQuantity() + 1;
+            recalcTotals();
+        });
+    }
 
-    qtyInput.addEventListener('input', function() {
-        if (getQuantity() !== parseInt(qtyInput.value, 10)) qtyInput.value = getQuantity();
-        recalcTotals();
-    });
+    if (qtyInput) {
+        qtyInput.addEventListener('input', function() {
+            if (getQuantity() !== parseInt(qtyInput.value, 10)) qtyInput.value = getQuantity();
+            recalcTotals();
+        });
+    }
 
     addonInputs.forEach(function(input) {
         input.addEventListener('change', recalcTotals);

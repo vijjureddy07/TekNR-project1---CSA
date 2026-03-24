@@ -1,20 +1,11 @@
 <!DOCTYPE html>
-<!-- =============================================================================
-     PURE FIELDS - 404 PAGE
-     =============================================================================
-     Sections:
-     1. Head (meta, styles, fonts)
-     2. Skip link + Navigation
-     3. Not-found hero
-     4. Footer
-     5. Scripts
-============================================================================= -->
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Page not found - Pure Fields">
-    <title>404 | Pure Fields</title>
+    <meta name="description" content="Read the Pure Fields terms and conditions for memberships, deliveries, billing, and site use.">
+    <meta name="robots" content="index, follow">
+    <title>Terms &amp; Conditions | Pure Fields</title>
     <link rel="icon" type="image/svg+xml" href="../../assets/images/pure-fields-favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -22,136 +13,10 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/dark-mode.css">
     <link rel="stylesheet" href="../../assets/css/rtl.css">
-    <style>
-        body.not-found-page {
-            background: linear-gradient(180deg, #0f1d16 0%, #102920 45%, #0f1d16 100%);
-            color: var(--white);
-            min-height: 100vh;
-            padding-top: 96px;
-        }
-
-        .nf-hero {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem 4rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nf-card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            border-radius: var(--radius-xl);
-            padding: 2rem;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
-        }
-
-        .nf-code {
-            font-size: clamp(4rem, 10vw, 5.5rem);
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            display: inline-flex;
-            gap: 0.35em;
-        }
-
-        .nf-code span {
-            display: inline-block;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .nf-code span:nth-child(2) { animation-delay: 0.15s; }
-        .nf-code span:nth-child(3) { animation-delay: 0.3s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-        }
-
-        .nf-title {
-            font-family: var(--font-heading);
-            font-size: clamp(1.8rem, 4vw, 2.4rem);
-            margin: 0.6rem 0 0.4rem;
-            color: #f3f8f5;
-        }
-
-        .nf-copy {
-            color: rgba(255, 255, 255, 0.82);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .nf-actions {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .nf-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            padding: 0.85rem 1.35rem;
-            border-radius: var(--radius-full);
-            font-weight: 700;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            color: #0f1d16;
-            background: #e9f3ef;
-        }
-
-        .nf-btn.secondary {
-            background: transparent;
-            color: #e9f3ef;
-        }
-
-        .nf-visual {
-            position: relative;
-            min-height: 320px;
-        }
-
-        .nf-orbit {
-            position: absolute;
-            inset: 6%;
-            border: 1px dashed rgba(255, 255, 255, 0.18);
-            border-radius: 24px;
-            transform: rotate(-6deg);
-        }
-
-        .nf-planet {
-            position: absolute;
-            inset: 18%;
-            border-radius: 24px;
-            background: linear-gradient(145deg, #7abf9c 0%, #31695a 100%);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
-        }
-
-        .nf-dot {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #f5f1eb;
-            animation: blink 2.4s ease-in-out infinite;
-        }
-
-        .nf-dot:nth-child(1) { top: 14%; left: 22%; animation-delay: 0.2s; }
-        .nf-dot:nth-child(2) { top: 38%; right: 18%; animation-delay: 0.5s; }
-        .nf-dot:nth-child(3) { bottom: 16%; left: 32%; animation-delay: 0.8s; }
-
-        @keyframes blink {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.25); }
-        }
-
-        @media (max-width: 720px) {
-            body.not-found-page { padding-top: 84px; }
-        }
-    </style>
 </head>
-<body class="not-found-page">
+<body class="legal-page terms-page">
     <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <nav class="site-nav" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-row">
@@ -161,6 +26,7 @@
                         <span class="logo-bottom">Pure Fields</span>
                     </div>
                 </a>
+
                 <ul class="desktop-menu" role="menubar">
                     <li class="dropdown" role="none">
                         <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">Home <i class="material-icons" aria-hidden="true">expand_more</i></a>
@@ -173,7 +39,15 @@
                     <li><a href="products.html" role="menuitem">Products</a></li>
                     <li><a href="blog.html" role="menuitem">Blog</a></li>
                     <li><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+                    <li class="dropdown" role="none">
+                        <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">Dashboard <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="../dashboards/admin-dashboard.html" role="menuitem">Admin Dashboard</a>
+                            <a href="../dashboards/user-dashboard.html" role="menuitem">User Dashboard</a>
+                        </div>
+                    </li>
                 </ul>
+
                 <div class="nav-actions">
                     <button id="theme-toggle" class="nav-btn" aria-label="Toggle dark/light theme" aria-pressed="false">
                         <i class="material-icons" aria-hidden="true">light_mode</i>
@@ -193,6 +67,7 @@
                     </button>
                 </div>
             </div>
+
             <ul id="mobile-menu" class="mobile-menu hidden" role="menu" aria-label="Mobile navigation">
                 <li class="dropdown" role="none">
                     <a href="#" role="menuitem" aria-haspopup="true">Home <i class="material-icons" aria-hidden="true">expand_more</i></a>
@@ -205,43 +80,60 @@
                 <li><a href="products.html" role="menuitem">Products</a></li>
                 <li><a href="blog.html" role="menuitem">Blog</a></li>
                 <li><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+                <li class="dropdown" role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true">Dashboard <i class="material-icons" aria-hidden="true">expand_more</i></a>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="../dashboards/admin-dashboard.html" role="menuitem">Admin Dashboard</a>
+                        <a href="../dashboards/user-dashboard.html" role="menuitem">User Dashboard</a>
+                    </div>
+                </li>
                 <li><a href="../auth/login.html" role="menuitem">Login</a></li>
             </ul>
         </div>
     </nav>
 
-    <main id="main-content" class="nf-hero">
-        <!-- ========================================
-              5. ERROR MESSAGE SECTION
-              ========================================
-              Purpose: Explains the missing page state and offers quick recovery links
-              Accessibility: Keeps the main error title, supporting copy, and actions in one clear card
-        ======================================== -->
-        <section class="nf-card">
-            <div class="nf-code" aria-hidden="true">
-                <span>4</span><span>0</span><span>4</span>
-            </div>
-            <h1 class="nf-title">We couldn’t find that patch of field.</h1>
-            <p class="nf-copy">The path you followed might be freshly plowed or the link may have wilted. Let’s guide you back to ripe content.</p>
-            <div class="nf-actions">
-                <a class="nf-btn" href="index.html"><i class="fa fa-arrow-left"></i> Back to home</a>
-                <a class="nf-btn secondary" href="contact-us.html"><i class="fa fa-envelope"></i> Contact support</a>
-            </div>
-        </section>
+    <main id="main-content" class="legal-main" tabindex="-1">
+        <div class="legal-shell">
+            <section class="legal-hero" aria-labelledby="terms-title">
+                <p class="legal-eyebrow">Terms &amp; Conditions</p>
+                <h1 id="terms-title">Membership, billing, and delivery terms.</h1>
+                <p>These terms explain how Pure Fields memberships, product orders, delivery arrangements, and account access work across the site and dashboard experience.</p>
+                <p class="legal-meta">Last updated: March 24, 2026</p>
+            </section>
 
-        <!-- ========================================
-              6. DECORATIVE VISUAL SECTION
-              ========================================
-              Purpose: Adds atmosphere to the error state without introducing extra content
-              Accessibility: Marked aria-hidden so assistive tech ignores decorative elements
-        ======================================== -->
-        <section class="nf-visual" aria-hidden="true">
-            <div class="nf-orbit"></div>
-            <div class="nf-planet"></div>
-            <div class="nf-dot"></div>
-            <div class="nf-dot"></div>
-            <div class="nf-dot"></div>
-        </section>
+            <section class="legal-card" aria-label="Terms and conditions details">
+                <div class="legal-grid">
+                    <section class="legal-section">
+                        <h2>Membership And Orders</h2>
+                        <p>CSA plans, add-ons, and seasonal products are offered subject to availability. Product selections can change with seasonal supply, weather, and harvest conditions. We may update box contents, pickup locations, or route timing when needed to complete weekly fulfillment.</p>
+                    </section>
+
+                    <section class="legal-section">
+                        <h2>Account Responsibilities</h2>
+                        <p>You are responsible for keeping your account information, contact details, and delivery instructions accurate. Please use the dashboard or contact support promptly if your address, route preference, or payment details change.</p>
+                    </section>
+
+                    <section class="legal-section">
+                        <h2>Delivery And Pickup Changes</h2>
+                        <ul class="legal-list">
+                            <li>Delivery timing may vary slightly due to route volume, weather, or traffic.</li>
+                            <li>Pickup location changes should be made before the weekly cutoff.</li>
+                            <li>Missed or delayed deliveries should be reported as soon as possible on the same day.</li>
+                        </ul>
+                    </section>
+
+                    <section class="legal-section">
+                        <h2>Billing, Pauses, And Cancellations</h2>
+                        <p>Recurring plans renew according to the schedule shown in your account. Skips, pauses, and plan changes should be submitted before the posted cutoff to avoid being billed for the upcoming route. If a billing issue occurs, contact the farm team so it can be reviewed and resolved.</p>
+                    </section>
+
+                    <section class="legal-section">
+                        <h2>Site Use And Contact</h2>
+                        <p>All website content, branding, and materials are owned or licensed by Pure Fields unless stated otherwise. If you have questions about these terms, contact <a href="mailto:support@purefields.com">support@purefields.com</a> or call <a href="tel:+15551234567">+1 (555) 123-4567</a>.</p>
+                    </section>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer class="farm-footer" role="contentinfo">
@@ -255,15 +147,9 @@
                     Fresh produce from local farms directly to your table. Quality organic vegetables and fruits.
                 </p>
                 <div class="social-row" aria-label="Social media links">
-                    <a href="#" aria-label="Follow us on Facebook">
-                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" aria-label="Follow us on Twitter">
-                        <i class="fab fa-x-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" aria-label="Follow us on Instagram">
-                        <i class="fab fa-instagram" aria-hidden="true"></i>
-                    </a>
+                    <a href="#" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Follow us on Twitter"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                 </div>
             </div>
 
@@ -290,6 +176,8 @@
                     <li><a href="../dashboards/admin-dashboard.html">Admin Dashboard</a></li>
                     <li><a href="../dashboards/user-dashboard.html">User Dashboard</a></li>
                     <li><a href="../auth/login.html">Login</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
                 </ul>
             </div>
 
@@ -297,15 +185,16 @@
                 <h3>Join our Mailing List</h3>
                 <div class="line" aria-hidden="true"></div>
                 <p>Subscribe to get the latest updates on fresh produce and special offers.</p>
-                <form class="newsletter-form" aria-label="Subscribe to newsletter">
+                <form class="newsletter-form" id="newsletter-form" aria-label="Subscribe to newsletter">
                     <div class="form-group">
                         <input
                             type="email"
+                            id="newsletter-email"
                             placeholder="Enter your email"
                             required
                             aria-required="true"
                             aria-describedby="email-error"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                         >
                         <button type="submit">Subscribe</button>
                     </div>

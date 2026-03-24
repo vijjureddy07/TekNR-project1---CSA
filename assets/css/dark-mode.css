@@ -66,6 +66,11 @@ html.dark .site-nav {
     border-color: var(--border-light);
 }
 
+html.dark .nav-logo i,
+html.dark .nav-logo .logo-bottom {
+    color: var(--white);
+}
+
 html.dark .mobile-menu {
     background-color: var(--bg-light);
     border-color: var(--border-light);
@@ -74,6 +79,17 @@ html.dark .mobile-menu {
 html.dark .mobile-menu a {
     color: var(--text-primary);
     border-color: var(--border-light);
+}
+
+html.dark .mobile-menu__utility-link,
+html.dark .mobile-menu__utility-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.08);
+    color: var(--heading-dark);
+}
+
+html.dark .mobile-menu__utility-cta {
+    color: var(--white);
 }
 
 html.dark .nav-btn {
@@ -113,6 +129,17 @@ html.dark :is(.card, .home-blog-card, .membership-card, .product-card, .testimon
 
 html.dark .index-page main {
     background-color: var(--bg-light);
+}
+
+html.dark .index-page {
+    --home-surface: rgba(18, 27, 24, 0.92);
+    --home-surface-strong: #121c19;
+    --home-copy: var(--text-secondary-dark);
+    --home-muted: rgba(255, 255, 255, 0.62);
+    --home-title: var(--heading-dark);
+    --home-border: rgba(255, 255, 255, 0.08);
+    --home-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
+    --home-shadow-lg: 0 30px 60px rgba(0, 0, 0, 0.34);
 }
 
 html.dark .about-section,
@@ -293,8 +320,7 @@ html.dark textarea::placeholder {
 
 html.dark .contact-form-container,
 html.dark .auth-card,
-html.dark .dashboard-card,
-html.dark .stat-card {
+html.dark .dashboard-card {
     /* background-color removed for better dark mode appearance */
     color: var(--text-primary);
     border-color: var(--border-light);
@@ -308,13 +334,13 @@ html.dark .modal-content {
 }
 
 html.dark .dashboard-sidebar {
-    background-color: var(--bg-gray-dark);
-    border-color: var(--border-light);
+    background-color: rgba(12, 17, 23, 0.78);
+    border-color: rgba(255, 255, 255, 0.08);
 }
 
-html.dark .dashboard-sidebar a:hover,
-html.dark .dashboard-sidebar a.active {
-    background-color: var(--card-light);
+html.dark .dashboard-sidebar .dashboard-sidebar__link:hover,
+html.dark .dashboard-sidebar .dashboard-sidebar__link.active {
+    background-color: rgba(221, 183, 111, 0.12);
 }
 
 html.dark .table th,
