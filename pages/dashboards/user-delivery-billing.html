@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Manage your Pure Fields CSA box, delivery preferences, and billing.">
-    <title>User Overview | Pure Fields</title>
+    <meta name="description" content="Manage your Pure Fields CSA delivery windows, billing details, and support options.">
+    <title>Delivery &amp; Billing | Pure Fields</title>
     <link rel="icon" type="image/svg+xml" href="../../assets/images/pure-fields-favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -35,9 +35,9 @@
             <div>
                 <p class="dashboard-sidebar__section-label">Workspace</p>
                 <nav class="dashboard-sidebar__nav" aria-label="User sections">
-                    <a href="user-dashboard.html" class="dashboard-sidebar__link active" aria-current="page"><i class="material-icons" aria-hidden="true">space_dashboard</i><span>Overview</span></a>
+                    <a href="user-dashboard.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">space_dashboard</i><span>Overview</span></a>
                     <a href="user-box-addons.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">inventory</i><span>Box &amp; Add-ons</span></a>
-                    <a href="user-delivery-billing.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">local_shipping</i><span>Delivery &amp; Billing</span></a>
+                    <a href="user-delivery-billing.html" class="dashboard-sidebar__link active" aria-current="page"><i class="material-icons" aria-hidden="true">local_shipping</i><span>Delivery &amp; Billing</span></a>
                     <a href="user-history.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">history</i><span>Recent History</span></a>
                 </nav>
             </div>
@@ -109,153 +109,152 @@
             </header>
 
             <main class="dashboard-main dashboard-shell" id="main-content">
-                <section id="overview" class="dashboard-grid grid-2" aria-label="Delivery and controls">
-                    <article class="card-block card-block--stream" aria-labelledby="next-delivery-heading">
-                        <div class="section-header">
-                            <h2 id="next-delivery-heading">Next delivery</h2>
-                            <span class="pill pill-success" id="delivery-status">Confirmed</span>
-                        </div>
-                        <div class="stack">
-                            <div class="row">
-                                <div class="stack">
-                                    <strong>Thursday, Mar 12 · 7:30–9:30a</strong>
-                                    <p class="muted">Greens &amp; Roots Box · Drop at 214 Grove Ave, Apt 3B</p>
-                                </div>
-                                <div class="tag-row">
-                                    <button class="btn-ghost" type="button" id="skip-btn">Skip week</button>
-                                    <button class="btn-primary-solid" type="button" id="pause-btn">Pause</button>
-                                </div>
-                            </div>
-                            <div class="divider"></div>
-                            <div class="tag-row">
-                                <span class="tag">Add ice pack</span>
-                                <span class="tag">Gate code on file</span>
-                                <span class="tag">SMS on approach</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="card-block card-block--stream" aria-labelledby="controls-heading">
-                        <div class="section-header">
-                            <h2 id="controls-heading">Subscription controls</h2>
-                            <span class="chip"><span class="pulse-dot" aria-hidden="true"></span>Autosave</span>
-                        </div>
-                        <div class="stack">
-                            <div class="row gridish">
-                                <div>
-                                    <p class="micro">Plan</p>
-                                    <strong>Greens &amp; Roots • Weekly</strong>
-                                </div>
-                                <button class="btn-ghost" type="button">Change plan</button>
-                                <span class="muted">Renews Apr 02</span>
-                            </div>
-                            <div class="row gridish">
-                                <div>
-                                    <p class="micro">Status</p>
-                                    <span id="subscription-status" class="pill pill-success">Active</span>
-                                </div>
-                                <button class="btn-ghost" type="button">Skip this week</button>
-                                <button class="btn-ghost" type="button" id="toggle-pause">Pause/resume</button>
-                            </div>
-                        </div>
-                    </article>
-                </section>
-
-                <section class="dashboard-grid grid-3 stat-strip" aria-label="Member highlights">
+                <section class="dashboard-grid grid-3 stat-strip" aria-label="Delivery and billing highlights">
                     <article class="stat-card">
                         <div class="label-row">
-                            <p class="micro">Swap window</p>
-                            <span class="trend up">5h left</span>
+                            <p class="micro">Delivery window</p>
+                            <span class="trend up">Thursday</span>
                         </div>
                         <div class="row">
-                            <span class="stat-value">5h</span>
-                            <span class="pill pill-info">Open</span>
+                            <span class="stat-value">7:30</span>
+                            <span class="pill pill-success">9:30a</span>
                         </div>
-                        <p class="muted">Closes before the noon pack list</p>
+                        <p class="muted">Primary dropoff remains on Grove Ave</p>
                     </article>
                     <article class="stat-card">
                         <div class="label-row">
-                            <p class="micro">Delivery credits</p>
+                            <p class="micro">Next charge</p>
+                            <span class="trend up">Mar 11</span>
+                        </div>
+                        <div class="row">
+                            <span class="stat-value">$36.40</span>
+                            <span class="pill pill-info">Queued</span>
+                        </div>
+                        <p class="muted">Visa ending in 2145 will be used</p>
+                    </article>
+                    <article class="stat-card">
+                        <div class="label-row">
+                            <p class="micro">Credits available</p>
                             <span class="trend up">$12</span>
                         </div>
                         <div class="row">
                             <span class="stat-value">$12</span>
-                            <span class="pill pill-success">Available</span>
+                            <span class="pill pill-warning">Unused</span>
                         </div>
-                        <p class="muted">Can be applied to next week</p>
-                    </article>
-                    <article class="stat-card">
-                        <div class="label-row">
-                            <p class="micro">Add-on space</p>
-                            <span class="trend up">2 open</span>
-                        </div>
-                        <div class="row">
-                            <span class="stat-value">2</span>
-                            <span class="pill pill-warning">Optional</span>
-                        </div>
-                        <p class="muted">Room for pantry or flower extras</p>
+                        <p class="muted">Can be applied before checkout closes</p>
                     </article>
                 </section>
 
-                <section class="dashboard-grid grid-2" aria-label="Member summary detail">
-                    <article class="card-block card-block--stream" aria-labelledby="preview-heading">
+                <section id="delivery" class="dashboard-grid grid-3" aria-label="Delivery, billing, support">
+                    <article class="card-block card-block--stream" aria-labelledby="delivery-details-heading">
                         <div class="section-header">
-                            <h2 id="preview-heading">This week’s preview</h2>
-                            <a class="cta-inline" href="user-box-addons.html">Open box</a>
+                            <h2 id="delivery-details-heading">Delivery details</h2>
+                            <button class="inline-action" type="button">Edit</button>
                         </div>
-                        <p class="muted">A simple preview so the overview still feels complete without showing every dashboard page at once.</p>
                         <div class="stack">
-                            <div class="row">
-                                <div>
-                                    <strong>Fresh picks</strong>
-                                    <p class="micro">Baby kale, chioggia beets, and heirloom tomatoes are already locked in.</p>
-                                </div>
-                                <span class="pill pill-success">Packed</span>
+                            <div>
+                                <p class="micro">Dropoff</p>
+                                <strong>214 Grove Ave, Apt 3B</strong>
                             </div>
-                            <div class="row">
-                                <div>
-                                    <strong>Swap option</strong>
-                                    <p class="micro">You can still trade tomatoes for another root or a cooking green.</p>
-                                </div>
-                                <span class="pill pill-info">Open</span>
-                            </div>
-                            <div class="row">
-                                <div>
-                                    <strong>Add-on suggestion</strong>
-                                    <p class="micro">Pasture eggs pair best with this week’s greens-heavy box.</p>
-                                </div>
-                                <span class="pill pill-warning">Suggested</span>
+                            <div class="meta-row">
+                                <span class="pill pill-success">Window 7:30–9:30a</span>
+                                <a class="map-link" href="../public/contact-us.html">Pickup map</a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="card-block card-block--stream" aria-labelledby="activity-heading">
+                    <article class="card-block card-block--stream" aria-labelledby="billing-heading">
                         <div class="section-header">
-                            <h2 id="activity-heading">Recent account activity</h2>
-                            <a class="cta-inline" href="user-history.html">Open history</a>
+                            <h2 id="billing-heading">Billing</h2>
+                            <button class="inline-action" type="button">Update card</button>
                         </div>
-                        <p class="muted">Recent updates across billing, swaps, and delivery notes.</p>
+                        <div class="stack">
+                            <div class="row">
+                                <div>
+                                    <p class="micro">Upcoming charge</p>
+                                    <strong>$36.40 · Mar 11</strong>
+                                </div>
+                                <span class="pill pill-info">Visa • 2145</span>
+                            </div>
+                            <div class="row">
+                                <p class="muted">Delivery credits available: $12</p>
+                                <button class="btn-ghost" type="button">Apply credit</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card-block card-block--stream" aria-labelledby="support-heading">
+                        <div class="section-header">
+                            <h2 id="support-heading">Support</h2>
+                            <span class="pill pill-info">~6 min</span>
+                        </div>
+                        <div class="stack">
+                            <a class="cta-inline" href="../public/contact-us.html">FAQ</a>
+                            <a class="cta-inline" href="../public/contact-us.html">Chat with farm team</a>
+                            <p class="muted">We reply Mon–Sat, 7a–6p.</p>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="dashboard-grid grid-2" aria-label="Delivery and billing detail">
+                    <article class="card-block card-block--stream" aria-labelledby="access-notes-heading">
+                        <div class="section-header">
+                            <h2 id="access-notes-heading">Access notes</h2>
+                            <span class="chip">Dropoff profile</span>
+                        </div>
+                        <p class="muted">Saved handoff details for the delivery team.</p>
+                        <div class="stack">
+                            <div class="row">
+                                <div>
+                                    <strong>Gate code on file</strong>
+                                    <p class="micro">Driver can access the front entry without calling.</p>
+                                </div>
+                                <span class="pill pill-success">Saved</span>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <strong>Cooler request</strong>
+                                    <p class="micro">Leave the bag inside the shaded porch cooler if no one answers.</p>
+                                </div>
+                                <span class="pill pill-info">Preferred</span>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <strong>Backup handoff</strong>
+                                    <p class="micro">Apt 3A neighbor can receive the box after 9:15a.</p>
+                                </div>
+                                <span class="pill pill-warning">Backup</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card-block card-block--stream" aria-labelledby="billing-history-heading">
+                        <div class="section-header">
+                            <h2 id="billing-history-heading">Recent billing activity</h2>
+                            <span class="chip">Last 3 charges</span>
+                        </div>
+                        <p class="muted">A small billing history so this page feels complete without looking heavy.</p>
                         <div class="timeline">
                             <div class="timeline-item">
                                 <div>
-                                    <strong>Gate code confirmed</strong>
-                                    <p class="micro">Your delivery note is saved for the next route run.</p>
+                                    <strong>Mar 04 charge processed</strong>
+                                    <p class="micro">$36.40 captured successfully for the weekly Greens &amp; Roots box.</p>
                                 </div>
-                                <span class="pill pill-success">Today</span>
+                                <span class="pill pill-success">Paid</span>
                             </div>
                             <div class="timeline-item">
                                 <div>
-                                    <strong>Swap reminder sent</strong>
-                                    <p class="micro">The farm team sent the weekly box preview and swap prompt.</p>
+                                    <strong>Feb 27 weather credit</strong>
+                                    <p class="micro">$12 credit posted after the storm-delay route adjustment.</p>
                                 </div>
-                                <span class="pill pill-info">Yesterday</span>
+                                <span class="pill pill-info">Credit</span>
                             </div>
                             <div class="timeline-item">
                                 <div>
-                                    <strong>Credit added</strong>
-                                    <p class="micro">$12 credit remains available from the weather skip adjustment.</p>
+                                    <strong>Feb 20 add-on update</strong>
+                                    <p class="micro">Egg add-on was included in the same weekly invoice.</p>
                                 </div>
-                                <span class="pill pill-warning">Mar 04</span>
+                                <span class="pill pill-warning">Add-on</span>
                             </div>
                         </div>
                     </article>

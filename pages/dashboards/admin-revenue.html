@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pure Fields admin revenue dashboard for recurring revenue, renewals, churn, and quick actions.">
+    <title>Admin Revenue | Pure Fields</title>
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/pure-fields-favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../../assets/css/rtl.css">
+</head>
+<body class="dashboard-page admin-dashboard">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="dashboard-layout">
+        <aside class="dashboard-sidebar" aria-label="Admin dashboard sidebar">
+            <div class="dashboard-sidebar__intro">
+                <a href="../public/index.html" class="dashboard-sidebar__logo" aria-label="Return to Pure Fields home page">
+                    <i class="material-icons" aria-hidden="true">eco</i>
+                    <span>Pure Fields</span>
+                </a>
+                <p class="dashboard-sidebar__eyebrow">Admin workspace for farm operations, route planning, and subscription oversight.</p>
+                <button class="dashboard-sidebar__toggle" type="button" aria-expanded="false" aria-controls="dashboard-sidebar-menu">
+                    <span>Workspace menu</span>
+                    <i class="material-icons" aria-hidden="true">expand_more</i>
+                </button>
+            </div>
+
+            <div class="dashboard-sidebar__menu" id="dashboard-sidebar-menu">
+            <div>
+                <p class="dashboard-sidebar__section-label">Workspace</p>
+                <nav class="dashboard-sidebar__nav" aria-label="Admin sections">
+                    <a href="admin-dashboard.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">space_dashboard</i><span>Overview</span></a>
+                    <a href="admin-operations.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">local_shipping</i><span>Operations</span></a>
+                    <a href="admin-inventory.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">inventory_2</i><span>Inventory</span></a>
+                    <a href="admin-revenue.html" class="dashboard-sidebar__link active" aria-current="page"><i class="material-icons" aria-hidden="true">monitoring</i><span>Revenue</span></a>
+                </nav>
+            </div>
+
+            <div>
+                <p class="dashboard-sidebar__section-label">Shortcuts</p>
+                <div class="dashboard-sidebar__meta">
+                    <a href="../public/products.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">shopping_bag</i><span>Products</span></a>
+                    <a href="../public/contact-us.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">support_agent</i><span>Contact Team</span></a>
+                </div>
+            </div>
+
+            <div class="dashboard-sidebar__utility-group">
+                <p class="dashboard-sidebar__section-label">Display</p>
+                <div class="dashboard-sidebar__utility" aria-label="Display controls">
+                    <button type="button" class="nav-btn" data-theme-proxy aria-label="Toggle dark/light theme" aria-pressed="false">
+                        <i class="material-icons" aria-hidden="true">light_mode</i>
+                    </button>
+                    <button type="button" class="nav-btn nav-btn--text" data-rtl-proxy aria-label="Toggle right-to-left layout" aria-pressed="false">
+                        <span class="nav-btn__label">RTL</span>
+                    </button>
+                </div>
+            </div>
+
+            <section class="dashboard-sidebar__profile" aria-label="Admin profile">
+                <div class="dashboard-profile">
+                    <div class="dashboard-profile__avatar" aria-hidden="true">AR</div>
+                    <div>
+                        <strong>Anika Rivera</strong>
+                        <p>Operations Lead</p>
+                    </div>
+                </div>
+
+                <a href="../auth/login.html" class="dashboard-logout">Logout</a>
+            </section>
+            </div>
+        </aside>
+        <button class="dashboard-sidebar__backdrop" type="button" aria-label="Close workspace menu"></button>
+
+        <div class="dashboard-workspace">
+            <header class="dashboard-topbar" aria-label="Admin quick controls">
+                <div class="dashboard-topbar__inner">
+                    <div class="dashboard-brand">
+                        <span class="brand-mark material-icons" aria-hidden="true">eco</span>
+                        <div>
+                            <small>Admin workspace</small>
+                            <strong>Pure Fields</strong>
+                        </div>
+                    </div>
+                    <button class="dashboard-mobile-toggle" type="button" aria-expanded="false" aria-controls="dashboard-sidebar-menu" aria-label="Open workspace menu">
+                        <i class="material-icons" aria-hidden="true">menu</i>
+                    </button>
+                    <div class="dashboard-topbar__actions">
+                        <div class="dashboard-utility" aria-label="Display controls">
+                            <button id="theme-toggle" class="nav-btn" aria-label="Toggle dark/light theme" aria-pressed="false">
+                                <i class="material-icons" aria-hidden="true">light_mode</i>
+                            </button>
+                            <button id="rtl-toggle" class="nav-btn nav-btn--text" aria-label="Toggle right-to-left layout" aria-pressed="false">
+                                <span class="nav-btn__label">RTL</span>
+                            </button>
+                        </div>
+                        <div class="topbar-actions">
+                            <span class="chip chip-live"><span class="pulse-dot" aria-hidden="true"></span>Live sync</span>
+                            <button class="btn-ghost" type="button">Route sheet</button>
+                            <button class="btn-ghost" type="button">Export CSV</button>
+                            <button class="btn-primary-solid" type="button">New notice</button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="dashboard-main dashboard-shell" id="main-content">
+                <section class="dashboard-grid grid-4 stat-strip" aria-label="Revenue highlights">
+                    <article class="stat-card">
+                        <div class="label-row">
+                            <p class="micro">Collected MTD</p>
+                            <span class="trend up">+8.4%</span>
+                        </div>
+                        <div class="row">
+                            <span class="stat-value">$42.8k</span>
+                            <span class="pill pill-success">Booked</span>
+                        </div>
+                        <p class="muted">Ahead of the same week last month</p>
+                    </article>
+                    <article class="stat-card">
+                        <div class="label-row">
+                            <p class="micro">Renewal rate</p>
+                            <span class="trend up">93%</span>
+                        </div>
+                        <div class="row">
+                            <span class="stat-value">93%</span>
+                            <span class="pill pill-info">Stable</span>
+                        </div>
+                        <p class="muted">Family plans continue to lead</p>
+                    </article>
+                    <article class="stat-card">
+                        <div class="label-row">
+                            <p class="micro">Credits open</p>
+                            <span class="trend down">$1.2k</span>
+                        </div>
+                        <div class="row">
+                            <span class="stat-value">$1.2k</span>
+                            <span class="pill pill-warning">Watch</span>
+                        </div>
+                        <p class="muted">Mostly weather skip carryovers</p>
+                    </article>
+                    <article class="stat-card">
+                        <div class="label-row">
+                            <p class="micro">Average box value</p>
+                            <span class="trend up">+$1.10</span>
+                        </div>
+                        <div class="row">
+                            <span class="stat-value">$36.40</span>
+                            <span class="pill pill-success">Healthy</span>
+                        </div>
+                        <p class="muted">Add-ons raised basket size</p>
+                    </article>
+                </section>
+
+                <section id="revenue" class="dashboard-grid grid-2" aria-label="Actions and revenue overview">
+                    <article class="card-block card-block--stream" aria-labelledby="actions-heading">
+                        <div class="section-header">
+                            <h2 id="actions-heading">Quick actions</h2>
+                            <span class="muted">2–3 click flows</span>
+                        </div>
+                        <div class="actions-grid">
+                            <button class="action-tile" type="button">Create box template <span class="material-icons" aria-hidden="true">add</span></button>
+                            <button class="action-tile" type="button">Issue refund/credit <span class="material-icons" aria-hidden="true">payments</span></button>
+                            <button class="action-tile" type="button">Pause member <span class="material-icons" aria-hidden="true">pause_circle</span></button>
+                            <button class="action-tile" type="button">Send notice <span class="material-icons" aria-hidden="true">outgoing_mail</span></button>
+                        </div>
+                    </article>
+
+                    <article class="card-block card-block--stream card-block--ledger" aria-labelledby="revenue-heading">
+                        <div class="section-header">
+                            <h2 id="revenue-heading">Revenue and retention</h2>
+                            <span class="chip chip-live"><span class="pulse-dot" aria-hidden="true"></span>Updated hourly</span>
+                        </div>
+                        <div class="card-subgrid">
+                            <div class="sparkline">
+                                <div>
+                                    <p class="micro">MTD revenue</p>
+                                    <strong>$42.8k</strong>
+                                </div>
+                                <svg viewBox="0 0 120 40" role="img" aria-label="MTD revenue sparkline"><polyline points="4,28 24,18 44,22 64,14 84,18 104,10" fill="none" stroke="#31695A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="sparkline">
+                                <div>
+                                    <p class="micro">Renewal rate</p>
+                                    <strong>93%</strong>
+                                </div>
+                                <svg viewBox="0 0 120 40" role="img" aria-label="Renewal rate sparkline"><polyline points="4,30 24,26 44,24 64,20 84,18 104,14" fill="none" stroke="#4a8b78" stroke-width="3" stroke-linecap="round"/></svg>
+                            </div>
+                            <div class="sparkline">
+                                <div>
+                                    <p class="micro">Churn</p>
+                                    <strong>4.8%</strong>
+                                </div>
+                                <svg viewBox="0 0 120 40" role="img" aria-label="Churn sparkline"><polyline points="4,12 24,16 44,18 64,22 84,24 104,26" fill="none" stroke="#d04f4f" stroke-width="3" stroke-linecap="round"/></svg>
+                            </div>
+                            <div class="sparkline">
+                                <div>
+                                    <p class="micro">Avg box value</p>
+                                    <strong>$36.40</strong>
+                                </div>
+                                <svg viewBox="0 0 120 40" role="img" aria-label="Average box value sparkline"><polyline points="4,24 24,20 44,22 64,18 84,20 104,16" fill="none" stroke="#31695A" stroke-width="3" stroke-linecap="round"/></svg>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="dashboard-grid grid-2" aria-label="Revenue follow-up">
+                    <article class="card-block card-block--stream" aria-labelledby="segment-watch-heading">
+                        <div class="section-header">
+                            <h2 id="segment-watch-heading">Segment watch</h2>
+                            <span class="chip">Renewals due</span>
+                        </div>
+                        <p class="muted">The renewal groups most likely to move this week.</p>
+                        <div class="stack">
+                            <div class="row">
+                                <div>
+                                    <strong>Family box weekly</strong>
+                                    <p class="micro">184 active members with 22 renewals falling in the next 48 hours.</p>
+                                </div>
+                                <span class="pill pill-success">Strong</span>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <strong>Greens-only plan</strong>
+                                    <p class="micro">Smaller baskets show the most churn risk after two skipped weeks.</p>
+                                </div>
+                                <span class="pill pill-warning">At risk</span>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <strong>Seasonal add-on bundle</strong>
+                                    <p class="micro">Flower share attachment rate climbed after last Friday’s email.</p>
+                                </div>
+                                <span class="pill pill-info">Growing</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card-block card-block--stream" aria-labelledby="notice-schedule-heading">
+                        <div class="section-header">
+                            <h2 id="notice-schedule-heading">Notice schedule</h2>
+                            <span class="chip">Queued today</span>
+                        </div>
+                        <p class="muted">Member-facing billing and renewal notices that are already lined up.</p>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div>
+                                    <strong>Failed charge reminder</strong>
+                                    <p class="micro">Torres, Evans, and Bell retry at 11:45a before manual review.</p>
+                                </div>
+                                <span class="pill pill-danger">11:45a</span>
+                            </div>
+                            <div class="timeline-item">
+                                <div>
+                                    <strong>Renewal nudge</strong>
+                                    <p class="micro">6 weekly plans get a soft reminder before tomorrow’s cutoff.</p>
+                                </div>
+                                <span class="pill pill-info">1:00p</span>
+                            </div>
+                            <div class="timeline-item">
+                                <div>
+                                    <strong>Pause reactivation note</strong>
+                                    <p class="micro">Accounts paused for more than 2 weeks receive the resume prompt.</p>
+                                </div>
+                                <span class="pill pill-warning">4:30p</span>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pure Fields admin dashboard for subscriptions, routes, inventory, and revenue pulses.">
-    <title>Admin Dashboard | Pure Fields</title>
+    <meta name="description" content="Pure Fields admin dashboard for subscriptions, routes, inventory, and revenue overview.">
+    <title>Admin Overview | Pure Fields</title>
     <link rel="icon" type="image/svg+xml" href="../../assets/images/pure-fields-favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -19,30 +19,46 @@
 
     <div class="dashboard-layout">
         <aside class="dashboard-sidebar" aria-label="Admin dashboard sidebar">
-            <div>
+            <div class="dashboard-sidebar__intro">
                 <a href="../public/index.html" class="dashboard-sidebar__logo" aria-label="Return to Pure Fields home page">
                     <i class="material-icons" aria-hidden="true">eco</i>
                     <span>Pure Fields</span>
                 </a>
                 <p class="dashboard-sidebar__eyebrow">Admin workspace for farm operations, route planning, and subscription oversight.</p>
+                <button class="dashboard-sidebar__toggle" type="button" aria-expanded="false" aria-controls="dashboard-sidebar-menu">
+                    <span>Workspace menu</span>
+                    <i class="material-icons" aria-hidden="true">expand_more</i>
+                </button>
             </div>
 
+            <div class="dashboard-sidebar__menu" id="dashboard-sidebar-menu">
             <div>
                 <p class="dashboard-sidebar__section-label">Workspace</p>
                 <nav class="dashboard-sidebar__nav" aria-label="Admin sections">
-                    <a href="#overview" class="dashboard-sidebar__link active"><i class="material-icons" aria-hidden="true">space_dashboard</i><span>Overview</span></a>
-                    <a href="#operations" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">local_shipping</i><span>Operations</span></a>
-                    <a href="#inventory" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">inventory_2</i><span>Inventory</span></a>
-                    <a href="#revenue" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">monitoring</i><span>Revenue</span></a>
+                    <a href="admin-dashboard.html" class="dashboard-sidebar__link active" aria-current="page"><i class="material-icons" aria-hidden="true">space_dashboard</i><span>Overview</span></a>
+                    <a href="admin-operations.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">local_shipping</i><span>Operations</span></a>
+                    <a href="admin-inventory.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">inventory_2</i><span>Inventory</span></a>
+                    <a href="admin-revenue.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">monitoring</i><span>Revenue</span></a>
                 </nav>
             </div>
 
             <div>
                 <p class="dashboard-sidebar__section-label">Shortcuts</p>
                 <div class="dashboard-sidebar__meta">
-                    <a href="user-dashboard.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">switch_account</i><span>User Dashboard</span></a>
                     <a href="../public/products.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">shopping_bag</i><span>Products</span></a>
                     <a href="../public/contact-us.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">support_agent</i><span>Contact Team</span></a>
+                </div>
+            </div>
+
+            <div class="dashboard-sidebar__utility-group">
+                <p class="dashboard-sidebar__section-label">Display</p>
+                <div class="dashboard-sidebar__utility" aria-label="Display controls">
+                    <button type="button" class="nav-btn" data-theme-proxy aria-label="Toggle dark/light theme" aria-pressed="false">
+                        <i class="material-icons" aria-hidden="true">light_mode</i>
+                    </button>
+                    <button type="button" class="nav-btn nav-btn--text" data-rtl-proxy aria-label="Toggle right-to-left layout" aria-pressed="false">
+                        <span class="nav-btn__label">RTL</span>
+                    </button>
                 </div>
             </div>
 
@@ -55,40 +71,46 @@
                     </div>
                 </div>
 
-                <div class="dashboard-sidebar__utility" aria-label="Display controls">
-                    <button id="theme-toggle" class="nav-btn" aria-label="Toggle dark/light theme" aria-pressed="false">
-                        <i class="material-icons" aria-hidden="true">light_mode</i>
-                    </button>
-                    <button id="rtl-toggle" class="nav-btn nav-btn--text" aria-label="Toggle right-to-left layout" aria-pressed="false">
-                        <span class="nav-btn__label">RTL</span>
-                    </button>
-                </div>
-
                 <a href="../auth/login.html" class="dashboard-logout">Logout</a>
             </section>
+            </div>
         </aside>
+        <button class="dashboard-sidebar__backdrop" type="button" aria-label="Close workspace menu"></button>
 
         <div class="dashboard-workspace">
             <header class="dashboard-topbar" aria-label="Admin quick controls">
                 <div class="dashboard-topbar__inner">
                     <div class="dashboard-brand">
-                        <div class="brand-mark">PF</div>
+                        <span class="brand-mark material-icons" aria-hidden="true">eco</span>
                         <div>
-                            <small>Operations control</small>
-                            <strong>Admin Dashboard</strong>
+                            <small>Admin workspace</small>
+                            <strong>Pure Fields</strong>
                         </div>
                     </div>
-                    <div class="topbar-actions">
-                        <span class="chip chip-live"><span class="pulse-dot" aria-hidden="true"></span>Live sync</span>
-                        <button class="btn-ghost" type="button">Route sheet</button>
-                        <button class="btn-ghost" type="button">Export CSV</button>
-                        <button class="btn-primary-solid" type="button">New notice</button>
+                    <button class="dashboard-mobile-toggle" type="button" aria-expanded="false" aria-controls="dashboard-sidebar-menu" aria-label="Open workspace menu">
+                        <i class="material-icons" aria-hidden="true">menu</i>
+                    </button>
+                    <div class="dashboard-topbar__actions">
+                        <div class="dashboard-utility" aria-label="Display controls">
+                            <button id="theme-toggle" class="nav-btn" aria-label="Toggle dark/light theme" aria-pressed="false">
+                                <i class="material-icons" aria-hidden="true">light_mode</i>
+                            </button>
+                            <button id="rtl-toggle" class="nav-btn nav-btn--text" aria-label="Toggle right-to-left layout" aria-pressed="false">
+                                <span class="nav-btn__label">RTL</span>
+                            </button>
+                        </div>
+                        <div class="topbar-actions">
+                            <span class="chip chip-live"><span class="pulse-dot" aria-hidden="true"></span>Live sync</span>
+                            <button class="btn-ghost" type="button">Route sheet</button>
+                            <button class="btn-ghost" type="button">Export CSV</button>
+                            <button class="btn-primary-solid" type="button">New notice</button>
+                        </div>
                     </div>
                 </div>
             </header>
 
             <main class="dashboard-main dashboard-shell" id="main-content">
-                <section id="overview" class="dashboard-grid grid-4" aria-label="Snapshot metrics">
+                <section id="overview" class="dashboard-grid grid-4 stat-strip" aria-label="Snapshot metrics">
                     <article class="stat-card" aria-live="polite">
                         <div class="label-row">
                             <p class="micro">Active subscriptions</p>
@@ -138,236 +160,65 @@
                     </article>
                 </section>
 
-                <section id="operations" class="dashboard-grid grid-2" aria-label="Routes and queue">
-                    <article class="card-block list-card" aria-labelledby="operations-heading">
+                <section class="dashboard-grid grid-2" aria-label="Overview briefs">
+                    <article class="card-block card-block--stream" aria-labelledby="overview-board-heading">
                         <div class="section-header">
-                            <h2 id="operations-heading">Today’s operations</h2>
-                            <div class="list-actions">
-                                <button class="btn-ghost" type="button">Route</button>
-                                <button class="btn-ghost" type="button">Export</button>
-                            </div>
+                            <h2 id="overview-board-heading">Morning board</h2>
+                            <a class="cta-inline" href="admin-operations.html">Open operations</a>
                         </div>
-                        <div class="list-card">
-                            <div class="list-item">
-                                <div>
-                                    <strong>06:45a • North Loop</strong>
-                                    <p class="micro">12 drops • refrigerated • driver: Ani</p>
-                                </div>
-                                <span class="pill pill-success">On time</span>
-                                <div class="list-actions">
-                                    <button class="btn-ghost" type="button">Route</button>
-                                    <button class="btn-ghost" type="button">Labels</button>
-                                </div>
-                            </div>
-                            <div class="list-item">
-                                <div>
-                                    <strong>08:10a • Hill &amp; Harbor</strong>
-                                    <p class="micro">18 pickups • CSA sheds • driver: Mari</p>
-                                </div>
-                                <span class="pill pill-warning">Running tight</span>
-                                <div class="list-actions">
-                                    <button class="btn-ghost" type="button">Route</button>
-                                    <button class="btn-ghost" type="button">SMS</button>
-                                </div>
-                            </div>
-                            <div class="list-item">
-                                <div>
-                                    <strong>10:30a • River South</strong>
-                                    <p class="micro">22 drops • mixed boxes • driver: Hugo</p>
-                                </div>
-                                <span class="pill pill-info">Loading</span>
-                                <div class="list-actions">
-                                    <button class="btn-ghost" type="button">Route</button>
-                                    <button class="btn-ghost" type="button">Export</button>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="card-block list-card" aria-labelledby="queue-heading">
-                        <div class="section-header">
-                            <h2 id="queue-heading">Orders / boxes queue</h2>
-                            <span class="chip"><span class="pulse-dot" aria-hidden="true"></span>Auto-save</span>
-                        </div>
-                        <div class="list-card">
-                            <div class="list-item queue-row">
-                                <div>
-                                    <strong>Rivera • Greens &amp; Grains (Plus)</strong>
-                                    <p class="micro">Add-ons: Pasture eggs, Sourdough • Delivery</p>
-                                </div>
-                                <span class="pill pill-warning queue-status" data-state="pending">Pending</span>
-                                <label class="mini-switch" aria-label="Mark Rivera as packed">
-                                    <input type="checkbox" data-status-toggle>
-                                    <span class="track"><span class="thumb"></span></span>
-                                </label>
-                            </div>
-                            <div class="list-item queue-row">
-                                <div>
-                                    <strong>Singh • Sunrise Veg Box</strong>
-                                    <p class="micro">Add-ons: Cold brew growler • Pickup</p>
-                                </div>
-                                <span class="pill pill-success queue-status" data-state="ready">Packed</span>
-                                <label class="mini-switch" aria-label="Mark Singh as packed">
-                                    <input type="checkbox" data-status-toggle checked>
-                                    <span class="track"><span class="thumb"></span></span>
-                                </label>
-                            </div>
-                            <div class="list-item queue-row">
-                                <div>
-                                    <strong>Lopez • Chef’s Harvest</strong>
-                                    <p class="micro">Add-ons: Microgreens • Delivery</p>
-                                </div>
-                                <span class="pill pill-info queue-status" data-state="staging">Staging</span>
-                                <label class="mini-switch" aria-label="Mark Lopez as packed">
-                                    <input type="checkbox" data-status-toggle>
-                                    <span class="track"><span class="thumb"></span></span>
-                                </label>
-                            </div>
-                            <div class="list-item queue-row">
-                                <div>
-                                    <strong>Khan • Family Veg</strong>
-                                    <p class="micro">Add-ons: Flower share • Delivery</p>
-                                </div>
-                                <span class="pill pill-success queue-status" data-state="ready">Packed</span>
-                                <label class="mini-switch" aria-label="Mark Khan as packed">
-                                    <input type="checkbox" data-status-toggle checked>
-                                    <span class="track"><span class="thumb"></span></span>
-                                </label>
-                            </div>
-                        </div>
-                    </article>
-                </section>
-
-                <section id="inventory" class="dashboard-grid grid-2" aria-label="Alerts and inventory">
-                    <article class="card-block list-card" aria-labelledby="alerts-heading">
-                        <div class="section-header">
-                            <h2 id="alerts-heading">Alerts</h2>
-                            <span class="chip chip-live"><span class="pulse-dot" aria-hidden="true"></span>Watching</span>
-                        </div>
+                        <p class="muted">Key items that need attention before the next route cut-off.</p>
                         <div class="stack">
                             <div class="row">
-                                <div class="tag-row">
-                                    <span class="pill pill-danger">Payment failure</span>
-                                    <strong>Torres — Card declined</strong>
+                                <div>
+                                    <strong>Route release</strong>
+                                    <p class="micro">North Loop, Hill &amp; Harbor, and River South are cleared to roll.</p>
                                 </div>
-                                <a class="cta-inline" href="#">Retry</a>
+                                <span class="pill pill-success">3 ready</span>
                             </div>
                             <div class="row">
-                                <div class="tag-row">
-                                    <span class="pill pill-warning">Low stock</span>
-                                    <strong>Butterhead lettuce</strong>
+                                <div>
+                                    <strong>Packing bench</strong>
+                                    <p class="micro">12 family boxes still need cold-pack labels before noon.</p>
                                 </div>
-                                <span class="muted">18 heads left</span>
+                                <span class="pill pill-info">In prep</span>
                             </div>
                             <div class="row">
-                                <div class="tag-row">
-                                    <span class="pill pill-info">Message</span>
-                                    <strong>Chen asked for doorstep drop</strong>
+                                <div>
+                                    <strong>Member exceptions</strong>
+                                    <p class="micro">4 delivery notes changed since the early-morning sync.</p>
                                 </div>
-                                <a class="cta-inline" href="#">Reply</a>
+                                <span class="pill pill-warning">Review</span>
                             </div>
                         </div>
                     </article>
 
-                    <article class="card-block list-card" aria-labelledby="inventory-heading">
+                    <article class="card-block card-block--stream" aria-labelledby="overview-signals-heading">
                         <div class="section-header">
-                            <h2 id="inventory-heading">Inventory pulses</h2>
-                            <span class="pill pill-info">Adjust inline</span>
+                            <h2 id="overview-signals-heading">Signals to review</h2>
+                            <a class="cta-inline" href="admin-revenue.html">Open revenue</a>
                         </div>
+                        <p class="muted">A lighter cross-team snapshot so the overview stays useful without becoming another full dashboard.</p>
                         <div class="stack">
-                            <div class="inventory-line">
-                                <div class="stack">
-                                    <div class="row">
-                                        <strong>Baby greens</strong>
-                                        <span class="muted">62 / 80 committed</span>
-                                    </div>
-                                    <div class="inventory-meter" aria-hidden="true"><span style="width:78%"></span></div>
-                                </div>
-                                <div class="adjuster" aria-label="Adjust baby greens">
-                                    <button type="button">-</button>
-                                    <span>+6</span>
-                                    <button type="button">+</button>
-                                </div>
-                            </div>
-                            <div class="inventory-line">
-                                <div class="stack">
-                                    <div class="row">
-                                        <strong>Pasture eggs</strong>
-                                        <span class="muted">44 / 60 committed</span>
-                                    </div>
-                                    <div class="inventory-meter" aria-hidden="true"><span style="width:73%"></span></div>
-                                </div>
-                                <div class="adjuster" aria-label="Adjust pasture eggs">
-                                    <button type="button">-</button>
-                                    <span>-2</span>
-                                    <button type="button">+</button>
-                                </div>
-                            </div>
-                            <div class="inventory-line">
-                                <div class="stack">
-                                    <div class="row">
-                                        <strong>Country bread</strong>
-                                        <span class="muted">28 / 50 committed</span>
-                                    </div>
-                                    <div class="inventory-meter" aria-hidden="true"><span style="width:56%"></span></div>
-                                </div>
-                                <div class="adjuster" aria-label="Adjust country bread">
-                                    <button type="button">-</button>
-                                    <span>+4</span>
-                                    <button type="button">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </section>
-
-                <section id="revenue" class="dashboard-grid grid-2" aria-label="Actions and revenue">
-                    <article class="card-block" aria-labelledby="actions-heading">
-                        <div class="section-header">
-                            <h2 id="actions-heading">Quick actions</h2>
-                            <span class="muted">2–3 click flows</span>
-                        </div>
-                        <div class="actions-grid">
-                            <button class="action-tile" type="button">Create box template <span class="material-icons" aria-hidden="true">add</span></button>
-                            <button class="action-tile" type="button">Issue refund/credit <span class="material-icons" aria-hidden="true">payments</span></button>
-                            <button class="action-tile" type="button">Pause member <span class="material-icons" aria-hidden="true">pause_circle</span></button>
-                            <button class="action-tile" type="button">Send notice <span class="material-icons" aria-hidden="true">outgoing_mail</span></button>
-                        </div>
-                    </article>
-
-                    <article class="card-block" aria-labelledby="revenue-heading">
-                        <div class="section-header">
-                            <h2 id="revenue-heading">Revenue pulses</h2>
-                            <span class="chip chip-live"><span class="pulse-dot" aria-hidden="true"></span>Updated hourly</span>
-                        </div>
-                        <div class="card-subgrid">
-                            <div class="sparkline">
+                            <div class="row">
                                 <div>
-                                    <p class="micro">MTD revenue</p>
-                                    <strong>$42.8k</strong>
+                                    <strong>Failed charges</strong>
+                                    <p class="micro">2 retries are scheduled before the afternoon billing batch.</p>
                                 </div>
-                                <svg viewBox="0 0 120 40" role="img" aria-label="MTD revenue sparkline"><polyline points="4,28 24,18 44,22 64,14 84,18 104,10" fill="none" stroke="#31695A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span class="pill pill-danger">2 open</span>
                             </div>
-                            <div class="sparkline">
+                            <div class="row">
                                 <div>
-                                    <p class="micro">Renewal rate</p>
-                                    <strong>93%</strong>
+                                    <strong>Low stock watch</strong>
+                                    <p class="micro">Butterhead lettuce and eggs are nearing the committed threshold.</p>
                                 </div>
-                                <svg viewBox="0 0 120 40" role="img" aria-label="Renewal rate sparkline"><polyline points="4,30 24,26 44,24 64,20 84,18 104,14" fill="none" stroke="#4a8b78" stroke-width="3" stroke-linecap="round"/></svg>
+                                <span class="pill pill-warning">Low stock</span>
                             </div>
-                            <div class="sparkline">
+                            <div class="row">
                                 <div>
-                                    <p class="micro">Churn</p>
-                                    <strong>4.8%</strong>
+                                    <strong>Renewal reminders</strong>
+                                    <p class="micro">6 weekly members are due for renewal messaging today.</p>
                                 </div>
-                                <svg viewBox="0 0 120 40" role="img" aria-label="Churn sparkline"><polyline points="4,12 24,16 44,18 64,22 84,24 104,26" fill="none" stroke="#d04f4f" stroke-width="3" stroke-linecap="round"/></svg>
-                            </div>
-                            <div class="sparkline">
-                                <div>
-                                    <p class="micro">Avg box value</p>
-                                    <strong>$36.40</strong>
-                                </div>
-                                <svg viewBox="0 0 120 40" role="img" aria-label="Average box value sparkline"><polyline points="4,24 24,20 44,22 64,18 84,20 104,16" fill="none" stroke="#31695A" stroke-width="3" stroke-linecap="round"/></svg>
+                                <span class="pill pill-success">Queued</span>
                             </div>
                         </div>
                     </article>

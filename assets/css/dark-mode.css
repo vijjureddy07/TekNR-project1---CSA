@@ -102,9 +102,36 @@ html.dark .nav-btn:hover {
     color: var(--primary);
 }
 
+html.dark .login-btn--secondary {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--border-light);
+    color: var(--heading-dark);
+}
+
+html.dark .login-btn--secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #bde3cf;
+}
+
 html.dark .nav-cart i,
 html.dark .nav-cart .logo-bottom {
     color: var(--text-primary);
+}
+
+html.dark :is(
+    .about-badge,
+    .auth-eyebrow,
+    .cart-eyebrow,
+    .catalog-eyebrow,
+    .contact-eyebrow,
+    .membership-section__eyebrow,
+    .products-showcase__badge,
+    .products-showcase__eyebrow,
+    .home-blog-section__eyebrow,
+    .product-detail-eyebrow,
+    .dashboard-sidebar__link .material-icons
+) {
+    color: #9fd7b5;
 }
 
 html.dark .dropdown-menu {
@@ -121,7 +148,7 @@ html.dark .dropdown-menu a:hover {
     color: var(--primary);
 }
 
-html.dark :is(.card, .home-blog-card, .membership-card, .product-card, .testimonial-slide-inner) {
+html.dark :is(.card, .home-blog-card, .product-card, .testimonial-slide-inner) {
     background-color: var(--card-light);
     color: var(--text-secondary);
     border-color: var(--border-light);
@@ -148,12 +175,14 @@ html.dark .products-section {
 }
 
 html.dark .transparency-section {
-    background-color: var(--bg-dark);
-    background-image: var(--transparency-bg-image);
+    background:
+        radial-gradient(circle at top left, rgba(49, 105, 90, 0.16), transparent 28%),
+        linear-gradient(180deg, #101816 0%, #121d19 100%);
 }
 
 html.dark .transparency-section .tab-btn {
-    background-color: var(--card-dark);
+    background-color: rgba(18, 27, 24, 0.9);
+    border-color: rgba(255, 255, 255, 0.08);
 }
 
 html.dark .transparency-section .tab-number {
@@ -170,6 +199,14 @@ html.dark .transparency-section .transparency-title {
 
 html.dark .transparency-section .transparency-text {
     color: var(--text-secondary-dark);
+}
+
+html.dark .index-page .transparency-section::before {
+    display: none;
+}
+
+html.dark .index-page .transparency-section .tab-label {
+    color: var(--heading-dark);
 }
 
 html.dark .products-showcase {
@@ -256,9 +293,39 @@ html.dark .index-page .membership-section {
 }
 
 html.dark .index-page .membership-card {
-    background: rgba(20, 28, 25, 0.88);
+    background: transparent center / cover no-repeat;
     border-color: rgba(255, 255, 255, 0.08);
     box-shadow: 0 22px 44px rgba(0, 0, 0, 0.24);
+}
+
+html.dark .index-page .membership-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        180deg,
+        rgba(6, 12, 10, 0.08) 0%,
+        rgba(6, 12, 10, 0.22) 38%,
+        rgba(6, 12, 10, 0.52) 72%,
+        rgba(6, 12, 10, 0.72) 100%
+    );
+}
+
+html.dark .index-page .membership-card:nth-child(1) {
+    background-image: url("../../assets/images/Index page imgs/home-membership-selection.jpg");
+}
+
+html.dark .index-page .membership-card:nth-child(2) {
+    background-image: url("../../assets/images/Index page imgs/home-membership-delivery.jpg");
+}
+
+html.dark .index-page .membership-card:nth-child(3) {
+    background-image: url("../../assets/images/Index page imgs/home-membership-harvest.jpg");
+}
+
+html.dark .index-page .membership-card:nth-child(4) {
+    background-image: url("../../assets/images/Index page imgs/home-membership-dashboard.jpg");
 }
 
 html.dark .index-page .membership-card__step {
@@ -268,13 +335,17 @@ html.dark .index-page .membership-card__step {
 
 html.dark .index-page .membership-section__title,
 html.dark .index-page .membership-card__title {
-    color: var(--heading-dark);
+    color: var(--white);
 }
 
 html.dark .index-page .membership-section__text,
 html.dark .index-page .membership-section__note,
 html.dark .index-page .membership-card__text {
-    color: var(--text-secondary-dark);
+    color: rgba(255, 255, 255, 0.88);
+}
+
+html.dark .index-page .membership-card :is(.membership-card__title, .membership-card__text) {
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.72);
 }
 
 html.dark .testimonial-heading {
@@ -455,18 +526,51 @@ html.dark .products-page .catalog-plan-card--featured .catalog-card-label {
 }
 
 html.dark .products-page .catalog-season-card {
-    background: rgba(20, 28, 25, 0.88);
+    background: transparent center / cover no-repeat;
     border-color: rgba(255, 255, 255, 0.08);
 }
 
+html.dark .products-page .catalog-season-card:nth-child(1) {
+    background-image: url("../../assets/images/Products imgs/pexels-liisbet-luup-121486327-34599045.jpg");
+}
+
+html.dark .products-page .catalog-season-card:nth-child(2) {
+    background-image: url("../../assets/images/Products imgs/pexels-josh-hild-1270765-17564944.jpg");
+}
+
+html.dark .products-page .catalog-season-card:nth-child(3) {
+    background-image: url("../../assets/images/Products imgs/pexels-nc-farm-bureau-mark-2255920.jpg");
+}
+
+html.dark .products-page .catalog-season-card:nth-child(4) {
+    background-image: url("../../assets/images/Products imgs/pexels-liisbet-luup-121486327-34599045.jpg");
+}
+
 html.dark .products-page .catalog-season-card--active {
-    background:
-        linear-gradient(160deg, rgba(49, 105, 90, 0.96) 0%, rgba(23, 49, 38, 0.92) 100%);
     border-color: rgba(74, 139, 120, 0.42);
+    box-shadow: 0 26px 54px rgba(0, 0, 0, 0.28);
 }
 
 html.dark .products-page .catalog-season-card--active :is(h3, p) {
     color: var(--white);
+}
+
+html.dark .products-page .catalog-season-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        180deg,
+        rgba(6, 12, 10, 0.06) 0%,
+        rgba(6, 12, 10, 0.2) 36%,
+        rgba(6, 12, 10, 0.46) 70%,
+        rgba(6, 12, 10, 0.68) 100%
+    );
+}
+
+html.dark .products-page .catalog-season-card :is(h3, p) {
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.72);
 }
 
 html.dark .product-details-page .product-detail-season-panel,

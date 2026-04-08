@@ -85,14 +85,11 @@
                 </a>
                 <div>
                     <p id="cart-title" class="cart-header__title">Cart</p>
-                    <p class="cart-header__note">Review the selected membership and continue to account setup when you are ready.</p>
+                    <p class="cart-header__note">Review the selected plan, confirm the quantity, and continue to sign-up when you are ready.</p>
                 </div>
             </div>
             <div class="cart-header__actions">
-                <a href="products.html" class="cart-header__link">Continue Browsing</a>
-                <a href="products-details.html?plan=family" id="cart-close-link" class="cart-header__close" aria-label="Close cart and return to product details">
-                    <span class="material-icons" aria-hidden="true">close</span>
-                </a>
+                <a href="products.html#plans" class="cart-header__link">Back to Plans</a>
             </div>
         </header>
 
@@ -102,17 +99,11 @@
                     <div class="cart-summary-card__intro">
                         <p class="cart-eyebrow">Selected Plan</p>
                         <h2 id="cart-plan-name">No plan selected</h2>
-                        <p id="cart-plan-summary" class="cart-summary-card__copy">Your selected subscription will appear here once you add it from a plan detail page.</p>
-                    </div>
-
-                    <div class="cart-summary-card__badges">
-                        <span id="cart-plan-badge" class="cart-plan-card__badge" hidden>Family Box</span>
                         <span id="cart-plan-frequency" class="cart-summary-plan__frequency">Choose a CSA plan to begin checkout.</span>
                     </div>
                 </div>
 
-                <p class="cart-eyebrow">Membership Overview</p>
-                <h3 id="cart-summary-title">Everything included in your plan</h3>
+                <h3 id="cart-summary-title">Plan summary</h3>
 
                 <div class="cart-summary-plan cart-summary-plan--focus">
                     <div class="cart-summary-plan__details cart-summary-plan__details--grid">
@@ -130,14 +121,6 @@
                     </div>
                 </div>
 
-                <div class="cart-summary-strip" aria-label="Membership highlights">
-                    <span>Seasonal produce</span>
-                    <span>Flexible renewals</span>
-                    <span>Member dashboard access</span>
-                </div>
-
-                <p class="cart-eyebrow">Checkout Summary</p>
-
                 <div class="cart-summary-list cart-summary-list--compact">
                     <div><span>Membership subtotal</span><strong id="cart-line-plan">$0.00</strong></div>
                     <div><span>Estimated tax</span><strong id="cart-line-tax">$0.00</strong></div>
@@ -154,7 +137,6 @@
 
                 <div class="cart-summary-actions">
                     <a href="products.html#plans" id="cart-checkout-link" class="cart-button cart-button--primary">Choose a Plan</a>
-                    <a href="products.html#plans" class="cart-button cart-button--secondary">Back to Plans</a>
                 </div>
             </section>
         </div>

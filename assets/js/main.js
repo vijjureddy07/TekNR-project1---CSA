@@ -227,7 +227,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.getElementById('theme-toggle');
     const rtlToggle = document.getElementById('rtl-toggle');
     const navCart = nav ? nav.querySelector('.nav-cart') : null;
+    const navActions = nav ? nav.querySelector('.nav-actions') : null;
+    const mobileToggleButton = nav ? nav.querySelector('.mobile-toggle') : null;
     const loginLink = nav ? nav.querySelector('.login-btn') : null;
+    const registerHref = loginLink
+        ? (loginLink.getAttribute('href') || '../auth/login.html').replace('login.html', 'register.html')
+        : '../auth/register.html';
     const html = document.documentElement;
 
     function syncUtilityButtons() {
@@ -252,10 +257,50 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function ensureDesktopAuthLinks() {
+        if (!navActions || !loginLink) return;
+
+        loginLink.classList.add('login-btn--secondary');
+
+        let signupLink = navActions.querySelector('.signup-btn');
+        if (!signupLink) {
+            signupLink = document.createElement('a');
+            signupLink.className = 'login-btn login-btn--primary signup-btn';
+            signupLink.href = registerHref;
+            signupLink.textContent = 'Sign Up';
+
+            if (mobileToggleButton) {
+                navActions.insertBefore(signupLink, mobileToggleButton);
+            } else {
+                navActions.appendChild(signupLink);
+            }
+        }
+    }
+
+    function ensureFooterAuthLinks() {
+        document.querySelectorAll('.farm-footer ul').forEach(function(list) {
+            const loginFooterLink = list.querySelector('a[href*="login.html"]');
+            const hasRegisterLink = list.querySelector('a[href*="register.html"]');
+
+            if (!loginFooterLink || hasRegisterLink) {
+                return;
+            }
+
+            const loginListItem = loginFooterLink.closest('li');
+            if (!loginListItem) {
+                return;
+            }
+
+            const registerListItem = document.createElement('li');
+            registerListItem.innerHTML = '<a href="' + registerHref + '">Sign Up</a>';
+            loginListItem.insertAdjacentElement('afterend', registerListItem);
+        });
+    }
+
     function buildMobileUtilityMenu() {
         if (!mobileMenu) return;
 
-        mobileMenu.querySelectorAll('a[href*="login.html"]').forEach(function(anchor) {
+        mobileMenu.querySelectorAll('a[href*="login.html"], a[href*="register.html"]').forEach(function(anchor) {
             const listItem = anchor.parentElement;
             if (listItem && listItem.parentElement === mobileMenu) {
                 listItem.remove();
@@ -303,6 +348,15 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileMenu.appendChild(loginItem);
         }
 
+        let signupItem = mobileMenu.querySelector('.mobile-menu__signup-item');
+        if (!signupItem && loginLink) {
+            signupItem = document.createElement('li');
+            signupItem.className = 'mobile-menu__signup-item';
+            signupItem.setAttribute('role', 'none');
+            signupItem.innerHTML = '<a href="' + registerHref + '" role="menuitem">Sign Up</a>';
+            mobileMenu.appendChild(signupItem);
+        }
+
         utility.querySelectorAll('[data-theme-proxy]').forEach(function(button) {
             button.addEventListener('click', function() {
                 if (themeToggle) {
@@ -333,6 +387,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (menuToggle && mobileMenu) {
+        ensureDesktopAuthLinks();
+        ensureFooterAuthLinks();
         buildMobileUtilityMenu();
 
         menuToggle.addEventListener('click', function(e) {
@@ -376,6 +432,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    ensureDesktopAuthLinks();
+    ensureFooterAuthLinks();
 
     dropdowns.forEach(function(dropdown) {
         const trigger = dropdown.querySelector('a[aria-haspopup="true"]');
@@ -490,6 +549,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     forms.forEach(function(form) {
         const emailInput = form.querySelector('input[type="email"]');
+        const passwordInput = form.querySelector('input[name="password"]');
+        const confirmPasswordInput = form.querySelector('input[name="confirm_password"]');
         const errorEl =
             form.querySelector('.error-message') ||
             form.querySelector('.form-error') ||
@@ -510,14 +571,73 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
+        function clearPasswordMismatch() {
+            if (!passwordInput || !confirmPasswordInput) return;
+
+            if (confirmPasswordInput.value && passwordInput.value === confirmPasswordInput.value) {
+                passwordInput.classList.remove('input-error');
+                confirmPasswordInput.classList.remove('input-error');
+                showError('');
+            }
+        }
+
+        if (passwordInput && confirmPasswordInput) {
+            passwordInput.addEventListener('input', clearPasswordMismatch);
+            confirmPasswordInput.addEventListener('input', clearPasswordMismatch);
+        }
+
         form.addEventListener('submit', function(e) {
             if (emailInput && !emailInput.checkValidity()) {
                 e.preventDefault();
                 emailInput.classList.add('input-error');
                 showError(emailInput.validationMessage || 'Please enter a valid email.');
                 emailInput.focus();
+            } else if (
+                passwordInput &&
+                confirmPasswordInput &&
+                passwordInput.value !== confirmPasswordInput.value
+            ) {
+                e.preventDefault();
+                passwordInput.classList.add('input-error');
+                confirmPasswordInput.classList.add('input-error');
+                showError('Passwords do not match.');
+                confirmPasswordInput.focus();
             } else {
                 showError('');
+            }
+        });
+    });
+});
+
+/* =============================================================================
+   4B. AUTH PASSWORD TOGGLE
+=============================================================================
+   Purpose: Provide inline password visibility toggles on auth forms.
+============================================================================= */
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-password-toggle]').forEach(function(button) {
+        const targetId = button.getAttribute('data-target');
+        const targetInput = targetId ? document.getElementById(targetId) : null;
+        const icon = button.querySelector('.material-icons, i');
+
+        if (!targetInput) {
+            return;
+        }
+
+        button.addEventListener('click', function() {
+            const isVisible = targetInput.type === 'text';
+            targetInput.type = isVisible ? 'password' : 'text';
+            button.setAttribute('aria-pressed', String(!isVisible));
+            button.setAttribute('aria-label', isVisible ? 'Show password' : 'Hide password');
+
+            if (icon) {
+                if (icon.classList.contains('material-icons')) {
+                    icon.textContent = isVisible ? 'visibility' : 'visibility_off';
+                } else {
+                    icon.classList.toggle('fa-eye', isVisible);
+                    icon.classList.toggle('fa-eye-slash', !isVisible);
+                }
             }
         });
     });
@@ -2832,7 +2952,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const setDisabledState = function(disabled) {
-        const badge = document.getElementById('cart-plan-badge');
         const checkoutLink = document.getElementById('cart-checkout-link');
 
         if (qtyInput) qtyInput.disabled = disabled;
@@ -2855,10 +2974,8 @@ document.addEventListener('DOMContentLoaded', function() {
             input.disabled = disabled;
         });
 
-        if (badge) badge.hidden = disabled;
-
         if (checkoutLink) {
-            checkoutLink.textContent = disabled ? 'Choose a Plan' : 'Proceed to Checkout';
+            checkoutLink.textContent = disabled ? 'Choose a Plan' : 'Continue to Sign Up';
             checkoutLink.href = disabled ? 'products.html#plans' : activePlan.checkoutLink;
             checkoutLink.classList.toggle('is-disabled', false);
         }
@@ -2867,32 +2984,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const updatePlanDetails = function() {
         if (!activePlan) {
             setText('cart-plan-name', 'No plan selected');
-            setText('cart-plan-summary', 'Your selected subscription will appear here once you add it from a plan detail page.');
             setText('cart-plan-size', 'Not added');
             setText('cart-plan-price', '$0');
             setText('cart-plan-frequency', 'Choose a CSA plan to begin checkout.');
             setText('cart-plan-frequency-detail', 'Not set');
             setText('cart-billing-note', 'Choose a plan from the products page before checkout becomes available.');
 
-            const closeLink = document.getElementById('cart-close-link');
-            if (closeLink) closeLink.href = 'products.html';
-
             setDisabledState(true);
             return;
         }
 
-        setText('cart-plan-badge', activePlan.badge);
         setText('cart-plan-name', activePlan.name);
-        setText('cart-plan-summary', activePlan.summary);
         setText('cart-plan-size', activePlan.size);
         setText('cart-plan-price', '$' + activePlan.price);
         setText('cart-plan-frequency', activePlan.cadence);
         setText('cart-plan-frequency-detail', activePlan.frequency);
         setText('cart-billing-note', activePlan.billingNote);
 
-        const closeLink = document.getElementById('cart-close-link');
         const checkoutLink = document.getElementById('cart-checkout-link');
-        if (closeLink) closeLink.href = activePlan.closeLink;
         if (checkoutLink) checkoutLink.href = activePlan.checkoutLink;
         setDisabledState(false);
     };

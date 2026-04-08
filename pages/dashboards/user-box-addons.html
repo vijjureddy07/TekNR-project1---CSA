@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Manage your Pure Fields CSA box, delivery preferences, and billing.">
-    <title>User Overview | Pure Fields</title>
+    <meta name="description" content="Manage your Pure Fields CSA box contents, swaps, and weekly add-ons.">
+    <title>Box &amp; Add-ons | Pure Fields</title>
     <link rel="icon" type="image/svg+xml" href="../../assets/images/pure-fields-favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -35,8 +35,8 @@
             <div>
                 <p class="dashboard-sidebar__section-label">Workspace</p>
                 <nav class="dashboard-sidebar__nav" aria-label="User sections">
-                    <a href="user-dashboard.html" class="dashboard-sidebar__link active" aria-current="page"><i class="material-icons" aria-hidden="true">space_dashboard</i><span>Overview</span></a>
-                    <a href="user-box-addons.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">inventory</i><span>Box &amp; Add-ons</span></a>
+                    <a href="user-dashboard.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">space_dashboard</i><span>Overview</span></a>
+                    <a href="user-box-addons.html" class="dashboard-sidebar__link active" aria-current="page"><i class="material-icons" aria-hidden="true">inventory</i><span>Box &amp; Add-ons</span></a>
                     <a href="user-delivery-billing.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">local_shipping</i><span>Delivery &amp; Billing</span></a>
                     <a href="user-history.html" class="dashboard-sidebar__link"><i class="material-icons" aria-hidden="true">history</i><span>Recent History</span></a>
                 </nav>
@@ -109,59 +109,7 @@
             </header>
 
             <main class="dashboard-main dashboard-shell" id="main-content">
-                <section id="overview" class="dashboard-grid grid-2" aria-label="Delivery and controls">
-                    <article class="card-block card-block--stream" aria-labelledby="next-delivery-heading">
-                        <div class="section-header">
-                            <h2 id="next-delivery-heading">Next delivery</h2>
-                            <span class="pill pill-success" id="delivery-status">Confirmed</span>
-                        </div>
-                        <div class="stack">
-                            <div class="row">
-                                <div class="stack">
-                                    <strong>Thursday, Mar 12 · 7:30–9:30a</strong>
-                                    <p class="muted">Greens &amp; Roots Box · Drop at 214 Grove Ave, Apt 3B</p>
-                                </div>
-                                <div class="tag-row">
-                                    <button class="btn-ghost" type="button" id="skip-btn">Skip week</button>
-                                    <button class="btn-primary-solid" type="button" id="pause-btn">Pause</button>
-                                </div>
-                            </div>
-                            <div class="divider"></div>
-                            <div class="tag-row">
-                                <span class="tag">Add ice pack</span>
-                                <span class="tag">Gate code on file</span>
-                                <span class="tag">SMS on approach</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="card-block card-block--stream" aria-labelledby="controls-heading">
-                        <div class="section-header">
-                            <h2 id="controls-heading">Subscription controls</h2>
-                            <span class="chip"><span class="pulse-dot" aria-hidden="true"></span>Autosave</span>
-                        </div>
-                        <div class="stack">
-                            <div class="row gridish">
-                                <div>
-                                    <p class="micro">Plan</p>
-                                    <strong>Greens &amp; Roots • Weekly</strong>
-                                </div>
-                                <button class="btn-ghost" type="button">Change plan</button>
-                                <span class="muted">Renews Apr 02</span>
-                            </div>
-                            <div class="row gridish">
-                                <div>
-                                    <p class="micro">Status</p>
-                                    <span id="subscription-status" class="pill pill-success">Active</span>
-                                </div>
-                                <button class="btn-ghost" type="button">Skip this week</button>
-                                <button class="btn-ghost" type="button" id="toggle-pause">Pause/resume</button>
-                            </div>
-                        </div>
-                    </article>
-                </section>
-
-                <section class="dashboard-grid grid-3 stat-strip" aria-label="Member highlights">
+                <section class="dashboard-grid grid-3 stat-strip" aria-label="Box highlights">
                     <article class="stat-card">
                         <div class="label-row">
                             <p class="micro">Swap window</p>
@@ -171,91 +119,163 @@
                             <span class="stat-value">5h</span>
                             <span class="pill pill-info">Open</span>
                         </div>
-                        <p class="muted">Closes before the noon pack list</p>
+                        <p class="muted">Closes before bench packing begins</p>
                     </article>
                     <article class="stat-card">
                         <div class="label-row">
-                            <p class="micro">Delivery credits</p>
-                            <span class="trend up">$12</span>
+                            <p class="micro">Add-ons selected</p>
+                            <span class="trend up">0 / 4</span>
                         </div>
                         <div class="row">
-                            <span class="stat-value">$12</span>
-                            <span class="pill pill-success">Available</span>
-                        </div>
-                        <p class="muted">Can be applied to next week</p>
-                    </article>
-                    <article class="stat-card">
-                        <div class="label-row">
-                            <p class="micro">Add-on space</p>
-                            <span class="trend up">2 open</span>
-                        </div>
-                        <div class="row">
-                            <span class="stat-value">2</span>
+                            <span class="stat-value">0</span>
                             <span class="pill pill-warning">Optional</span>
                         </div>
-                        <p class="muted">Room for pantry or flower extras</p>
+                        <p class="muted">You still have space for extras</p>
+                    </article>
+                    <article class="stat-card">
+                        <div class="label-row">
+                            <p class="micro">Family preference</p>
+                            <span class="trend up">Saved</span>
+                        </div>
+                        <div class="row">
+                            <span class="stat-value">Mild</span>
+                            <span class="pill pill-success">On file</span>
+                        </div>
+                        <p class="muted">Low-heat, kid-friendly swaps preferred</p>
                     </article>
                 </section>
 
-                <section class="dashboard-grid grid-2" aria-label="Member summary detail">
-                    <article class="card-block card-block--stream" aria-labelledby="preview-heading">
+                <section id="box" class="dashboard-grid grid-2" aria-label="Box contents and add-ons">
+                    <article class="card-block card-block--stream" aria-labelledby="box-heading">
                         <div class="section-header">
-                            <h2 id="preview-heading">This week’s preview</h2>
-                            <a class="cta-inline" href="user-box-addons.html">Open box</a>
+                            <h2 id="box-heading">Box contents</h2>
+                            <span class="pill pill-info">Swap open</span>
                         </div>
-                        <p class="muted">A simple preview so the overview still feels complete without showing every dashboard page at once.</p>
+                        <div class="list-card">
+                            <div class="list-item">
+                                <div>
+                                    <strong>Baby kale</strong>
+                                    <p class="micro">Bunched · 1 lb</p>
+                                </div>
+                                <span class="pill pill-success">Locked</span>
+                                <button class="inline-action" type="button">Notes</button>
+                            </div>
+                            <div class="list-item">
+                                <div>
+                                    <strong>Chioggia beets</strong>
+                                    <p class="micro">Swap window ends in 5h</p>
+                                </div>
+                                <span class="pill pill-info">Swappable</span>
+                                <button class="inline-action" type="button">Swap</button>
+                            </div>
+                            <div class="list-item">
+                                <div>
+                                    <strong>Heirloom tomatoes</strong>
+                                    <p class="micro">Priority • ripe</p>
+                                </div>
+                                <span class="pill pill-warning">Watch temp</span>
+                                <button class="inline-action" type="button">Notes</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card-block card-block--stream" aria-labelledby="addons-heading">
+                        <div class="section-header">
+                            <h2 id="addons-heading">Quick add-ons</h2>
+                            <span class="chip chip-live"><span class="pulse-dot" aria-hidden="true"></span>Live stock</span>
+                        </div>
+                        <div class="stack">
+                            <div class="add-on">
+                                <div>
+                                    <strong>Pasture eggs · dozen</strong>
+                                    <p class="micro">18 left</p>
+                                </div>
+                                <button type="button" data-add-toggle>+ Add</button>
+                            </div>
+                            <div class="add-on">
+                                <div>
+                                    <strong>Country sourdough</strong>
+                                    <p class="micro">Fresh at 6a</p>
+                                </div>
+                                <button type="button" data-add-toggle>+ Add</button>
+                            </div>
+                            <div class="add-on">
+                                <div>
+                                    <strong>Cold brew growler</strong>
+                                    <p class="micro">Chill pack auto-included</p>
+                                </div>
+                                <button type="button" data-add-toggle>+ Add</button>
+                            </div>
+                            <div class="add-on">
+                                <div>
+                                    <strong>Flower share</strong>
+                                    <p class="micro">Seasonal mix</p>
+                                </div>
+                                <button type="button" data-add-toggle>+ Add</button>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="dashboard-grid grid-2" aria-label="Preference and seasonal detail">
+                    <article class="card-block card-block--stream" aria-labelledby="preferences-heading">
+                        <div class="section-header">
+                            <h2 id="preferences-heading">Preferences on file</h2>
+                            <span class="chip">Saved profile</span>
+                        </div>
+                        <p class="muted">These notes help the farm team suggest better swaps and add-ons.</p>
                         <div class="stack">
                             <div class="row">
                                 <div>
-                                    <strong>Fresh picks</strong>
-                                    <p class="micro">Baby kale, chioggia beets, and heirloom tomatoes are already locked in.</p>
+                                    <strong>Cooking style</strong>
+                                    <p class="micro">Mostly weeknight dinners, roasted vegetables, and soups.</p>
                                 </div>
-                                <span class="pill pill-success">Packed</span>
+                                <span class="pill pill-success">Matched</span>
                             </div>
                             <div class="row">
                                 <div>
-                                    <strong>Swap option</strong>
-                                    <p class="micro">You can still trade tomatoes for another root or a cooking green.</p>
+                                    <strong>Flavor note</strong>
+                                    <p class="micro">Prefers mild greens over bitter chicories and spicy mixes.</p>
                                 </div>
-                                <span class="pill pill-info">Open</span>
+                                <span class="pill pill-info">Stored</span>
                             </div>
                             <div class="row">
                                 <div>
-                                    <strong>Add-on suggestion</strong>
-                                    <p class="micro">Pasture eggs pair best with this week’s greens-heavy box.</p>
+                                    <strong>Pantry extras</strong>
+                                    <p class="micro">Bread and eggs are the most common add-on choices.</p>
                                 </div>
                                 <span class="pill pill-warning">Suggested</span>
                             </div>
                         </div>
                     </article>
 
-                    <article class="card-block card-block--stream" aria-labelledby="activity-heading">
+                    <article class="card-block card-block--stream" aria-labelledby="seasonal-picks-heading">
                         <div class="section-header">
-                            <h2 id="activity-heading">Recent account activity</h2>
-                            <a class="cta-inline" href="user-history.html">Open history</a>
+                            <h2 id="seasonal-picks-heading">Seasonal picks</h2>
+                            <span class="chip chip-live"><span class="pulse-dot" aria-hidden="true"></span>This week</span>
                         </div>
-                        <p class="muted">Recent updates across billing, swaps, and delivery notes.</p>
-                        <div class="timeline">
-                            <div class="timeline-item">
+                        <p class="muted">A short shortlist of add-ons that fit this week’s produce mix.</p>
+                        <div class="stack">
+                            <div class="add-on">
                                 <div>
-                                    <strong>Gate code confirmed</strong>
-                                    <p class="micro">Your delivery note is saved for the next route run.</p>
+                                    <strong>Spring herb bunch</strong>
+                                    <p class="micro">Best with kale, tomatoes, and roast root vegetables.</p>
                                 </div>
-                                <span class="pill pill-success">Today</span>
+                                <button type="button" data-add-toggle>+ Add</button>
                             </div>
-                            <div class="timeline-item">
+                            <div class="add-on">
                                 <div>
-                                    <strong>Swap reminder sent</strong>
-                                    <p class="micro">The farm team sent the weekly box preview and swap prompt.</p>
+                                    <strong>Fresh ricotta</strong>
+                                    <p class="micro">Pairs with greens and toast for quick dinners.</p>
                                 </div>
-                                <span class="pill pill-info">Yesterday</span>
+                                <button type="button" data-add-toggle>+ Add</button>
                             </div>
-                            <div class="timeline-item">
+                            <div class="add-on">
                                 <div>
-                                    <strong>Credit added</strong>
-                                    <p class="micro">$12 credit remains available from the weather skip adjustment.</p>
+                                    <strong>Strawberry pint</strong>
+                                    <p class="micro">Seasonal fruit add-on for the family box lineup.</p>
                                 </div>
-                                <span class="pill pill-warning">Mar 04</span>
+                                <button type="button" data-add-toggle>+ Add</button>
                             </div>
                         </div>
                     </article>
