@@ -11728,3 +11728,214 @@ html.dark .legal-page .legal-main {
         grid-template-columns: 1fr;
     }
 }
+
+/* =============================================================================
+   FINAL RESPONSIVE SPACING CLEANUP
+   Purpose: Normalize section spacing and container padding on tablet/mobile
+============================================================================= */
+
+@media (max-width: 991px) {
+    .container {
+        padding-inline: 1rem;
+    }
+
+    .section {
+        padding-block: 4.5rem;
+    }
+
+    .section-lg {
+        padding-block: 5.25rem;
+    }
+
+    .section-xl {
+        padding-block: 6rem;
+    }
+
+    .hero-section-new {
+        padding-top: 126px;
+        padding-bottom: 3.5rem;
+    }
+
+    .index-page :is(.about-section, .transparency-section, .products-showcase, .membership-section, .testimonial-section, .home-blog-section) {
+        padding-top: 5rem;
+        padding-bottom: 4.5rem;
+        padding-inline: 0;
+    }
+
+    .home-page-2 {
+        --hp2-section-space: 4.5rem;
+    }
+
+    .home-page-2 .farm-hero {
+        padding: 6.5rem 0 3.75rem;
+    }
+
+    .about-page .about-shell,
+    .product-details-page .product-detail-shell {
+        padding-inline: 24px;
+    }
+
+    .blog-page .blog-shell,
+    .contact-page .contact-shell,
+    .legal-page .legal-shell {
+        width: min(100% - 2rem, 1280px);
+    }
+
+    .products-page .catalog-shell {
+        padding-inline: 22px;
+    }
+
+    .products-page :is(.catalog-hero, .catalog-section),
+    .product-details-page :is(.product-detail-hero, .product-detail-section),
+    .about-page :is(.story-section, .quality-section, .farm-experts-section, .process-section, .farm-contact),
+    .blog-page :is(.blog-hero, .blog-featured, .blog-latest, .blog-duo, .blog-education, .blog-cta),
+    .contact-page :is(.contact-hero, .contact-support, .contact-location) {
+        padding-bottom: 4.75rem;
+    }
+
+    .about-page :is(.about-section-heading, .about-section-heading--left),
+    .product-details-page .product-detail-section__header,
+    .blog-page .blog-section-heading,
+    .contact-page .contact-section-heading {
+        margin-bottom: 1.75rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        padding-inline: 0.9rem;
+    }
+
+    .section {
+        padding-block: 3.75rem;
+    }
+
+    .section-lg {
+        padding-block: 4.25rem;
+    }
+
+    .section-xl {
+        padding-block: 4.75rem;
+    }
+
+    .grid-2,
+    .grid-3 {
+        gap: 1.25rem;
+    }
+
+    .hero-section-new {
+        padding-top: 118px;
+        padding-bottom: 2.75rem;
+    }
+
+    .index-page :is(.about-section, .transparency-section, .products-showcase, .membership-section, .testimonial-section, .home-blog-section) {
+        padding-top: 4.25rem;
+        padding-bottom: 3.75rem;
+        padding-inline: 0;
+    }
+
+    .home-page-2 {
+        --hp2-section-space: 3.5rem;
+    }
+
+    .home-page-2 .farm-hero {
+        padding: 5.75rem 0 2.75rem;
+    }
+
+    .about-page .about-main,
+    .blog-page .blog-journal,
+    .contact-page .contact-main,
+    .product-details-page .product-detail-main,
+    .legal-page .legal-main {
+        padding-top: 104px;
+    }
+
+    .about-page .about-shell,
+    .product-details-page .product-detail-shell {
+        padding-inline: 18px;
+    }
+
+    .blog-page .blog-shell,
+    .contact-page .contact-shell,
+    .legal-page .legal-shell {
+        width: min(100% - 1.75rem, 1280px);
+    }
+
+    .products-page .catalog-shell {
+        padding-inline: 18px;
+    }
+
+    .products-page :is(.catalog-hero, .catalog-section),
+    .product-details-page :is(.product-detail-hero, .product-detail-section),
+    .about-page :is(.story-section, .quality-section, .farm-experts-section, .process-section, .farm-contact),
+    .blog-page :is(.blog-hero, .blog-featured, .blog-latest, .blog-duo, .blog-education, .blog-cta),
+    .contact-page :is(.contact-hero, .contact-support, .contact-location) {
+        padding-bottom: 4rem;
+    }
+
+    .about-page :is(.about-section-heading, .about-section-heading--left),
+    .product-details-page .product-detail-section__header,
+    .blog-page .blog-section-heading,
+    .contact-page .contact-section-heading {
+        margin-bottom: 1.4rem;
+    }
+
+    .cart-page .cart-modal {
+        width: min(100% - 0.85rem, 1380px);
+        margin: 0.4rem auto;
+        padding: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding-inline: 0.8rem;
+    }
+
+    .section {
+        padding-block: 3.25rem;
+    }
+
+    .section-lg,
+    .section-xl {
+        padding-block: 3.75rem;
+    }
+
+    .hero-section-new {
+        padding-top: 108px;
+        padding-bottom: 2.4rem;
+    }
+
+    .index-page :is(.about-section, .transparency-section, .products-showcase, .membership-section, .testimonial-section, .home-blog-section) {
+        padding-top: 3.75rem;
+        padding-bottom: 3.25rem;
+    }
+
+    .home-page-2 {
+        --hp2-section-space: 3rem;
+    }
+
+    .home-page-2 .farm-hero {
+        padding: 5.15rem 0 2.4rem;
+    }
+
+    .about-page .about-shell,
+    .product-details-page .product-detail-shell,
+    .products-page .catalog-shell {
+        padding-inline: 16px;
+    }
+
+    .blog-page .blog-shell,
+    .contact-page .contact-shell,
+    .legal-page .legal-shell {
+        width: min(100% - 1.5rem, 1280px);
+    }
+
+    .products-page :is(.catalog-hero, .catalog-section),
+    .product-details-page :is(.product-detail-hero, .product-detail-section),
+    .about-page :is(.story-section, .quality-section, .farm-experts-section, .process-section, .farm-contact),
+    .blog-page :is(.blog-hero, .blog-featured, .blog-latest, .blog-duo, .blog-education, .blog-cta),
+    .contact-page :is(.contact-hero, .contact-support, .contact-location) {
+        padding-bottom: 3.4rem;
+    }
+}
