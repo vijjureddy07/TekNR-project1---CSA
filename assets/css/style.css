@@ -3127,10 +3127,11 @@ html.dark .index-page :is(
 .membership-card::before {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: -1px;
     border-radius: inherit;
     background:
         linear-gradient(180deg, rgba(8, 18, 15, 0.12) 0%, rgba(8, 18, 15, 0.84) 100%);
+    pointer-events: none;
 }
 
 .membership-card > * {
@@ -6288,8 +6289,10 @@ html[dir="rtl"] .products-page .catalog-text-link:hover::after {
 .products-page .catalog-season-card::before {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: -1px;
+    border-radius: inherit;
     background: linear-gradient(180deg, rgba(9, 20, 16, 0.18) 0%, rgba(9, 20, 16, 0.8) 100%);
+    pointer-events: none;
 }
 
 .products-page .catalog-season-card > * {

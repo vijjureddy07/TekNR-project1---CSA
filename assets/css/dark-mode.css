@@ -301,7 +301,7 @@ html.dark .index-page .membership-card {
 html.dark .index-page .membership-card::before {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: -1px;
     border-radius: inherit;
     background: linear-gradient(
         180deg,
@@ -310,6 +310,7 @@ html.dark .index-page .membership-card::before {
         rgba(6, 12, 10, 0.52) 72%,
         rgba(6, 12, 10, 0.72) 100%
     );
+    pointer-events: none;
 }
 
 html.dark .index-page .membership-card:nth-child(1) {
@@ -558,7 +559,7 @@ html.dark .products-page .catalog-season-card--active :is(h3, p) {
 html.dark .products-page .catalog-season-card::before {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: -1px;
     border-radius: inherit;
     background: linear-gradient(
         180deg,
@@ -567,6 +568,7 @@ html.dark .products-page .catalog-season-card::before {
         rgba(6, 12, 10, 0.46) 70%,
         rgba(6, 12, 10, 0.68) 100%
     );
+    pointer-events: none;
 }
 
 html.dark .products-page .catalog-season-card :is(h3, p) {
